@@ -1,3 +1,6 @@
+Instructions: 
+Pull a 12 month rolling report of the franchisee list you want for a specific franchise brand from the management system. Upload the report and use the below prompt. 
+
 Analyze the provided document containing insurance policy information for franchisees associated with a specified franchise brand. The document includes columns such as "Policy Number," "Carrier," "Lines of Business," "Insured," "Referral Source Name," "Effective Date," and "Annual Premium."
 Identify Franchisees: Filter the data to include only those entries where the "Referral Source Name" matches the specified franchise brand (provided by the user).
 Aggregate Premiums: For each unique "Insured" under the specified franchise brand, sum all associated "Annual Premium" values to calculate the total annual premium for that "Insured." Handle cases where an "Insured" has multiple policies (e.g., different "Lines of Business" like Commercial Auto, Worker's Compensation, etc.) by combining them into a single total.
