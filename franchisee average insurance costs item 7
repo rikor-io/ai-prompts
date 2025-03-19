@@ -5,13 +5,11 @@ Exclusion Option: If instructed, exclude a specific "Insured" (e.g., the franchi
 Calculate Statistics: Using the total annual premiums for each "Insured" (after applying any exclusions), compute the following:
 
 Average Annual Premium: Sum of all total premiums divided by the number of included "Insured" entities.
-Low Annual Premium: The smallest total premium among the included "Insured" entities.
 Median Annual Premium: The middle value when all total premiums are sorted in ascending order. If the number of "Insured" entities is even, average the two middle values.
 High Annual Premium: The largest total premium among the included "Insured" entities.
 
 Output: Present the results in a clear format, listing:
 Average Annual Premium
-Low Annual Premium
 Median Annual Premium
 High Annual Premium Include the franchise brand name in the output for context. Provide the number of "Insured" entities included in the calculations for transparency.
 
@@ -28,6 +26,5 @@ Example Franchise Co. Main: $20,000 (excluded)
 
 Output: For franchise brand "Example Franchise Co." (excluding "Example Franchise Co. Main"):
 Average Annual Premium: $10,000
-Low Annual Premium: $8,000
 Median Annual Premium: $10,000 (average of $8,000 and $12,000)
 High Annual Premium: $12,000
