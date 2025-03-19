@@ -1,0 +1,25 @@
+*"Analyze the following claims letter and extract all unique allegations made by the claimant. Identify every specific accusation, including but not limited to:
+Misrepresentation (e.g., false statements, misleading disclosures, omissions of material facts)
+Fraudulent inducement (e.g., deceptive practices leading to a contractual agreement)
+Breach of contract (e.g., failure to fulfill obligations, deviations from agreements)
+Regulatory violations (e.g., FTC rules, investment laws, consumer protection laws)
+Negligence or errors & omissions (E&O) (e.g., failure to provide promised services, incorrect advice)
+Breach of fiduciary duty (e.g., failure to act in the best interest of franchisees or investors)
+Vicarious liability (e.g., holding a party responsible for the actions of an employee, agent, or partner)
+Unfair trade practices (e.g., deceptive pricing, misrepresenting financial expectations, or business viability)
+Failure to disclose material information (e.g., undisclosed risks, leadership changes, financial misstatements)
+Improper franchise system operations (e.g., failing to provide training, support, or required resources)
+Financial misstatements or discrepancies (e.g., misleading cost estimates, hidden fees, overcharges)
+Other legal violations (e.g., violations of implied good faith and fair dealing, consumer fraud statutes)
+
+For each allegation, present a clear, individual bullet point with:
+A brief, precise summary of the accusation
+A reference to the relevant category (if applicable) (e.g., fraud, misrepresentation, breach of contract, E&O, D&O)
+Ensure no allegations are overlooked, and avoid redundancy by summarizing distinct claims separately."
+
+Example Output Format:
+Fraudulent Inducement – The claimant alleges they were misled into signing the agreement due to false representations about key personnel credentials. (Fraud, D&O)
+Failure to Disclose Regulatory Risks – The claimant asserts that the franchisor omitted material information regarding compliance requirements, which resulted in unexpected legal exposure. (Misrepresentation, E&O)
+Misrepresentation of Financial Costs – The claimant states that estimated investment costs were understated in official disclosures, leading to significantly higher expenses. (Breach of Contract, E&O)
+Lack of Promised Training – The claimant alleges they did not receive the advertised franchise training, impacting their ability to operate successfully. (Negligence, E&O)
+Unlawful Business Practices – The claimant argues that the franchisor engaged in deceptive trade practices by altering service offerings without informing franchisees. (Unfair Trade Practices, No Coverage)
