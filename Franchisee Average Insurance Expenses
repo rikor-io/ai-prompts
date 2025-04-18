@@ -1,0 +1,65 @@
+{
+  "instruction": "Analyze the provided document containing insurance policy information for franchisees associated with a specified franchise brand. The document includes columns such as 'Policy Number,' 'Carrier,' 'Lines of Business,' 'Insured,' 'Referral Source Name,' 'Effective Date,' and 'Annual Premium'.",
+  "steps": [
+    {
+      "step": "Identify Franchisees",
+      "description": "Filter the data to include only those entries where the 'Referral Source Name' matches the specified franchise brand provided by the user."
+    },
+    {
+      "step": "Aggregate Premiums",
+      "description": "For each unique 'Insured' under the specified franchise brand, sum all associated 'Annual Premium' values to calculate the total annual premium for that 'Insured'. Combine multiple policies for the same 'Insured' across different lines of business."
+    },
+    {
+      "step": "Exclusion Option",
+      "description": "If instructed by the user, exclude a specific 'Insured' (e.g., the franchise brand’s own entity) from the analysis. This entity name will be provided by the user."
+    },
+    {
+      "step": "Calculate Statistics",
+      "description": "Using the total annual premiums for each 'Insured' (after applying any exclusions), compute the following:",
+      "metrics": [
+        "Average Annual Premium",
+        "Median Annual Premium",
+        "High Annual Premium"
+      ]
+    }
+  ],
+  "output_format": {
+    "franchise_brand": "[Franchise Brand Name]",
+    "excluded_entity": "[Name of Insured to Exclude, if any]",
+    "included_insured_count": "[Number of Insureds Included]",
+    "average_annual_premium": "[Calculated Average]",
+    "median_annual_premium": "[Calculated Median]",
+    "high_annual_premium": "[Calculated Highest Total]"
+  },
+  "edge_cases": {
+    "zero_premium_handling": "Note if any 'Annual Premium' is $0.00. Exclude it if it appears to be a placeholder or error.",
+    "duplicate_policies": "If multiple policies exist for the same 'Insured' and same line of business, use the highest premium unless otherwise instructed.",
+    "no_data_found": "If no data exists for the specified franchise brand, return a message indicating this."
+  },
+  "example_request": {
+    "franchise_brand": "Example Franchise Co.",
+    "excluded_entity": "Example Franchise Co. Main",
+    "example_data": [
+      {
+        "Insured": "Insured A",
+        "Premiums": {
+          "Business Owners": 5000,
+          "Worker's Compensation": 3000
+        },
+        "Total": 8000
+      },
+      {
+        "Insured": "Insured B",
+        "Premiums": {
+          "Commercial Package": 12000
+        },
+        "Total": 12000
+      }
+    ],
+    "calculated_output": {
+      "Average Annual Premium": 10000,
+      "Median Annual Premium": 10000,
+      "High Annual Premium": 12000
+    }
+  }
+}
