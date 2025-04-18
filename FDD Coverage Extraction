@@ -198,7 +198,7 @@ Your final response should be returned as a single JSON object that includes onl
     "Aggregate": null,
     "Policy Type": null
   },
-  "Bailee\u2019s Coverage": {
+  "Bailee Coverage": {
     "Coverage Found": null,
     "Required": null,
     "Coverage Type Language": null,
