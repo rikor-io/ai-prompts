@@ -1,13 +1,21 @@
 {
   "instruction": "Analyze the provided document containing insurance policy information for franchisees associated with a specified franchise brand. The document includes columns such as 'Policy Number,' 'Carrier,' 'Lines of Business,' 'Insured,' 'Referral Source Name,' 'Effective Date,' and 'Annual Premium'.",
+
+  "required_coverages": [ "{{required_coverages}}"
+  ],
+
   "steps": [
     {
       "step": "Identify Franchisees",
       "description": "Filter the data to include only those entries where the 'Referral Source Name' matches the specified franchise brand provided by the user."
     },
     {
+      "step": "Validate Coverage Completeness",
+      "description": "For each 'Insured', confirm that all required coverage types are present. If any required line is missing, flag the entry and exclude it from the statistical analysis."
+    },
+    {
       "step": "Aggregate Premiums",
-      "description": "For each unique 'Insured' under the specified franchise brand, sum all associated 'Annual Premium' values to calculate the total annual premium for that 'Insured'. Combine multiple policies for the same 'Insured' across different lines of business."
+      "description": "For valid insureds with all required coverages, sum all associated 'Annual Premium' values to calculate the total annual premium for that 'Insured'. Combine multiple policies for the same 'Insured' across different lines of business."
     },
     {
       "step": "Exclusion Option",
@@ -15,51 +23,40 @@
     },
     {
       "step": "Calculate Statistics",
-      "description": "Using the total annual premiums for each 'Insured' (after applying any exclusions), compute the following:",
+      "description": "Using the total annual premiums for each valid 'Insured', compute the following:",
       "metrics": [
         "Average Annual Premium",
         "Median Annual Premium",
         "High Annual Premium"
       ]
+    },
+    {
+      "step": "Estimate Item 7 Upfront Insurance Cost",
+      "description": "Estimate the initial out-of-pocket insurance expense using the following multipliers applied to the premiums for insureds with full required coverage:",
+      "percentages": [
+        "15% (low monthly estimate)",
+        "25% (standard quarterly deposit)"
+      ]
     }
   ],
+
   "output_format": {
     "franchise_brand": "[Franchise Brand Name]",
     "excluded_entity": "[Name of Insured to Exclude, if any]",
-    "included_insured_count": "[Number of Insureds Included]",
+    "included_insured_count": "[Number of Valid Insureds Included]",
     "average_annual_premium": "[Calculated Average]",
     "median_annual_premium": "[Calculated Median]",
-    "high_annual_premium": "[Calculated Highest Total]"
+    "high_annual_premium": "[Calculated Highest Total]",
+    "item_7_insurance_estimate": {
+      "low_estimate": "[15% of Low Premium]",
+      "high_estimate": "[25% of High Premium]"
+    }
   },
+
   "edge_cases": {
     "zero_premium_handling": "Note if any 'Annual Premium' is $0.00. Exclude it if it appears to be a placeholder or error.",
     "duplicate_policies": "If multiple policies exist for the same 'Insured' and same line of business, use the highest premium unless otherwise instructed.",
-    "no_data_found": "If no data exists for the specified franchise brand, return a message indicating this."
-  },
-  "example_request": {
-    "franchise_brand": "Example Franchise Co.",
-    "excluded_entity": "Example Franchise Co. Main",
-    "example_data": [
-      {
-        "Insured": "Insured A",
-        "Premiums": {
-          "Business Owners": 5000,
-          "Worker's Compensation": 3000
-        },
-        "Total": 8000
-      },
-      {
-        "Insured": "Insured B",
-        "Premiums": {
-          "Commercial Package": 12000
-        },
-        "Total": 12000
-      }
-    ],
-    "calculated_output": {
-      "Average Annual Premium": 10000,
-      "Median Annual Premium": 10000,
-      "High Annual Premium": 12000
-    }
+    "missing_required_coverage": "Exclude any 'Insured' that does not have all of the required coverages.",
+    "no_data_found": "If no valid data exists for the specified franchise brand, return a message indicating this."
   }
 }
