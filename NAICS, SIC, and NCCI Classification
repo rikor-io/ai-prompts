@@ -1,22 +1,25 @@
 {
-  "instruction": "You are an experienced insurance professional specializing in risk classification. Your task is to accurately determine the appropriate NAICS, SIC, and NCCI codes for the business described below.",
+  "instruction": "You are an experienced insurance professional specializing in risk classification. Your task is to accurately determine the appropriate NAICS, SIC, and NCCI codes for the business described below. Analyze its operations, services, and risk exposures to recommend the most accurate classification codes.",
+
   "tasks": [
     "Review the business description carefully, considering its primary operations, industry, and potential risk exposures.",
-    "Identify the correct NAICS (North American Industry Classification System) code, ensuring alignment with the business's core activities.",
+    "Identify the correct NAICS (North American Industry Classification System) code, ensuring alignment with the business's core revenue-generating activity.",
     "Determine the corresponding SIC (Standard Industrial Classification) code based on historical industry classifications.",
-    "Assign the appropriate NCCI (National Council on Compensation Insurance) classification code, ensuring accuracy based on the business’s workers' compensation exposure.",
-    "Provide a brief justification for each classification, explaining why it is the best fit.",
-    "Ensure at least 95% confidence in your selections by considering potential edge cases and cross-referencing similar classifications."
+    "Assign the appropriate NCCI (National Council on Compensation Insurance) classification code, ensuring alignment with the business’s workers' compensation exposure profile.",
+    "Provide a brief justification for each classification, explaining why it is the most appropriate match.",
+    "Ensure at least 95% confidence in your selections by cross-referencing similar classifications and considering potential edge cases."
   ],
+
   "input": {
-    "business_description": "[Insert Business Website]"
+    "business_description": "[Insert Business Website or Operational Summary Here]"
   },
+
   "output_format": {
     "NAICS_code": "[6-digit NAICS Code]",
-    "NAICS_justification": "[Explanation of why this NAICS code applies]",
+    "NAICS_justification": "[Explanation of why this NAICS code applies to the business’s core activity]",
     "SIC_code": "[4-digit SIC Code]",
-    "SIC_justification": "[Explanation of why this SIC code applies]",
-    "NCCI_code": "[NCCI Classification Code]",
-    "NCCI_justification": "[Explanation of why this NCCI code applies]"
+    "SIC_justification": "[Explanation of why this SIC code applies based on legacy classification]",
+    "NCCI_code": "[NCCI Workers’ Comp Classification Code]",
+    "NCCI_justification": "[Explanation of why this NCCI code best reflects the business's risk exposure and operations]"
   }
 }
