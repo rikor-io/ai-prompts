@@ -48,7 +48,7 @@
     "median_annual_premium": "[Calculated Median]",
     "high_annual_premium": "[Calculated Highest Total]",
     "item_7_insurance_estimate": {
-      "low_estimate": "[15% of Low Premium]",
+      "low_estimate": "[25% of Low Premium]",
       "high_estimate": "[25% of High Premium]"
     }
   },
