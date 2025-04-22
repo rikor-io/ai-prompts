@@ -1,0 +1,39 @@
+{
+  "goal": "Generate an FDD Item 8 Insurance Clause that a franchisor can use after attorney review.",
+  "instructions": [
+    "ONLY include coverages where the 'Required' column has a value.",
+    "Omit any coverage from the Required Coverages section if the 'Required' column is blank or missing.",
+    "Do NOT include coverages found only under 'Suggested Coverages' or 'Optional Coverages' unless under an 'Optional Coverages' section.",
+    "Separate coverage sections into 'REQUIRED COVERAGES' and 'OPTIONAL COVERAGES' as follows:",
+    "- Required Coverages: Includes coverages listed before any 'Optional' label and with a non-empty 'Required' field.",
+    "- Optional Coverages: Includes coverages only under a labeled 'Optional' section.",
+    "Do NOT move a coverage from Optional to Required, even if it appears critical.",
+    "Format each required coverage as a full paragraph block:",
+    "- Start with the COVERAGE NAME IN BOLD AND CAPITALIZED.",
+    "- Then state: (Coverage requirement) with minimums (values from the 'Required' column).",
+    "- Include policy structure (e.g., occurrence-based or claims-made), enhancements, and carrier rating as stated in 'Required'.",
+    "- Use commas and semicolons for flow; avoid line breaks.",
+    "- Combine all details into a single paragraph for each coverage.",
+    "If the Required column mentions 'claims-made', the clause may state: 'The policy may be claims-made or occurrence-based.'",
+    "Ensure the final output reads clearly, is grammatically correct, and is easy to consume in paragraph form."
+  ],
+  "output_format": {
+    "REQUIRED COVERAGES": [
+      {
+        "coverage_name": "GENERAL LIABILITY",
+        "description": "General Liability Insurance with minimums of $1,000,000 per occurrence, $2,000,000 general aggregate, $2,000,000 products/completed operations aggregate, $1,000,000 personal/advertising injury, $50,000 damage to rented premises, and $5,000 medical expenses. The policy must include additional insured, waiver of subrogation, primary & non-contributory provisions, contractual liability & independent contractors liability, and stop-gap coverage for monopolistic states. The policy must be occurrence-based and provided by an A- VII or higher AM Best-rated admitted carrier."
+      }
+    ],
+    "OPTIONAL COVERAGES": [
+      {
+        "coverage_name": "PROPERTY / BUSINESS INTERRUPTION",
+        "description": "Property Insurance with coverage for Business Personal Property (Full replacement cost value, minimum $20,000), Tenant Improvements (Full replacement cost value), Equipment Coverage (Full cover), and Business Interruption (12 Months ALS), including franchisor royalties. The policy must be provided by an A- VII or higher AM Best-rated carrier."
+      }
+    ]
+  },
+  "warnings": [
+    "Do NOT include any coverage with an empty 'Required' value in the Required Coverages section.",
+    "Optional Coverages must only be included under the 'Optional' section, even if they include coverage details.",
+    "Double-check for Required column omissions before inclusion."
+  ]
+}
