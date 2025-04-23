@@ -1,0 +1,59 @@
+{
+  "instruction": "Compare the general-liability quotes below and return: • a concise executive summary • a markdown table with the eight key items listed in `coverage_elements` (Premium LAST, no color indicator) • and a Suggested Carrier paragraph.",
+  "coverage_elements": [
+    "Each Occurrence Limit",
+    "General Aggregate Limit",
+    "Products & Completed Operations Limit",
+    "Personal & Advertising Injury Limit",
+    "Medical Payments Limit",
+    "Deductible (Property Damage/Bodily Injury)",
+    "Financial Strength / AM Best",
+    "Premium (Annual)"           // NO traffic-light emoji on this row
+  ],
+
+  "scoring_rubric": {
+    "each_occurrence":            { "green": ">=1000000",  "yellow": "500001-999999",  "red": "<=500000" },
+    "general_aggregate":          { "green": ">=2000000",  "yellow": "1000001-1999999","red": "<=1000000" },
+    "products_completed_ops":     { "green": ">=2000000",  "yellow": "1000001-1999999","red": "<=1000000" },
+    "personal_advertising":       { "green": ">=1000000",  "yellow": "500001-999999",  "red": "<=500000" },
+    "medical_payments":           { "green": ">=10000",    "yellow": "5001-9999",      "red": "<=5000" },
+    "deductible":                 { "green": "<=1000",     "yellow": "1001-5000",      "red": ">5000" },
+    "am_best":                    { "green": "A or better","yellow": "B++-B+",         "red": "NR or below B" }
+  },
+
+  "carriers": [
+    {
+      "name": "Carrier A",
+      "premium": 1850,
+      "each_occurrence": 1000000,
+      "general_aggregate": 2000000,
+      "products_completed_ops": 2000000,
+      "personal_advertising": 1000000,
+      "medical_payments": 10000,
+      "deductible": 0,
+      "am_best": "A+"
+    },
+    {
+      "name": "Carrier B",
+      "premium": 1475,
+      "each_occurrence": 1000000,
+      "general_aggregate": 1000000,
+      "products_completed_ops": 1000000,
+      "personal_advertising": 1000000,
+      "medical_payments": 5000,
+      "deductible": 500,
+      "am_best": "A"
+    },
+    {
+      "name": "Carrier C",
+      "premium": 1080,
+      "each_occurrence": 500000,
+      "general_aggregate": 1000000,
+      "products_completed_ops": 500000,
+      "personal_advertising": 500000,
+      "medical_payments": 5000,
+      "deductible": 2500,
+      "am_best": "B+"
+    }
+  ]
+}
