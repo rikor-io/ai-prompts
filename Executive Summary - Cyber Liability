@@ -1,0 +1,65 @@
+{
+  "instruction": "Compare the following Cyber-Liability quotes and return:\n  • An Executive Summary (3-4 short paragraphs)\n  • A Markdown table with color indicators or 1-to-5 scores for each carrier on every metric\n  • A final “Suggested Carrier” section explaining the choice\nRules:\n  • Use 🟢 for best-in-class, 🟡 for adequate, 🔴 for weak OR use a 1-to-5 numeric scale (5 = best)\n  • Keep the table compact—one line per carrier\n  • Base the suggestion on coverage depth, sub-limits, retentions, services, financial strength and cost\n  • If two carriers tie, explain why and suggest by business size or risk profile",
+  "scoring_rubric": {
+    "aggregate_limit":        { "green": ">=1000000", "yellow": "300001-999999", "red": "<=300000" },
+    "ransomware_sublimit":    { "green": ">=500000",  "yellow": "100001-499999", "red": "<=100000" },
+    "social_engineering":     { "green": ">=100000",  "yellow": "25001-99999",  "red": "<=25000"  },
+    "business_interruption":  { "green": ">=500000",  "yellow": "100001-499999", "red": "<=100000" },
+    "retention":              { "green": "<=2500",    "yellow": "2501-7500",    "red": ">7500"     },
+    "am_best":                { "green": "A or better", "yellow": "B++-B+",     "red": "below B+" },
+    "premium":                { "green": "lowest_for_similar_limits", "yellow": "mid", "red": "highest" }
+  },
+  "carriers": [
+    {
+      "name":        "Carrier A",
+      "premium":     1424,
+      "aggregate":   1000000,
+      "per_claim":   1000000,
+      "ransomware":  1000000,
+      "soc_eng":     100000,
+      "pci":         1000000,
+      "bi":          1000000,
+      "bricking":    true,
+      "reputation":  "Included",
+      "ftf":         100000,
+      "retention":   1000,
+      "incident_response": "App, PR, tabletop exercises",
+      "am_best":     "A++",
+      "discovery":   "12 months @ 100%"
+    },
+    {
+      "name":        "Carrier B",
+      "premium":     1266.41,
+      "aggregate":   250000,
+      "per_claim":   250000,
+      "ransomware":  250000,
+      "soc_eng":     25000,
+      "pci":         250000,
+      "bi":          250000,
+      "bricking":    true,
+      "reputation":  "Included",
+      "ftf":         25000,
+      "retention":   5000,
+      "incident_response": "Stance vCISO platform",
+      "am_best":     "NR",
+      "discovery":   "Not listed"
+    },
+    {
+      "name":        "Carrier C",
+      "premium":     425,
+      "aggregate":   250000,
+      "per_claim":   250000,
+      "ransomware":  50000,
+      "soc_eng":     10000,
+      "pci":         250000,
+      "bi":          20000,
+      "bricking":    15000,
+      "reputation":  10000,
+      "ftf":         10000,
+      "retention":   1000,
+      "incident_response": "IR readiness + vuln scan",
+      "am_best":     "A-",
+      "discovery":   "12 months @ 100%"
+    }
+  ]
+}
