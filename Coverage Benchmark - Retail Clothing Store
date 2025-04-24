@@ -1,0 +1,58 @@
+{
+  "industry": "Retail",
+  "subcategory": "Clothing Store",
+  "insurance_requirements": {
+    "general_liability": {
+      "required": true,
+      "limits": {
+        "occurrence": 1000000,
+        "aggregate": 2000000,
+        "damage_to_premises": 300000,
+        "med_pay": 5000
+      },
+      "endorsements": {
+        "additional_insured": true,
+        "waiver_of_subrogation": true,
+        "primary_non_contributory": true
+      }
+    },
+    "property": {
+      "required": true,
+      "coverage_basis": "replacement_cost",
+      "includes_business_interruption": true,
+      "business_interruption_type": "ALS_12_months",
+      "equipment_breakdown": true
+    },
+    "workers_compensation": {
+      "required": true,
+      "employers_liability": {
+        "accident": 1000000,
+        "disease_each_employee": 1000000,
+        "disease_policy_limit": 1000000
+      }
+    },
+    "commercial_auto": {
+      "required": false,
+      "CSL": 1000000,
+      "includes_HNOA": true
+    },
+    "EPLI": {
+      "required": true,
+      "limit": 1000000,
+      "includes_third_party": true
+    },
+    "cyber": {
+      "required": true,
+      "limit": 250000
+    },
+    "crime": {
+      "required": true,
+      "employee_theft": 50000,
+      "money_and_securities": true
+    },
+    "umbrella": {
+      "required": true,
+      "limit": 1000000
+    }
+  }
+}
