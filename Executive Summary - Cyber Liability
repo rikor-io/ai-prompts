@@ -20,7 +20,7 @@
   },
   "carriers": [
     {
-      "name": "Chubb",
+      "name": "Chubb" - sample data only,
       "premium": 1424,
       "aggregate_limit": 1000000,
       "ransomware": 1000000,
@@ -31,7 +31,7 @@
       "am_best": "A++"
     },
     {
-      "name": "BTIS / At-Bay",
+      "name": "BTIS / At-Bay" - sample data only,
       "premium": 1082,
       "aggregate_limit": 250000,
       "ransomware": 250000,
@@ -42,7 +42,7 @@
       "am_best": "NR"
     },
     {
-      "name": "AmTrust",
+      "name": "AmTrust" - sample data only,
       "premium": 425,
       "aggregate_limit": 250000,
       "ransomware": 50000,
