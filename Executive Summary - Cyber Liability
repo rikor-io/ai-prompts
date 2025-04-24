@@ -18,7 +18,7 @@
     "retention":              { "green": "<=2500",    "yellow": "2501-7500",    "red": ">7500"     },
     "am_best":                { "green": "A or better", "yellow": "B++-B+",     "red": "NR or below B" }
   },
-  "carriers": [
+  "the below carriers provide an example of what the output looks like": [
     {
       "name": "Chubb" - sample data only,
       "premium": 1424,
