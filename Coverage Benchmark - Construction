@@ -1,0 +1,94 @@
+{
+  "industry": "Construction",
+  "subcategory": "General Contractor",
+  "insurance_requirements": {
+    "general_liability": {
+      "required": true,
+      "limits": {
+        "occurrence": 1000000,
+        "aggregate": 2000000,
+        "products_completed_operations_aggregate": 2000000,
+        "damage_to_premises": 50000,
+        "med_pay": 5000
+      },
+      "endorsements": {
+        "additional_insured": {
+          "required": true,
+          "includes_ongoing_operations": true,
+          "includes_completed_operations": true
+        },
+        "waiver_of_subrogation": true,
+        "primary_non_contributory": true
+      },
+      "subcontractor_warranty_clause_prohibited": true,
+      "subcontractor_exclusion_prohibited": true
+    },
+    "property": {
+      "required": true,
+      "coverage_basis": "replacement_cost",
+      "includes_equipment_breakdown": true,
+      "includes_debris_removal": true,
+      "includes_minimal_business_interruption": true
+    },
+    "inland_marine": {
+      "required": true,
+      "coverage_for_tools_and_equipment": true
+    },
+    "workers_compensation": {
+      "required": true,
+      "extends_to_uninsured_subcontractors": true,
+      "employers_liability": {
+        "accident": 1000000,
+        "disease_each_employee": 1000000,
+        "disease_policy_limit": 1000000
+      }
+    },
+    "commercial_auto": {
+      "required": true,
+      "CSL": 1000000,
+      "includes_HNOA": true
+    },
+    "contractors_errors_and_omissions": {
+      "required": false,
+      "recommended": true
+    },
+    "contractors_pollution_liability": {
+      "required": false,
+      "recommended": true
+    },
+    "crime": {
+      "required": true,
+      "employee_theft": 50000,
+      "third_party_crime": true
+    },
+    "umbrella": {
+      "required": true,
+      "limit": 1000000
+    },
+    "EPLI": {
+      "required": false,
+      "recommended": true,
+      "limits": {
+        "occurrence": 250000,
+        "aggregate": 250000
+      },
+      "coverages_included": [
+        "third_party_coverage"
+      ]
+    },
+    "cyber": {
+      "required": false,
+      "recommended": true,
+      "limits": {
+        "occurrence": 250000,
+        "aggregate": 250000
+      },
+      "coverages_included": [
+        "data_breach_response",
+        "network_security_liability",
+        "regulatory_fines_and_penalties",
+        "social_engineering_fraud"
+      ]
+    }
+  }
+}
