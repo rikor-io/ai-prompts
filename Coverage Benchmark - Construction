@@ -35,8 +35,6 @@
     "property": {
       "required": true, // Typically required if contractor owns building/significant BPP
       "coverage_basis": "replacement_cost",
-      // "includes_equipment_breakdown": false, // Removed per request
-      "includes_debris_removal": true,
       "includes_business_interruption": { // Modified BI section
         "required": true, // Requirement depends on contractor's operational model
         "type": "Limited or specific endorsements preferred; standard ALS may be inapplicable (see overall notes)",
