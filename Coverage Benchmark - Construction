@@ -1,6 +1,15 @@
 {
   "industry": "Construction",
   "subcategory": "General Contractor",
+  "website": "INSERT_WEBSITE_HERE", // Added website field
+  "overall_requirements_and_notes": { // Added overall requirements section
+    "carrier_rating": "A.M. Best Rating of A- VII or better required for all policies.",
+    "certificates_required_timeline": "Certificates of Insurance required at least within 90 days of policy inception/renewal or prior to starting work/training, whichever is sooner.",
+    "endorsements_scope": "Additional Insured (AI), Waiver of Subrogation (WOS), and Primary & Non-Contributory (P&NC) status are required via endorsement on all policies where applicable. AI and P&NC endorsements do not apply to Workers' Compensation.",
+    "notes": [
+      "Business Interruption applicability: Standard Business Interruption (BI) coverage is typically triggered by direct physical loss or damage to an insured property. For contractors without a fixed operational base (e.g., home service contractors), obtaining extensive BI coverage like 12 months Actual Loss Sustained (ALS) can be difficult or inapplicable. Limited BI coverage or specific endorsements addressing contingent business interruption or extra expenses might be more appropriate and obtainable."
+    ]
+  },
   "insurance_requirements": {
     "general_liability": {
       "required": true,
@@ -8,7 +17,7 @@
         "occurrence": 1000000,
         "aggregate": 2000000,
         "products_completed_operations_aggregate": 2000000,
-        "damage_to_premises": 50000,
+        "damage_to_premises": 50000, // Consider increasing for leased premises
         "med_pay": 5000
       },
       "endorsements": {
@@ -20,23 +29,29 @@
         "waiver_of_subrogation": true,
         "primary_non_contributory": true
       },
-      "subcontractor_warranty_clause_prohibited": true,
-      "subcontractor_exclusion_prohibited": true
+      "subcontractor_warranty_clause_prohibited": true, // Prohibits clauses that void coverage if subs don't meet insurance requirements
+      "subcontractor_exclusion_prohibited": true // Prohibits endorsements excluding work done by subcontractors
     },
     "property": {
-      "required": true,
+      "required": true, // Typically required if contractor owns building/significant BPP
       "coverage_basis": "replacement_cost",
-      "includes_equipment_breakdown": true,
+      // "includes_equipment_breakdown": false, // Removed per request
       "includes_debris_removal": true,
-      "includes_minimal_business_interruption": true
+      "includes_business_interruption": { // Modified BI section
+        "required": true, // Requirement depends on contractor's operational model
+        "type": "Limited or specific endorsements preferred; standard ALS may be inapplicable (see overall notes)",
+        "notes": "Assess need based on potential income loss due to damage at owned/leased premises or critical job sites."
+      }
     },
-    "inland_marine": {
+    "inland_marine": { // Also known as Contractors Equipment
       "required": true,
-      "coverage_for_tools_and_equipment": true
+      "coverage_for_tools_and_equipment": true, // Should specify limits based on value
+      "coverage_basis": "replacement_cost" // Recommended
     },
     "workers_compensation": {
-      "required": true,
-      "extends_to_uninsured_subcontractors": true,
+      "required": true, // Statutory requirement in most states if employees exist
+      "waiver_of_subrogation": true, // Added WOS requirement
+      "extends_to_uninsured_subcontractors": true, // May be required by contract or state law
       "employers_liability": {
         "accident": 1000000,
         "disease_each_employee": 1000000,
@@ -44,50 +59,61 @@
       }
     },
     "commercial_auto": {
-      "required": true,
-      "CSL": 1000000,
-      "includes_HNOA": true
+      "required": true, // Required if company owns/leases/uses vehicles for business
+      "CSL": 1000000, // Combined Single Limit
+      "includes_HNOA": true, // Hired and Non-Owned Auto Liability
+      "additional_insured": true, // Added AI requirement
+      "primary_non_contributory": true, // Added P&NC requirement
+      "waiver_of_subrogation": true // Added WOS requirement
     },
-    "contractors_errors_and_omissions": {
+    "contractors_errors_and_omissions": { // Also known as Professional Liability
       "required": false,
-      "recommended": true
+      "recommended": true, // Especially if design-build or construction management services offered
+      "limits": { // Example limits if required/recommended
+         "occurrence": 1000000,
+         "aggregate": 1000000
+       }
     },
     "contractors_pollution_liability": {
       "required": false,
-      "recommended": true
+      "recommended": true, // Especially if working with potential pollutants or on sensitive sites
+       "limits": { // Example limits if required/recommended
+         "occurrence": 1000000,
+         "aggregate": 1000000
+       }
     },
     "crime": {
       "required": true,
-      "employee_theft": 50000,
-      "third_party_crime": true
+      "employee_theft": 50000, // Limit may need adjustment based on risk
+      "third_party_crime": true // Covers theft of client property
     },
-    "umbrella": {
+    "umbrella": { // Provides excess liability over GL, Auto, Employers' Liability
       "required": true,
-      "limit": 1000000
+      "limit": 1000000 // Often higher limits (e.g., $2M-$5M+) are required by contract
     },
-    "EPLI": {
+    "EPLI": { // Employment Practices Liability Insurance
       "required": false,
-      "recommended": true,
+      "recommended": true, // Recommended if company has employees
       "limits": {
-        "occurrence": 250000,
+        "occurrence": 250000, // Limits often start higher, e.g., $500k or $1M
         "aggregate": 250000
       },
       "coverages_included": [
-        "third_party_coverage"
+        "third_party_coverage" // Covers claims from non-employees (clients, vendors)
       ]
     },
     "cyber": {
       "required": false,
-      "recommended": true,
+      "recommended": true, // Increasingly important due to reliance on digital tools, data storage
       "limits": {
-        "occurrence": 250000,
+        "occurrence": 250000, // Limits often start higher, e.g., $500k or $1M
         "aggregate": 250000
       },
       "coverages_included": [
         "data_breach_response",
         "network_security_liability",
         "regulatory_fines_and_penalties",
-        "social_engineering_fraud"
+        "social_engineering_fraud" // AKA Funds Transfer Fraud
       ]
     }
   }
