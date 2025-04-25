@@ -1,0 +1,82 @@
+{
+  "prompt_instructions": {
+    "task": "Compare insurance requirements from two previously provided JSON objects: one FDD extraction and one Construction/General Contractor benchmark.",
+    "persona": "Insurance Analyst",
+    "inputs": [
+      "FDD Extraction JSON (previously provided in conversation)",
+      "Benchmark JSON for Construction/General Contractor (previously provided in conversation)"
+    ],
+    "output_structure": [
+      {
+        "part": 1,
+        "type": "Executive Summary",
+        "content_requirements": [
+          "Brief overview of the comparison.",
+          "Highlight main areas where FDD aligns with benchmark.",
+          "Clearly identify significant gaps (missing coverages/details in FDD like Umbrella, Crime, Inland Marine).",
+          "Point out key mismatches (differing requirements like BI approach, Property basis, specific limits).",
+          "Conclude with a statement on the overall alignment and adequacy of the FDD requirements relative to the benchmark standard."
+        ]
+      },
+      {
+        "part": 2,
+        "type": "Detailed Comparison Table",
+        "table_requirements": {
+          "columns": [
+            {
+              "name": "Coverage / Requirement",
+              "description": "The specific insurance line or overall requirement being compared."
+            },
+            {
+              "name": "Benchmark Specification",
+              "description": "Details of the requirement as per the Benchmark JSON."
+            },
+            {
+              "name": "FDD Extraction Specification",
+              "description": "Details of the requirement as per the FDD Extraction JSON."
+            },
+            {
+              "name": "Comparison Status & Notes",
+              "description": "Includes a color indicator (based on rules below), a status text (Match, Mismatch, Missing), and brief explanatory notes for discrepancies."
+            }
+          ],
+          "rows_to_include": [
+            "Overall: Carrier Rating",
+            "Overall: Certificate Timeline",
+            "Overall: Endorsement Scope (Overall)",
+            "Overall: Business Interruption Approach",
+            "General Liability (compare limits Occurrence, Aggregate, Prod/CO, Dmg to Premises, Med Pay; endorsements AI/WOS/P&NC; sub clauses)",
+            "Commercial Auto (compare CSL, HNOA, endorsements AI/WOS/P&NC)",
+            "Workers' Compensation (compare EL limits, WOS, uninsured subs)",
+            "Property (compare basis, BI type, debris removal, equipment breakdown)",
+            "Inland Marine / Contractors Equipment",
+            "Umbrella / Excess Liability",
+            "Crime (compare required status, Employee Theft, Third Party)",
+            "Contractors E&O (Required/Recommended, Limits)",
+            "Contractors Pollution (Required/Recommended)",
+            "EPLI (Required/Recommended)",
+            "Cyber (Required/Recommended)"
+          ],
+          "color_coding_rules": {
+            "column_to_apply": "Comparison Status & Notes",
+            "indicators": {
+              "green": "🟢",
+              "yellow": "🟡",
+              "red": "🔴"
+            },
+            "criteria": {
+              "green": "Use 🟢 when the FDD requirement matches or *exceeds* the benchmark requirement.",
+              "yellow": "Use 🟡 when the FDD requirement is present but *falls slightly short* (e.g., slightly lower limit), uses different terminology needing review, or is close but requires attention.",
+              "red": "Use 🔴 when the FDD requirement is *missing* where the benchmark requires it, is *significantly lower/weaker*, or fails to include a required prohibition from the benchmark."
+            },
+            "instruction": "Place the appropriate color indicator emoji at the beginning of the text in the 'Comparison Status & Notes' column for each row."
+          }
+        }
+      }
+    ],
+    "constraints": [
+      "Base the comparison strictly on the information present in the two JSON objects previously provided.",
+      "Ensure accuracy in reflecting the requirements from both sources in the table."
+    ]
+  }
+}
