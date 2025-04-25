@@ -25,7 +25,7 @@
           "columns": [
             {
               "name": "Coverage / Requirement",
-              "description": "The specific insurance line or overall requirement being compared."
+              "description": "The specific insurance line or overall requirement being compared. Add bold headers for each coverage category (e.g., **Overall Requirements**, **General Liability**)."
             },
             {
               "name": "Benchmark Specification",
@@ -57,6 +57,7 @@
             "EPLI (Required/Recommended)",
             "Cyber (Required/Recommended)"
           ],
+          "grouping_instruction": "Group rows under bold headers for each coverage category (e.g., **Overall Requirements**, **General Liability**, **Commercial Auto**, etc.) within the first column.",
           "color_coding_rules": {
             "column_to_apply": "Comparison Status & Notes",
             "indicators": {
