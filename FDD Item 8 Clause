@@ -1,78 +1,81 @@
 {
-  "goal": "Generate a complete and legally formatted Item 8 section for the Franchise Disclosure Document (FDD), based on structured insurance coverage analysis.",
-  "sections": [
-    {
-      "section": "REQUIRED COVERAGES",
-      "trigger": "Always include this section.",
-      "instructions": [
-        "Only include coverages listed BEFORE the 'Optional Coverages' heading and that have a non-empty value in the 'Required' column.",
-        "Exclude any coverage without a required value, even if it appears in other columns.",
-        "Format each coverage block as a paragraph.",
-        "Start with the COVERAGE NAME IN BOLD AND CAPITALIZED.",
-        "Then state: (Coverage requirement) with minimums (values from the 'Required' column).",
-        "Include policy structure (e.g., occurrence-based or claims-made), enhancements, and carrier rating as stated.",
-        "Use commas and semicolons to maintain paragraph style; avoid line breaks.",
-        "If a coverage's Required column specifies 'claims-made', write: 'The policy may be claims-made or occurrence-based.'"
-      ]
-    },
-    {
-      "section": "OPTIONAL COVERAGES",
-      "trigger": "Include this section only if there is a labeled 'Optional Coverages' section in the document.",
-      "instructions": [
-        "Only include coverages found under the 'Optional Coverages' heading, regardless of any values in the Required column.",
-        "Do NOT move coverages from Optional to Required even if they include high limits or strong suggestions.",
-        "Format optional coverage descriptions using full paragraphs.",
-        "Use this format: (COVERAGE NAME IN BOLD AND CAPITALIZED): (Coverage recommendations), followed by carrier rating if provided.",
-        "Combine multiple subcoverages (e.g., Business Interruption, Equipment, etc.) into a single paragraph using commas and semicolons."
-      ]
-    },
-    {
-      "section": "ADDITIONAL REQUIREMENTS",
-      "trigger": "Include this section if any of the following are true in the Required column:",
-      "conditions": [
-        "General Liability requires 'additional insured', 'waiver of subrogation', or 'primary & non-contributory'",
-        "Auto insurance requires 'additional insured' or 'waiver of subrogation'",
-        "Workers’ Compensation requires 'waiver of subrogation'"
-      ],
-      "instructions": [
-        "If ISO forms (CG 20 10, CG 20 37, CG 20 33, CG 20 39) are listed in the data, include them as full form names.",
-        "If all four ISO forms are listed, combine them with 'OR'.",
-        "If no ISO forms are listed, reference the endorsement types generically: 'as required by written agreement.'",
-        "If CG 24 04 12 19 is listed, include it for waiver of subrogation. Otherwise describe waiver generally.",
-        "Generate three distinct paragraphs detailing the endorsement requirements, separated by double line breaks. The first paragraph should cover Additional Insured and Primary & Non-Contributory requirements for the General Liability policy. The second paragraph should cover Additional Insured and Primary & Non-Contributory requirements for the Commercial Auto policy. The third paragraph should cover the Waiver of Subrogation requirement for all applicable policies (General Liability, Commercial Auto, and Workers' Compensation).",
-        "In the first paragraph (General Liability), explicitly state that Additional Insured coverage is for 'liability arising out of your operations, ongoing and completed' and explain that 'primary and non-contributory basis' means 'it will pay before any other applicable insurance the Additional Insureds may have'.",
-        "In the third paragraph (Waiver of Subrogation), explain its purpose: 'preventing the insurer from seeking recovery from the Franchisor'.",
-        "Use the terms 'General Liability' and 'Commercial Auto' when referring to these policies in this section.",
-        "Ensure no bullet points are used.",
-        "Conclude with the following static paragraph:"
-      ],
-      "static_paragraph": "The franchisor reserves the right to update the insurance requirements for franchisees as needed to address changing exposures and risk factors. This flexibility ensures that the franchisee and franchisor remain adequately protected as the business environment and industry landscape evolve. Franchisees will be notified of any changes to the insurance requirements and are expected to comply with the updated coverage standards to maintain their franchise agreement."
-    },
-    {
-      "section": "DESCRIPTION OF OPERATIONS (CERTIFICATE OF INSURANCE)",
-      "trigger": "Include this if any of the following are true:",
-      "conditions": [
-        "'additional insured' is required under General Liability or Auto insurance",
-        "'waiver of subrogation' is required under General Liability, Auto, or Workers’ Compensation",
-        "'primary & non-contributory' is required under General Liability or Auto insurance"
-      ],
-      "instructions": [
-        "Keep it under 600 characters and formatted as a single paragraph suitable for an ACORD 25 Certificate of Insurance.",
-        "Reference ISO forms for additional insured if they appear in the data. Use generic phrasing if not listed.",
-        "Include waiver of subrogation for each applicable policy (GL, Auto, WC).",
-        "Mention primary & non-contributory coverage if applicable.",
-        "Refer to the franchisor as 'Franchisor', not a specific brand name."
-      ]
-    }
-  ],
-  "final_formatting": {
-    "output_structure": [
-      "REQUIRED COVERAGES (as paragraph blocks)",
-      "OPTIONAL COVERAGES (if any, as paragraph blocks)",
-      "ADDITIONAL REQUIREMENTS (endorsements + static paragraph)",
-      "DESCRIPTION OF OPERATIONS (COI clause, one paragraph)"
-    ],
-    "style": "Legal professional, ready to copy-paste into a Google Doc or franchise agreement",
-    "spacing": "Double line breaks between sections for clarity"
-  }
+  "goal": "Generate a complete and legally formatted Item 8 section for the Franchise Disclosure Document (FDD), based on structured insurance coverage analysis.",
+  "sections": [
+    {
+      "section": "REQUIRED COVERAGES",
+      "trigger": "Always include this section.",
+      "instructions": [
+        "Only include coverages listed BEFORE the 'Optional Coverages' heading that have a non-empty value in the 'Required' column.",
+        "Exclude any coverage without a required or recommended value, even if it appears in other columns.",
+        "Format each coverage block as a paragraph.",
+        "Start with the COVERAGE NAME IN BOLD AND CAPITALIZED.",
+        "Then, for each specific limit or sub-coverage listed under the main coverage in the 'Required' column:",
+        "   - If the value in the 'Required' column explicitly contains the word 'recommended' (or variations like 'rec'), state: '(Sub-coverage name, if applicable) is recommended with minimums (value from the 'Required' column, excluding the word 'recommended').'",
+        "   - Otherwise, state: '(Sub-coverage name, if applicable) requirement with minimums (value from the 'Required' column).'",
+        "Combine these statements about requirements and recommendations into a single paragraph for the main coverage, separated by semicolons.",
+        "Include policy structure (e.g., occurrence-based or claims-made), other enhancements (like Additional Insured, Waiver of Subrogation, P&NC), and carrier rating as stated.",
+        "Use commas and semicolons to maintain paragraph style; avoid line breaks within the description of a single coverage type.",
+        "If a coverage's Required column specifies 'claims-made', write: 'The policy may be claims-made or occurrence-based.'"
+      ]
+    },
+    {
+      "section": "OPTIONAL COVERAGES",
+      "trigger": "Include this section only if there is a labeled 'Optional Coverages' section in the document.",
+      "instructions": [
+        "Only include coverages found under the 'Optional Coverages' heading, regardless of any values in the Required column.",
+        "Do NOT move coverages from Optional to Required even if they include high limits or strong suggestions.",
+        "Format optional coverage descriptions using full paragraphs.",
+        "Use this format: (COVERAGE NAME IN BOLD AND CAPITALIZED): (Coverage recommendations), followed by carrier rating if provided.",
+        "Combine multiple subcoverages (e.g., Business Interruption, Equipment, etc.) into a single paragraph using commas and semicolons."
+      ]
+    },
+    {
+      "section": "ADDITIONAL REQUIREMENTS",
+      "trigger": "Include this section if any of the following are true in the Required column:",
+      "conditions": [
+        "General Liability requires 'additional insured', 'waiver of subrogation', or 'primary & non-contributory'",
+        "Auto insurance requires 'additional insured' or 'waiver of subrogation'",
+        "Workers’ Compensation requires 'waiver of subrogation'"
+      ],
+      "instructions": [
+        "If ISO forms (CG 20 10, CG 20 37, CG 20 33, CG 20 39) are listed in the data, include them as full form names.",
+        "If all four ISO forms are listed, combine them with 'OR'.",
+        "If no ISO forms are listed, reference the endorsement types generically: 'as required by written agreement.'",
+        "If CG 24 04 12 19 is listed, include it for waiver of subrogation. Otherwise describe waiver generally.",
+        "Generate three distinct paragraphs detailing the endorsement requirements, separated by double line breaks. The first paragraph should cover Additional Insured and Primary & Non-Contributory requirements for the General Liability policy. The second paragraph should cover Additional Insured and Primary & Non-Contributory requirements for the Commercial Auto policy. The third paragraph should cover the Waiver of Subrogation requirement for all applicable policies (General Liability, Commercial Auto, and Workers' Compensation).",
+        "In the first paragraph (General Liability), explicitly state that Additional Insured coverage is for 'liability arising out of your operations, ongoing and completed' and explain that 'primary and non-contributory basis' means 'it will pay before any other applicable insurance the Additional Insureds may have'.",
+        "In the third paragraph (Waiver of Subrogation), explain its purpose: 'preventing the insurer from seeking recovery from the Franchisor'.",
+        "Use the terms 'General Liability' and 'Commercial Auto' when referring to these policies in this section.",
+        "Ensure no bullet points are used.",
+        "Conclude with the following static paragraph:"
+      ],
+      "static_paragraph": "The franchisor reserves the right to update the insurance requirements for franchisees as needed to address changing exposures and risk factors. This flexibility ensures that the franchisee and franchisor remain adequately protected as the business environment and industry landscape evolve. Franchisees will be notified of any changes to the insurance requirements and are expected to comply with the updated coverage standards to maintain their franchise agreement."
+    },
+    {
+      "section": "DESCRIPTION OF OPERATIONS (CERTIFICATE OF INSURANCE)",
+      "trigger": "Include this if any of the following are true:",
+      "conditions": [
+        "'additional insured' is required under General Liability or Auto insurance",
+        "'waiver of subrogation' is required under General Liability, Auto, or Workers’ Compensation",
+        "'primary & non-contributory' is required under General Liability or Auto insurance"
+      ],
+      "instructions": [
+        "Keep it under 600 characters and formatted as a single paragraph suitable for an ACORD 25 Certificate of Insurance.",
+        "Reference ISO forms for additional insured if they appear in the data. Use generic phrasing if not listed.",
+        "Include waiver of subrogation for each applicable policy (GL, Auto, WC).",
+        "Mention primary & non-contributory coverage if applicable.",
+        "Refer to the franchisor as 'Franchisor', not a specific brand name."
+      ]
+    }
+  ],
+  "final_formatting": {
+    "output_structure": [
+      "REQUIRED COVERAGES (as paragraph blocks)",
+      "OPTIONAL COVERAGES (if any, as paragraph blocks)",
+      "ADDITIONAL REQUIREMENTS (endorsements + static paragraph)",
+      "DESCRIPTION OF OPERATIONS (COI clause, one paragraph)"
+    ],
+    "style": "Legal professional, ready to copy-paste into a Google Doc or franchise agreement",
+    "spacing": "Double line breaks between sections for clarity"
+  }
 }
