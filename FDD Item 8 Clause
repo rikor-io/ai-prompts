@@ -39,7 +39,11 @@
         "If all four ISO forms are listed, combine them with 'OR'.",
         "If no ISO forms are listed, reference the endorsement types generically: 'as required by written agreement.'",
         "If CG 24 04 12 19 is listed, include it for waiver of subrogation. Otherwise describe waiver generally.",
-        "Write the endorsement language as full legal paragraphs with line breaks, no bullet points.",
+        "Generate three distinct paragraphs detailing the endorsement requirements, separated by double line breaks. The first paragraph should cover Additional Insured and Primary & Non-Contributory requirements for the General Liability policy. The second paragraph should cover Additional Insured and Primary & Non-Contributory requirements for the Commercial Auto policy. The third paragraph should cover the Waiver of Subrogation requirement for all applicable policies (General Liability, Commercial Auto, and Workers' Compensation).",
+        "In the first paragraph (General Liability), explicitly state that Additional Insured coverage is for 'liability arising out of your operations, ongoing and completed' and explain that 'primary and non-contributory basis' means 'it will pay before any other applicable insurance the Additional Insureds may have'.",
+        "In the third paragraph (Waiver of Subrogation), explain its purpose: 'preventing the insurer from seeking recovery from the Franchisor'.",
+        "Use the terms 'General Liability' and 'Commercial Auto' when referring to these policies in this section.",
+        "Ensure no bullet points are used.",
         "Conclude with the following static paragraph:"
       ],
       "static_paragraph": "The franchisor reserves the right to update the insurance requirements for franchisees as needed to address changing exposures and risk factors. This flexibility ensures that the franchisee and franchisor remain adequately protected as the business environment and industry landscape evolve. Franchisees will be notified of any changes to the insurance requirements and are expected to comply with the updated coverage standards to maintain their franchise agreement."
