@@ -1,0 +1,148 @@
+{
+  "industry": "Sports Facility",
+  "subcategory": "Golf Simulation Center",
+  "website": "INSERT_WEBSITE_HERE",
+  "overall_requirements_and_notes": {
+    "carrier_rating": "A.M. Best Rating of A- VII or better suggested for all policies.",
+    "certificates_required_timeline": "Certificates of Insurance typically required within 30-90 days of policy inception/renewal or prior to facility opening/training, whichever is sooner.",
+    "endorsements_scope": "Additional Insured (AI), Waiver of Subrogation (WOS), and Primary & Non-Contributory (P&NC) status are commonly required via endorsement on applicable policies (GL, Auto, Umbrella, Liquor). AI and P&NC endorsements generally do not apply to Workers' Compensation or Professional Liability lines.",
+    "notes": [
+      "Liquor Liability is only required if the facility serves alcoholic beverages.",
+      "Sexual Abuse & Molestation (SAM) coverage is highly recommended, especially if minors frequent the facility or participate in lessons/leagues. Limits should be assessed based on exposure.",
+      "Accident coverage (Participant Accident) is recommended to cover medical expenses for injuries sustained by patrons during activities.",
+      "Simulator equipment represents significant value; ensure Property coverage (BPP) and limits are adequate. Replacement cost valuation is preferred."
+    ]
+  },
+  "insurance_requirements": {
+    "general_liability": {
+      "required": true,
+      "limits": {
+        "occurrence": 1000000,
+        "aggregate": 2000000,
+        "products_completed_operations_aggregate": 2000000,
+        "damage_to_premises": 300000, // Increased due to likely leased, high-finish spaces
+        "med_pay": 5000
+      },
+      "endorsements": {
+        "additional_insured": {
+          "required": true,
+          "includes_ongoing_operations": true,
+          "includes_completed_operations": false // Less common requirement than for contractors
+        },
+        "waiver_of_subrogation": true,
+        "primary_non_contributory": true
+      },
+      "includes_sam_coverage": false, // Explicitly check if SAM is included here or standalone
+      "notes": "Verify if SAM coverage is included via endorsement or if a separate policy is needed."
+    },
+    "property": {
+      "required": true, // Required for owned building and/or Business Personal Property
+      "coverage_basis": "replacement_cost",
+      "building_limit": null, // Specify if building is owned
+      "business_personal_property_limit": null, // Specify adequate limit for simulators, FF&E
+      "includes_business_interruption": {
+        "required": true,
+        "type": "Actual Loss Sustained (ALS)",
+        "duration_months": 12 // 12 months is standard
+      },
+       "includes_equipment_breakdown": true // Recommended for simulators and HVAC
+    },
+     "inland_marine": { // For equipment off-premises or in transit
+      "required": false,
+      "recommended": true, // Only if equipment is frequently moved or used off-site
+      "coverage_for_tools_and_equipment": true, // Specify limits if required
+      "coverage_basis": "replacement_cost"
+    },
+    "workers_compensation": {
+      "required": true, // Statutory requirement if employees exist
+      "waiver_of_subrogation": true,
+      "employers_liability": {
+        "accident": 1000000,
+        "disease_each_employee": 1000000,
+        "disease_policy_limit": 1000000
+      }
+    },
+    "commercial_auto": {
+      "required": false, // Only required if company owns/leases vehicles
+      "recommended": true, // HNOA is recommended if employees use personal vehicles
+      "CSL": 1000000, // Combined Single Limit
+      "includes_HNOA": true, // Hired and Non-Owned Auto Liability
+      "additional_insured": true,
+      "primary_non_contributory": true,
+      "waiver_of_subrogation": true
+    },
+     "liquor_liability": {
+      "required": false, // Conditional based on alcohol sales
+      "limits": {
+        "occurrence": 1000000,
+        "aggregate": 2000000 // May vary based on state/local requirements
+      },
+      "endorsements": {
+         "additional_insured": true,
+         "waiver_of_subrogation": true,
+         "primary_non_contributory": true
+       },
+       "notes": "Only required if alcoholic beverages are sold or served. Ensure compliance with all state/local dram shop laws."
+    },
+    "sexual_abuse_molestation": { // Specific SAM coverage
+       "required": false,
+       "recommended": true, // Highly recommended, potentially required based on clientele/activities
+       "limits": {
+         "occurrence": 100000, // Common starting point, assess adequacy
+         "aggregate": 300000
+       },
+       "notes": "Crucial if minors are patrons or if instruction/coaching occurs. May be part of GL or standalone."
+     },
+     "accident_coverage": { // Participant Accident
+       "required": false,
+       "recommended": true,
+       "limits": {
+         "medical_expense_limit": 5000, // Example limit per person/accident
+         "accidental_death_dismemberment": 10000 // Example AD&D limit
+       },
+       "notes": "Covers injuries to participants regardless of facility negligence."
+     },
+    "crime": {
+      "required": true,
+      "employee_theft": 50000, // Adjust based on cash handling/number of employees
+      "forgery_or_alteration": true,
+      "money_and_securities": true // Inside/Outside coverage
+    },
+    "umbrella": { // Provides excess liability over GL, Auto, Employers' Liability, potentially Liquor
+      "required": true,
+      "limit": 1000000, // Often $2M-$5M recommended/required
+      "follows_form_over": ["general_liability", "commercial_auto", "employers_liability", "liquor_liability"] // Specify underlying policies
+    },
+    "EPLI": { // Employment Practices Liability Insurance
+      "required": false,
+      "recommended": true, // Recommended if company has employees
+      "limits": {
+        "occurrence": 250000, // Common starting point
+        "aggregate": 250000
+      },
+      "coverages_included": [
+        "wrongful_termination",
+        "discrimination",
+        "harassment",
+        "third_party_coverage" // Important due to public interaction
+      ]
+    },
+    "cyber": {
+      "required": false,
+      "recommended": true, // Due to POS, scheduling, membership data
+      "limits": {
+        "occurrence": 250000, // Common starting point
+        "aggregate": 250000
+      },
+      "coverages_included": [
+        "data_breach_response",
+        "network_security_liability",
+        "business_interruption", // Cyber BI
+        "regulatory_fines_and_penalties",
+        "media_liability",
+        "cyber_extortion" // Ransomware
+        "social_engineering",
+      ]
+    }
+  }
+}
