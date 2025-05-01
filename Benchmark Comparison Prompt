@@ -1,83 +1,86 @@
 {
   "prompt_instructions": {
-    "task": "Compare insurance requirements from two previously provided JSON objects: one FDD extraction and one Construction/General Contractor benchmark.",
+    "task": "Compare insurance requirements from two previously provided JSON objects: one FDD extraction and one relevant industry benchmark (e.g., Golf Simulation Center). Generate a concise, franchisor-focused summary and scorecard.",
     "persona": "Insurance Analyst",
     "inputs": [
       "FDD Extraction JSON (previously provided in conversation)",
-      "Benchmark JSON for Construction/General Contractor (previously provided in conversation)"
+      "Relevant Industry Benchmark JSON (e.g., Golf Simulation Center - specify which one was provided)"
     ],
     "output_structure": [
       {
         "part": 1,
         "type": "Executive Summary",
         "content_requirements": [
-          "Brief overview of the comparison.",
-          "Highlight main areas where FDD aligns with benchmark.",
-          "Clearly identify significant gaps (missing coverages/details in FDD like Umbrella, Crime, Inland Marine).",
-          "Point out key mismatches (differing requirements like BI approach, Property basis, specific limits).",
-          "Conclude with a statement on the overall alignment and adequacy of the FDD requirements relative to the benchmark standard."
+          "Brief overview of the comparison against the specified industry benchmark.",
+          "Highlight main areas where FDD aligns with the benchmark.",
+          "Clearly identify significant gaps (major missing coverages/details in FDD).",
+          "Point out key mismatches in requirements for coverages present in both.",
+          "State the **Overall Compliance Score** (Percentage and Rating: Good/Fair/Poor) calculated based on the *full* comparison across *all* benchmark requirements.",
+          "Conclude with a statement on the overall adequacy of the FDD requirements relative to the specified industry benchmark standard."
         ]
       },
       {
         "part": 2,
-        "type": "Detailed Comparison Table",
+        "type": "Consolidated Coverage Scorecard Table",
         "table_requirements": {
           "columns": [
             {
-              "name": "Coverage / Requirement",
-              "description": "The specific insurance line or overall requirement being compared. Add bold headers for each coverage category (e.g., **Overall Requirements**, **General Liability**)."
+              "name": "Coverage Category",
+              "description": "The specific insurance line or overall requirement area. Use bold headers."
             },
             {
-              "name": "Benchmark Specification",
-              "description": "Details of the requirement as per the Benchmark JSON."
+              "name": "Category Score (vs. Benchmark)",
+              "description": "Score for this specific category based on its internal comparison points (e.g., '3 / 6 pts (50% - Fair)'). Calculate using Match=2, Partial=1, Missing=0 points. Define ratings: Good >75%, Fair 50-75%, Poor <50%. For rows representing entirely missing coverages, show '0 / X pts (0% - Poor)' where X is the total possible points for that benchmark category."
             },
             {
-              "name": "FDD Extraction Specification",
-              "description": "Details of the requirement as per the FDD Extraction JSON."
-            },
-            {
-              "name": "Comparison Status & Notes",
-              "description": "Includes a color indicator (based on rules below), a status text (Match, Mismatch, Missing), and brief explanatory notes for discrepancies."
+              "name": "Key Comparison Notes & Status",
+              "description": "Start with the color indicator emoji (🟢🟡🔴). Provide brief notes explaining the status/score for the displayed category, highlighting key matches, mismatches, or missing details within that category. For entirely missing coverages, state 'MISSING: FDD does not require/recommend [Coverage Name]...'"
             }
           ],
-          "rows_to_include": [
-            "Overall: Carrier Rating",
-            "Overall: Certificate Timeline",
-            "Overall: Endorsement Scope (Overall)",
-            "Overall: Business Interruption Approach",
-            "General Liability (compare limits Occurrence, Aggregate, Prod/CO, Dmg to Premises, Med Pay; endorsements AI/WOS/P&NC; sub clauses)",
-            "Commercial Auto (compare CSL, HNOA, endorsements AI/WOS/P&NC)",
-            "Workers' Compensation (compare EL limits, WOS, uninsured subs)",
-            "Property (compare basis, BI type, debris removal, equipment breakdown)",
-            "Inland Marine / Contractors Equipment",
-            "Umbrella / Excess Liability",
-            "Crime (compare required status, Employee Theft, Third Party)",
-            "Contractors E&O (Required/Recommended, Limits)",
-            "Contractors Pollution (Required/Recommended)",
-            "EPLI (Required/Recommended)",
-            "Cyber (Required/Recommended)"
+          "rows_to_display": [
+            "**Overall Requirements** (Include Carrier Rating, Cert Timeline, Endorsement Scope, Key Benchmark Notes like SAM/Accident Recs)",
+            "**General Liability**",
+            "**Commercial Auto**",
+            "**Workers' Compensation**",
+            "**Property & Business Interruption**",
+            "**Liquor Liability** (If present in FDD)",
+            "**Umbrella / Excess Liability** (Show as missing if applicable)",
+            "**Crime** (Show as missing or compare if present)",
+            "**Sexual Abuse & Molestation (SAM)** (Show as missing if applicable)",
+            "**Accident Coverage** (Show as missing if applicable)",
+            "**EPLI** (Show as missing if applicable)",
+            "**Cyber Liability** (Show as missing if applicable)",
+            "***Other Missing Details*** (Summarize other minor missing items like Inland Marine, specific limits not already noted, etc.)"
           ],
-          "grouping_instruction": "Group rows under bold headers for each coverage category (e.g., **Overall Requirements**, **General Liability**, **Commercial Auto**, etc.) within the first column.",
+          "overall_score_calculation_note": "The Overall Compliance Score in the Executive Summary must be calculated based on *all* comparison points across *all* benchmark requirements (even those not detailed in this specific table), using the 2/1/0 point system.",
           "color_coding_rules": {
-            "column_to_apply": "Comparison Status & Notes",
+            "column_to_apply": "Key Comparison Notes & Status",
             "indicators": {
               "green": "🟢",
               "yellow": "🟡",
               "red": "🔴"
             },
             "criteria": {
-              "green": "Use 🟢 when the FDD requirement matches or *exceeds* the benchmark requirement.",
-              "yellow": "Use 🟡 when the FDD requirement is present but *falls slightly short* (e.g., slightly lower limit), uses different terminology needing review, or is close but requires attention.",
-              "red": "Use 🔴 when the FDD requirement is *missing* where the benchmark requires it, is *significantly lower/weaker*, or fails to include a required prohibition from the benchmark."
+              "green": "Use 🟢 when the FDD requirement(s) for the category generally match or exceed the benchmark.",
+              "yellow": "Use 🟡 when the FDD requirements for the category are present but have notable mismatches or fall slightly short of the benchmark.",
+              "red": "Use 🔴 when the FDD requirements for the category are missing entirely, significantly weaker/lower than the benchmark, or have critical mismatches."
             },
-            "instruction": "Place the appropriate color indicator emoji at the beginning of the text in the 'Comparison Status & Notes' column for each row."
+            "instruction": "Place the appropriate color indicator emoji at the beginning of the text in the 'Key Comparison Notes & Status' column for each row."
           }
         }
-      }
+      },
+       {
+         "part": 3,
+         "type": "Major Missing Coverages List",
+         "content_requirements": [
+           "Provide a clear bulleted list explicitly naming the major insurance coverages that are required or highly recommended in the benchmark but appear to be completely missing from the FDD extraction."
+         ]
+       }
     ],
     "constraints": [
-      "Base the comparison strictly on the information present in the two JSON objects previously provided.",
-      "Ensure accuracy in reflecting the requirements from both sources in the table."
+      "Base the comparison strictly on the information present in the two JSON objects provided.",
+      "Ensure accuracy in reflecting the requirements from both sources.",
+      "Maintain a concise and franchisor-focused tone."
     ]
   }
 }
