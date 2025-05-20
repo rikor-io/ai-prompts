@@ -1,4 +1,14 @@
-*"Analyze the following claims letter and extract all unique allegations made by the claimant. Identify every specific accusation, including but not limited to:
+"Analyze the following legal document (e.g., claims letter, petition) and extract the following information:
+
+Plaintiff: Identify the full name of the plaintiff(s).
+Defendant: Identify the full name of the defendant(s).
+Contract Execution Date: Identify the date on which the plaintiff and defendant entered into a contract, if specified.
+Date(s) of Issue Occurrence: Identify the specific date(s) or time period(s) when the core issues, alleged breaches, or wrongful actions giving rise to the lawsuit occurred.
+Relief Sought by Plaintiff: Detail what the plaintiff is seeking from the court. This may include, but is not limited to, monetary relief (specify the amount if mentioned), specific performance, declaratory judgments, damages (list types like economic, special, consequential, reputational), attorney's fees, costs, and interest.
+Additionally, extract all unique allegations made by the claimant. For each allegation, present a clear, individual bullet point with:
+
+A brief, precise summary of the accusation.
+A reference to the relevant category (if applicable) from the following list:
 Misrepresentation (e.g., false statements, misleading disclosures, omissions of material facts)
 Fraudulent inducement (e.g., deceptive practices leading to a contractual agreement)
 Breach of contract (e.g., failure to fulfill obligations, deviations from agreements)
@@ -11,15 +21,12 @@ Failure to disclose material information (e.g., undisclosed risks, leadership ch
 Improper franchise system operations (e.g., failing to provide training, support, or required resources)
 Financial misstatements or discrepancies (e.g., misleading cost estimates, hidden fees, overcharges)
 Other legal violations (e.g., violations of implied good faith and fair dealing, consumer fraud statutes)
+Ensure no allegations are overlooked, and avoid redundancy by summarizing distinct claims separately.
 
-For each allegation, present a clear, individual bullet point with:
-A brief, precise summary of the accusation
-A reference to the relevant category (if applicable) (e.g., fraud, misrepresentation, breach of contract, E&O, D&O)
-Ensure no allegations are overlooked, and avoid redundancy by summarizing distinct claims separately."
+Adhere strictly to the following citation guidelines for all extracted information:
 
-Example Output Format:
-Fraudulent Inducement – The claimant alleges they were misled into signing the agreement due to false representations about key personnel credentials. (Fraud, D&O)
-Failure to Disclose Regulatory Risks – The claimant asserts that the franchisor omitted material information regarding compliance requirements, which resulted in unexpected legal exposure. (Misrepresentation, E&O)
-Misrepresentation of Financial Costs – The claimant states that estimated investment costs were understated in official disclosures, leading to significantly higher expenses. (Breach of Contract, E&O)
-Lack of Promised Training – The claimant alleges they did not receive the advertised franchise training, impacting their ability to operate successfully. (Negligence, E&O)
-Unlawful Business Practices – The claimant argues that the franchisor engaged in deceptive trade practices by altering service offerings without informing franchisees. (Unfair Trade Practices, No Coverage)
+Source Requirement: Any information derived from provided sources MUST be cited. Append the citation directly after the relevant sentence or phrase.
+Bullet Point Citations: When using bullet points, each individual piece of information (sentence or phrase) within a bullet point must be cited separately.
+Citation Format: Use "" to indicate source 'x'. For multiple sources, use "".
+Accuracy and Support: Each citation must fully and accurately support the preceding sentence.
+Contextual Reliance: If the response does not include information from presented sources, do not provide citations. "
