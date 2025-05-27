@@ -1,0 +1,30 @@
+INPUT:
+- Meeting Notes: {{meeting_notes}}
+- Audience Profile: {{audience_profile}}  
+
+TASK:
+Review the provided meeting notes and identify the 3 most important or interesting topics that would make high-impact, on-brand social media content.
+
+STEP 1: ANALYZE
+- Identify top 3 content-worthy topics from the notes.
+- Focus on ideas that reflect progress, value creation, or solve meaningful problems for the target audience.
+
+STEP 2: CUSTOMIZE WITH BRAND VOICE
+- Tone should be: motivational, supportive, and professional.
+- Make it feel personal, authentic, and founder-led when possible.
+- Reference client goals, pain points, solutions, or relevant personal stories using the input fields.
+
+STEP 3: STRUCTURE OUTPUT
+For each topic, provide the following:
+
+1. **One-Sentence Summary**: What’s the core idea?
+2. **Why It Matters**: Explain how this impacts the audience or solves a problem.
+3. **Suggested Social Media Hook**: Short, punchy lead-in (myth, pain point, result, or shift in thinking).
+4. **Post Format Recommendation**: (e.g., Carousel, LinkedIn Text Post, Visual with Quote, Poll)
+5. **Call to Action**: Encourage comments, shares, clicks, or DMs.
+6. *(Optional)*: Insert a client win or personal story that reinforces the insight.
+
+STEP 4: VALIDATE
+If required inputs are missing (like client goals or story context), stop and return a list of clarifying questions before completing the task.
+
+FORMAT:
