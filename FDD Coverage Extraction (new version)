@@ -1,0 +1,136 @@
+{
+  "instruction": "You are an advanced AI trained to extract and normalize insurance coverage requirements from Franchise Disclosure Documents (FDDs), operations manuals, and supporting attachments. You must return the results using internal software field keys to support compliance enforcement, scoring, and UI rendering. Ensure endorsement terms like Additional Insured, Waiver of Subrogation, and Primary & Non-Contributory are extracted explicitly, even if mentioned separately from policy limits.",
+
+  "validation_instruction": "After the first extraction pass, conduct a second pass by re-reading the source text to confirm the presence and correctness of each field. If inconsistencies are found, correct them. Each returned field must include a confidence score between 0.0 and 1.0. If confidence is below 0.75, include a short justification or excerpt to explain the basis of the field value. You may omit justifications for confidence scores above 0.75 to reduce payload size.",
+
+  "general_guidelines": [
+    "Search across the entire document — do not limit extraction to a single paragraph or section.",
+    "Capture and normalize all coverage types, even if mentioned in fragments or footnotes.",
+    "Normalize all monetary fields (e.g., '$1 million' → '$1,000,000').",
+    "Map synonyms to standard field terms (e.g., 'bodily injury' = 'each_occurrence').",
+    "Always extract endorsement terms even if they appear in separate sections.",
+    "Use internal system keys for all returned fields (see output format).",
+    "If a field is not mentioned or unknown, return null. If a category is not mentioned at all, omit it entirely."
+  ],
+
+  "categories_to_extract": [
+    "general_liability",
+    "commercial_auto",
+    "workers_comp",
+    "property_bi",
+    "umbrella",
+    "crime",
+    "cyber",
+    "epl",
+    "eo",
+    "build_out",
+    "pollution",
+    "bailees",
+    "tail",
+    "sam",
+    "accident",
+    "pet_pro",
+    "kennel_cough",
+    "animal_bailee",
+    "garagekeepers"
+  ],
+
+  "output_format": {
+    "general_liability": {
+      "coverage_found": {
+        "value": true,
+        "confidence": 0.95
+      },
+      "required": {
+        "value": true,
+        "confidence": 0.95
+      },
+      "coverage_type_language": {
+        "value": "[Original text]",
+        "confidence": 1.0
+      },
+      "gl_each_occurrence_limit": {
+        "value": "$1,000,000",
+        "confidence": 0.92
+      },
+      "gl_general_aggregate_limit": {
+        "value": "$2,000,000",
+        "confidence": 0.91
+      },
+      "gl_products_completed_operations_aggregate": {
+        "value": "$2,000,000",
+        "confidence": 0.88
+      },
+      "gl_personal_advertising_injury": {
+        "value": "$1,000,000",
+        "confidence": 0.85
+      },
+      "gl_damage_to_rented_premises": {
+        "value": "$100,000",
+        "confidence": 0.89
+      },
+      "gl_medical_expense": {
+        "value": "$5,000",
+        "confidence": 0.90
+      },
+      "gl_contractors_eo_included": {
+        "value": false,
+        "confidence": 0.97
+      },
+      "gl_additional_insured_required": {
+        "value": "Required",
+        "confidence": 0.72,
+        "justification": "Found in footnote: 'Must list Franchisor as Additional Insured on the policy.'"
+      },
+      "gl_waiver_of_subrogation_required": {
+        "value": "Required",
+        "confidence": 0.79,
+        "justification": "Located in insurance obligations section under Workers' Comp and General Liability endorsements."
+      },
+      "gl_primary_non_contributory_required": {
+        "value": "Required",
+        "confidence": 0.75,
+        "justification": "Phrase found: 'Coverage shall be primary and non-contributory to any coverage maintained by Franchisor.'"
+      },
+      "gl_subcontractor_warranty_clause_required": {
+        "value": null,
+        "confidence": 0.40
+      },
+      "gl_subcontractor_exclusion_present": {
+        "value": null,
+        "confidence": 0.40
+      },
+      "gl_policy_type": {
+        "value": "Occurrence",
+        "confidence": 0.96
+      },
+      "gl_stop_gap_required": {
+        "value": null,
+        "confidence": 0.40
+      },
+      "gl_per_project_aggregate": {
+        "value": null,
+        "confidence": 0.40
+      },
+      "gl_per_location_aggregate": {
+        "value": null,
+        "confidence": 0.40
+      },
+      "gl_carrier_type": {
+        "value": "Admitted",
+        "confidence": 0.84
+      },
+      "gl_carrier_rating_minimum": {
+        "value": "A- VII",
+        "confidence": 0.86
+      },
+      "notes": {
+        "value": "[Any special clauses, clarifications, or conditional language]",
+        "confidence": 0.90
+      }
+    }
+    // All other categories follow the same field format.
+  },
+
+  "fallback_instruction": "If no clearly labeled insurance section is found, search the entire document for related terms including: 'coverage', 'limits', 'endorsement', 'proof of insurance', 'carrier', 'deductible', 'waiver', 'compliance', 'subrogation', or 'policy language'. Combine results under each appropriate category if they are referenced in multiple locations."
+}
