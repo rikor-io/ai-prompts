@@ -1,0 +1,29 @@
+Based on the following business profile, generate a benchmark insurance coverage recommendation in structured JSON format.
+
+--- INPUTS ---
+Industry: {{$json["industry"]}}
+Operations: {{$json["operations"]}}
+Annual Revenue: {{$json["revenue"]}}
+Annual Payroll: {{$json["payroll"]}}
+Annual Subcontractor Costs: {{$json["subcontractorSpend"]}}
+1099 Contractors: {{$json["contractors_1099"]}}
+W2 Employees: {{$json["employees_w2"]}}
+Vehicles: {{$json["vehicles"]}}
+
+--- OUTPUT REQUIREMENTS ---
+- Recommend applicable insurance coverages and optional policies including: General Liability (GL), Workers' Compensation (WC), Commercial Auto, Property, Inland Marine, Umbrella/Excess, Errors & Omissions (E&O), Contractors Pollution Liability (CPL), Employment Practices Liability Insurance (EPLI), Cyber Liability, Crime/Fidelity, and any industry-specific coverages.
+- If applicable to the industry, include special coverages such as:
+  - Professional Liability for licensed or credentialed providers (e.g., beauticians, consultants, medical/health).
+  - Abuse & Molestation (SAM) coverage for childcare, education, healthcare, or vulnerable populations.
+  - Garagekeepers Liability for auto repair or valet.
+  - Liquor Liability for hospitality.
+  - Environmental Liability for contractors or waste handlers.
+  - Inland Marine for mobile or high-value equipment.
+- Include specific **limits** (Occurrence, Aggregate, CSL, BI), and whether the coverage is **required** or **recommended**.
+- For each required policy, define **endorsements**: Additional Insured (AI), Waiver of Subrogation (WOS), and Primary & Non-Contributory (P&NC) where appropriate.
+- Additionally, identify key **exclusions**, **limitations**, and **warranties** to watch for (e.g., subcontractor exclusions, claims-made issues, pollution exclusions, misclassification).
+- Highlight any need for **subcontractor COI enforcement** or **anti-warranty clause requirements**.
+- Provide comments on **Business Interruption (BI)** applicability based on business model (e.g., mobile workforce vs. physical premises).
+- Use clear JSON format with labeled sections: industry_meta, overall_notes, and insurance_requirements.
+
+Be specific, professional, and accurate. Tailor recommendations to exposures and known risks in the specified industry.
