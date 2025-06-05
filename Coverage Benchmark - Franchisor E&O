@@ -41,6 +41,7 @@
         "misrepresentation": "Covered if negligent.",
         "non_disclosure": "Covered if negligent.",
         "regulatory_violations": "Covered if arising from negligent actions."
+        "tcpa, fcra, fdcpa": Collection services endorsement
       }
     }
   },
