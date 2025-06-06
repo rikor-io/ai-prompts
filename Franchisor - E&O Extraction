@@ -1,0 +1,116 @@
+Objective: Extract all relevant Errors & Omissions (E&O) insurance policy details from the provided franchisor insurance documents to enable direct comparison against a specific benchmark.
+
+Input:
+A list of all uploaded franchisor insurance policies.
+
+Task:
+1️⃣ Document Review and Verification:
+    - Log each uploaded document name (e.g., "Franchisor E&O Policy 2024.pdf").
+    - Mark each policy as "Reviewed" once its E&O coverage is analyzed.
+    - Flag any missing or incomplete policy reviews.
+
+2️⃣ Extract E&O Policy Details (Mandatory Fields for Benchmark Comparison):
+    For the Errors & Omissions (E&O) coverage specifically, extract the following details. If a field is not explicitly found, state "Not Found" or "N/A" and identify if it's a potential gap based on the benchmark's "required" flag.
+
+    - **Required (boolean):** Is E&O coverage required/present in the document? (true/false)
+    - **Limit (number):** The total limit of liability for E&O.
+    - **Named Insured (text):** The exact name of the entity insured under the E&O policy.
+    - **Named Insured Address (text):** The address of the named insured.
+    - **Effective Date (date):** The start date of the E&O policy period.
+    - **Expiration Date (date):** The end date of the E&O policy period.
+    - **Retroactive Date (date):** The retroactive date of the claims-made E&O policy.
+    - **Policy Form Type (text):** Identify if the policy form is "Proprietary," "ISO," or another type.
+    - **Claims Made (boolean):** Is the E&O policy claims-made (true) or occurrence-based (false)?
+    - **Reporting Period (text):** Describe the claims reporting period (e.g., "During policy or extended reporting period").
+    - **Extended Reporting Period (text):** Details regarding optional ERP (e.g., "Optional ERP of 1-3 years" or specific terms).
+    - **Defense Costs (text):** Are defense costs "Inside the limits," "Outside the limits," or other?
+    - **Consent to Settle Clause (text):** Describe the consent to settle clause, specifically looking for "capped hammer clause" or similar language.
+    - **Retention Amount (number):** The amount of the retention/deductible for E&O claims.
+    - **Retention Type (text):** The type of retention (e.g., "Per claim," "Annual aggregate").
+    - **Territory Disputes Coverage (text):** Analyze the policy to determine if it provides coverage for claims arising from a franchisee alleging the franchisor misrepresented or made an error in the sale or granting of their franchise territory. Provide a summary of the coverage or exclusion.
+    - **Third Party Claims Coverage (text):** Is coverage for third-party claims explicitly covered or excluded?
+    - **Multiple Named Insureds Allowed (boolean):** Does the policy allow for multiple named insureds?
+
+    **Inclusions within E&O Coverage (Boolean where applicable, or descriptive text):**
+    - **Definition of Franchisor Services (text):** Describe how "franchisor services" are defined and if they cover obligations like FDD prep, franchise sales, marketing, site selection, and support.
+    - **Breach of FDD or Franchise Agreement (boolean):** Is coverage explicitly provided for breach of FDD or franchise agreement?
+    - **Vicarious Liability (boolean):** Is vicarious liability covered?
+    - **Failure to Procure Insurance (boolean):** Is coverage provided for failure to procure insurance?
+    - **Pre-existing Claims Coverage (text):** Describe prior acts coverage and retroactive date terms.
+    - **Bodily Injury Property Damage (text):** How is BI/PD handled? Are there carve-outs tied to franchisor services?
+    - **Pollution Exclusion (text):** Describe the pollution exclusion, noting any carve-outs.
+    - **Intellectual Property Coverage (text):** Describe IP coverage/exclusion, noting if willful infringement is excluded.
+    - **Contractual Liability (text):** Describe contractual liability coverage, specifically if it's covered independently of contract.
+    - **Mismanagement Oversight (boolean):** Is mismanagement oversight covered?
+    - **FTC Violations (text):** How are FTC violations treated (covered, excluded, silent)?
+    - **Fraud Allegations (text):** Describe coverage for fraud allegations (e.g., defense costs covered unless proven fraudulent).
+    - **Other Insurance Clause (text):** Describe the "other insurance" clause (e.g., primary, excess).
+    - **Guarantees or Financial Outcomes (boolean):** Are guarantees or financial outcomes explicitly excluded?
+    - **Misrepresentation (boolean):** Is negligent misrepresentation covered?
+    - **Non-disclosure (boolean):** Is negligent non-disclosure covered?
+    - **Regulatory Violations (boolean):** Are regulatory violations arising from negligent actions covered?
+    - **TCPA, FCRA, FDCPA (text):** Is there a collection services endorsement or specific coverage related to these acts?
+
+Output Format:
+Return the extracted data for each policy as a JSON object that closely mirrors the structure of the provided benchmark, including a `coverage_gaps` section and `source_text` for each extracted field.
+
+```json
+{
+  "policy_name": "[Document Name]",
+  "status": "Reviewed",
+  "errors_and_omissions": {
+    "required": [extracted_boolean_or_N/A],
+    "limit": [extracted_number_or_N/A],
+    "named_insured": "[extracted_text_or_N/A]",
+    "named_insured_address": "[extracted_text_or_N/A]",
+    "effective_date": "[extracted_date_or_N/A]",
+    "expiration_date": "[extracted_date_or_N/A]",
+    "retroactive_date": "[extracted_date_or_N/A]",
+    "policy_form_type": "[extracted_text_or_N/A]",
+    "claims_made": [extracted_boolean_or_N/A],
+    "reporting_period": "[extracted_text_or_N/A]",
+    "extended_reporting_period": "[extracted_text_or_N/A]",
+    "defense_costs": "[extracted_text_or_N/A]",
+    "consent_to_settle_clause": "[extracted_text_or_N/A]",
+    "retention": {
+      "amount": [extracted_number_or_N/A],
+      "type": "[extracted_text_or_N/A]"
+    },
+    "territory_disputes": "[extracted_text_summary_or_N/A]",
+    "third_party_claims": "[extracted_text_or_N/A]",
+    "multiple_named_insureds_allowed": [extracted_boolean_or_N/A],
+    "includes": {
+      "definition_of_franchisor_services": "[extracted_text_or_N/A]",
+      "breach_of_fdd_or_franchise_agreement": [extracted_boolean_or_N/A],
+      "vicarious_liability": [extracted_boolean_or_N/A],
+      "failure_to_procure_insurance": [extracted_boolean_or_N/A],
+      "pre_existing_claims_coverage": "[extracted_text_or_N/A]",
+      "bodily_injury_property_damage": "[extracted_text_or_N/A]",
+      "pollution_exclusion": "[extracted_text_or_N/A]",
+      "intellectual_property": "[extracted_text_or_N/A]",
+      "contractual_liability": "[extracted_text_or_N/A]",
+      "mismanagement_oversight": [extracted_boolean_or_N/A],
+      "ftc_violations": "[extracted_text_or_N/A]",
+      "fraud_allegations": "[extracted_text_or_N/A]",
+      "other_insurance_clause": "[extracted_text_or_N/A]",
+      "guarantees_or_financial_outcomes": [extracted_boolean_or_N/A],
+      "misrepresentation": [extracted_boolean_or_N/A],
+      "non_disclosure": [extracted_boolean_or_N/A],
+      "regulatory_violations": [extracted_boolean_or_N/A],
+      "tcpa_fcra_fdcpa": "[extracted_text_or_N/A]"
+    }
+  },
+  "coverage_gaps": [
+    {
+      "field": "[field_name_from_benchmark]",
+      "benchmark_value": "[benchmark_expectation]",
+      "extracted_value": "[extracted_value_or_N/A]",
+      "reason_for_gap": "[brief_explanation]"
+    }
+  ],
+  "source_text": {
+    "field_name_from_benchmark": "[direct_quote_from_document_for_validation]",
+    "another_field": "[another_quote]"
+    // ... for every extracted field
+  }
+}
