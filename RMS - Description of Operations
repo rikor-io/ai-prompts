@@ -8,10 +8,10 @@ You will achieve this by:
 The output should focus on the core business, how services are delivered, who performs them, the target customer, and critical insurance considerations, using concise language and bullet points. Bold important keywords for clarity.
 
 **Input:**
-* **NAICS code:** [Provide NAICS code here, e.g., "621111"]
-* **SIC code:** [Provide SIC code here, e.g., "8011"]
-* **NCCI or WC code:** [Provide NCCI/WC code here, e.g., "8832"]
-* **Website URL:** [Provide website URL here, e.g., "https://thedripbar.com/"]
+* **NAICS code:** [Provide NAICS code here]
+* **SIC code:** [Provide SIC code here]
+* **NCCI or WC code:** [Provide NCCI/WC code here]
+* **Website URL:** [Provide website URL here]
 
 **Desired Output Format:**
 
