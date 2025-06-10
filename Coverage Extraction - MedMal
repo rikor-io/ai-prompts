@@ -1,0 +1,146 @@
+Objective
+Extract all relevant Medical Malpractice (MedMal) insurance policy details for HRT clinics to enable risk evaluation and benchmark comparison, with attention to specialized exclusions and coverage risks common to the industry.
+
+📥 Input
+A list of all uploaded MedMal insurance policies issued for men’s hormone clinics or related providers in the health and wellness space.
+
+✅ Task
+1️⃣ Document Review and Verification
+Log each uploaded document name (e.g., "MenHRT_Malpractice_2025.pdf").
+
+Mark each document as "Reviewed" after MedMal extraction is complete.
+
+Flag as "Incomplete" if MedMal is missing, redacted, or unverifiable.
+
+2️⃣ Extract MedMal Policy Details (for Benchmark Evaluation)
+Note: If a field is not explicitly found, return "N/A" and flag it as a potential gap if marked as required.
+
+🔔 Boolean Field Instruction:
+If a general coverage statement is followed by a negation or restriction via endorsement, the field should reflect the most restrictive interpretation (i.e., exclusions override general statements).
+
+🏷️ Core Policy Metadata
+Required (boolean): Is MedMal coverage explicitly present?
+
+Limit of Liability (number): Total liability limit for the policy.
+
+Per Claim Limit (number): Per-occurrence liability cap.
+
+Aggregate Limit (number): Annual coverage limit.
+
+Effective Date (date): Policy start date.
+
+Expiration Date (date): Policy end date.
+
+Retroactive Date (date): Retroactive coverage start.
+
+Named Insured (text): Legal name of covered entity.
+
+Named Insured Address (text): Full business address.
+
+Claims-Made (boolean): True if claims-made, false if occurrence.
+
+Extended Reporting Period (text): Tail coverage terms.
+
+Defense Costs (text): Explicitly state whether costs are "Inside limits," "Outside limits," or "Split."
+
+Consent to Settle (text): Summary of any hammer clause or consent language.
+
+⚠️ Clinical Coverage Scope
+Testosterone Therapy (boolean): Is HRT/testosterone treatment explicitly covered?
+
+Aesthetic Procedures (text): Summary of whether Botox, PRP, hair restoration, etc., are covered or excluded.
+
+Weight Loss Medications (text): Terms for GLP-1s, phentermine, or others.
+
+Telemedicine (boolean): Is remote treatment or prescribing covered?
+
+Controlled Substances (text): Coverage or exclusions for testosterone, HCG, peptides, etc.
+
+Medical Director Coverage (boolean): Is the medical director a named insured or covered via endorsement?
+
+Independent Contractors (boolean): Are NPs, PAs, or MDs classified as 1099s explicitly covered?
+
+🔒 Key Exclusions & Legal Limitations
+Specified Treatment Exclusion (text): Identify and summarize any exclusions tied to certain services (e.g., “no coverage for testosterone pellets or stem cell therapy”).
+
+Class Action Exclusion (boolean): True if class actions are excluded under the policy.
+
+Hormone Therapy Exclusion (boolean): Explicitly excluded or not?
+
+Off-Label Use Exclusion (boolean): Does the policy exclude off-label prescribing?
+
+Sexual Misconduct (text): Is defense-only provided, or fully excluded?
+
+Prior Acts Coverage (text): Scope of prior acts protection and limitations.
+
+Licensing Actions (boolean): Are licensing board investigations covered?
+
+Fraud or Criminal Acts (text): Exclusion language and any defense carve-outs.
+
+Cyber Liability Extension (boolean): Are HIPAA or data breach issues covered?
+
+Class Action Exclusion (boolean): Are class-action suits explicitly excluded?
+
+🏢 Risk Structure & Operational Coverage
+Shared Limits (boolean): Are coverage limits shared across providers or sites?
+
+Vicarious Liability for Staff (boolean): Are employees and agents covered?
+
+Incident Reporting Window (text): Timeframe for reporting incidents under the policy.
+
+🧾 Output Format (Structured JSON)
+json
+Copy
+Edit
+{
+  "policy_name": "MenHRT_MedMal2025.pdf",
+  "status": "Reviewed",
+  "medical_malpractice": {
+    "required": true,
+    "limit": 1000000,
+    "per_claim_limit": 500000,
+    "aggregate_limit": 1000000,
+    "effective_date": "2025-01-01",
+    "expiration_date": "2026-01-01",
+    "retroactive_date": "2022-01-01",
+    "named_insured": "Men's Health Group LLC",
+    "named_insured_address": "456 Hormone Ave, Scottsdale, AZ",
+    "claims_made": true,
+    "extended_reporting_period": "2 years tail included",
+    "defense_costs": "Outside limits",
+    "consent_to_settle": "Capped hammer clause at 70%",
+    "testosterone_therapy": true,
+    "aesthetic_procedures": "Botox, PRP, microneedling covered; hair transplants excluded",
+    "weight_loss_medications": "Semaglutide and phentermine included with FDA protocol",
+    "telemedicine": true,
+    "controlled_substances": "Covered if administered per state regulation",
+    "medical_director_coverage": true,
+    "independent_contractors": false,
+    "specified_treatment_exclusion": "Excludes stem cell therapy and platelet-rich plasma spinal injections",
+    "class_action_exclusion": true,
+    "hormone_therapy_exclusion": false,
+    "off_label_use_exclusion": true,
+    "sexual_misconduct": "Defense only until final adjudication",
+    "prior_acts_coverage": "Unlimited prior acts covered",
+    "licensing_actions": true,
+    "fraud_or_criminal_acts": "Excluded unless found not guilty",
+    "cyber_liability_extension": true,
+    "shared_limits": false,
+    "vicarious_liability_for_staff": true,
+    "incident_reporting_window": "Must report within 30 days of knowledge"
+  },
+  "coverage_gaps": [
+    {
+      "field": "independent_contractors",
+      "benchmark_value": "true",
+      "extracted_value": "false",
+      "reason_for_gap": "Policy excludes 1099 providers unless specifically endorsed"
+    }
+  ],
+  "source_text": {
+    "defense_costs": "‘Insurer shall pay defense costs outside the limits of liability.’",
+    "specified_treatment_exclusion": "‘Excludes any liability arising from stem cell or regenerative therapies.’",
+    "class_action_exclusion": "‘This policy excludes class action claims in their entirety.’"
+    // Additional field citations...
+  }
+}
