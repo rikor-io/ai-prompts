@@ -61,15 +61,19 @@ Medical Director Coverage (boolean): Is the medical director a named insured or 
 Independent Contractors (boolean): Are NPs, PAs, or MDs classified as 1099s explicitly covered?
 
 🔒 Key Exclusions & Legal Limitations
-Specified Treatment Exclusion (text): Identify and summarize any exclusions tied to certain services (e.g., “no coverage for testosterone pellets or stem cell therapy”).
+Specified Treatment Exclusion (text): Identify and summarize *all* specific treatments explicitly excluded by the policy. If no specific treatments are listed as excluded, state "No specific treatments explicitly excluded."
 
-Class Action Exclusion (boolean): True if class actions are excluded under the policy.
+Specified Procedures Limitation Endorsement (text): Extract the full text or a comprehensive summary of any specified procedures limitation endorsement present in the policy, regardless of the insurer. If no such endorsement is found, state "N/A".
+
+Class Action Exclusion (text): State if this exclusion exists. If it exists, provide details on any sublimit or specific conditions (e.g., "Yes, excluded with a $250k sublimit" or "Yes, fully excluded"). If it does not exist, state "No".
 
 Hormone Therapy Exclusion (boolean): Explicitly excluded or not?
 
 Off-Label Use Exclusion (boolean): Does the policy exclude off-label prescribing?
 
 Sexual Misconduct (text): Is defense-only provided, or fully excluded?
+
+Sexual Abuse and Molestation (text): State if coverage is available. If so, specify the limit (e.g., "Covered with a $100k sublimit" or "Defense only, no indemnity"). If not available, state "Not covered."
 
 Prior Acts Coverage (text): Scope of prior acts protection and limitations.
 
@@ -79,8 +83,6 @@ Fraud or Criminal Acts (text): Exclusion language and any defense carve-outs.
 
 Cyber Liability Extension (boolean): Are HIPAA or data breach issues covered?
 
-Class Action Exclusion (boolean): Are class-action suits explicitly excluded?
-
 🏢 Risk Structure & Operational Coverage
 Shared Limits (boolean): Are coverage limits shared across providers or sites?
 
@@ -89,9 +91,7 @@ Vicarious Liability for Staff (boolean): Are employees and agents covered?
 Incident Reporting Window (text): Timeframe for reporting incidents under the policy.
 
 🧾 Output Format (Structured JSON)
-json
-Copy
-Edit
+```json
 {
   "policy_name": "MenHRT_MedMal2025.pdf",
   "status": "Reviewed",
@@ -116,11 +116,13 @@ Edit
     "controlled_substances": "Covered if administered per state regulation",
     "medical_director_coverage": true,
     "independent_contractors": false,
-    "specified_treatment_exclusion": "Excludes stem cell therapy and platelet-rich plasma spinal injections",
-    "class_action_exclusion": true,
+    "specified_treatment_exclusion": "Excludes stem cell therapy and platelet-rich plasma spinal injections.",
+    "specified_procedures_limitation_endorsement": "This policy excludes coverage for any liability arising from surgical procedures requiring general anesthesia or inpatient hospitalization.",
+    "class_action_exclusion": "Yes, excluded with a $250k sublimit from Canopy.",
     "hormone_therapy_exclusion": false,
     "off_label_use_exclusion": true,
     "sexual_misconduct": "Defense only until final adjudication",
+    "sexual_abuse_molestation": "Covered with a $100k sublimit for defense and indemnity.",
     "prior_acts_coverage": "Unlimited prior acts covered",
     "licensing_actions": true,
     "fraud_or_criminal_acts": "Excluded unless found not guilty",
@@ -139,8 +141,10 @@ Edit
   ],
   "source_text": {
     "defense_costs": "‘Insurer shall pay defense costs outside the limits of liability.’",
-    "specified_treatment_exclusion": "‘Excludes any liability arising from stem cell or regenerative therapies.’",
-    "class_action_exclusion": "‘This policy excludes class action claims in their entirety.’"
+    "specified_treatment_exclusion": "‘This policy does not apply to any claim arising out of or in connection with stem cell or regenerative therapies.’",
+    "specified_procedures_limitation_endorsement": "‘Notwithstanding anything to the contrary, coverage under this policy shall not apply to any claim arising out of or in connection with procedures performed under general anesthesia or requiring an overnight stay in a medical facility.’",
+    "class_action_exclusion": "‘This policy excludes class action claims. However, in the event of a class action claim, a sublimit of $250,000 for defense costs will be provided by Canopy.’",
+    "sexual_abuse_molestation": "‘Coverage for claims of sexual abuse or molestation is provided up to a sublimit of $100,000, which applies to both defense costs and indemnity payments.’"
     // Additional field citations...
   }
 }
