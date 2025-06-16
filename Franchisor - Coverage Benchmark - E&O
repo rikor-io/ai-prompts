@@ -32,7 +32,7 @@
         "pre_existing_claims_coverage": "Retroactive date with clear prior acts coverage.",
         "bodily_injury_property_damage": "Covered under carve-outs tied to franchisor services.",
         "pollution_exclusion": "Standard, but with carve-outs for professional services.",
-        "intellectual_property": "Covered unless tied to willful infringement.",
+        "intellectual_property": "Common exclusion.",
         "contractual_liability": "Covered if liability exists independently of the contract.",
         "mismanagement_oversight": true,
         "ftc_violations": "Silent or favorably interpreted under wrongful acts.",
