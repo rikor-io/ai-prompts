@@ -51,13 +51,14 @@
             {"field_name": "sexual_abuse_molestation", "type": "text", "description": "State if coverage is available. If so, specify the limit (e.g., \"Covered with a $100k sublimit\" or \"Defense only, no indemnity\"). If not available, state \"Not covered.\""},
             {"field_name": "prior_acts_coverage", "type": "text", "description": "Scope of prior acts protection and limitations."},
             {"field_name": "licensing_actions", "type": "boolean", "description": "Are licensing board investigations covered?"},
-            {"field_name": "fraud_or_criminal_acts", "type": "text", "description": "Exclusion language and any defense carve-outs."},
+            {"field_name": "fraud_or_criminal_acts", "type": "text", "description": "Exclusion language and any defense carve-outs. (e.g., 'Excluded unless found not guilty' or 'Defense only until conviction')."},
             {"field_name": "cyber_liability_extension", "type": "boolean", "description": "Are HIPAA or data breach issues covered?"}
           ],
           "risk_structure_operational_coverage": [
             {"field_name": "shared_limits", "type": "boolean", "description": "Are coverage limits shared across providers or sites?"},
             {"field_name": "vicarious_liability_for_staff", "type": "boolean", "description": "Are employees and agents covered?"},
-            {"field_name": "incident_reporting_window", "type": "text", "description": "Timeframe for reporting incidents under the policy."}
+            {"field_name": "incident_reporting_window", "type": "text", "description": "Timeframe for reporting incidents under the policy (e.g., '30 days', '60 days', 'as soon as practicable')."},
+            {"field_name": "other_insurance_clause", "type": "text", "description": "Summarize the 'Other Insurance' clause. State if it is 'Excess', 'Pro-rata', 'Primary', or 'N/A' if not found. Prioritize 'Excess' if present."}
           ]
         }
       }
@@ -100,7 +101,8 @@
         "cyber_liability_extension": true,
         "shared_limits": false,
         "vicarious_liability_for_staff": true,
-        "incident_reporting_window": "Must report within 30 days of knowledge"
+        "incident_reporting_window": "Must report within 30 days of knowledge",
+        "other_insurance_clause": "Excess"
       },
       "coverage_gaps": [
         {
@@ -116,7 +118,8 @@
         "specified_procedures_limitation_endorsement": "‘Notwithstanding anything to the contrary, coverage under this policy shall not apply to any claim arising out of or in connection with procedures performed under general anesthesia or requiring an overnight stay in a medical facility.’",
         "class_action_exclusion": "‘This policy excludes class action claims. However, in the event of a class action claim, a sublimit of $250,000 for defense costs will be provided by Canopy.’",
         "sexual_abuse_molestation": "‘Coverage for claims of sexual abuse or molestation is provided up to a sublimit of $100,000, which applies to both defense costs and indemnity payments.’",
-        "bodily_injury_definition": "‘“Bodily Injury” means bodily injury, sickness, disease, or death sustained by any person, including mental anguish or shock resulting therefrom.’"
+        "bodily_injury_definition": "‘“Bodily Injury” means bodily injury, sickness, disease, or death sustained by any person, including mental anguish or shock resulting therefrom.’",
+        "other_insurance_clause": "‘This insurance is excess over any other valid and collectible insurance.’"
       }
     }
   }
