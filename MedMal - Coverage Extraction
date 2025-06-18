@@ -1,150 +1,123 @@
-Objective
-Extract all relevant Medical Malpractice (MedMal) insurance policy details for HRT clinics to enable risk evaluation and benchmark comparison, with attention to specialized exclusions and coverage risks common to the industry.
-
-📥 Input
-A list of all uploaded MedMal insurance policies issued for men’s hormone clinics or related providers in the health and wellness space.
-
-✅ Task
-1️⃣ Document Review and Verification
-Log each uploaded document name (e.g., "MenHRT_Malpractice_2025.pdf").
-
-Mark each document as "Reviewed" after MedMal extraction is complete.
-
-Flag as "Incomplete" if MedMal is missing, redacted, or unverifiable.
-
-2️⃣ Extract MedMal Policy Details (for Benchmark Evaluation)
-Note: If a field is not explicitly found, return "N/A" and flag it as a potential gap if marked as required.
-
-🔔 Boolean Field Instruction:
-If a general coverage statement is followed by a negation or restriction via endorsement, the field should reflect the most restrictive interpretation (i.e., exclusions override general statements).
-
-🏷️ Core Policy Metadata
-Required (boolean): Is MedMal coverage explicitly present?
-
-Limit of Liability (number): Total liability limit for the policy.
-
-Per Claim Limit (number): Per-occurrence liability cap.
-
-Aggregate Limit (number): Annual coverage limit.
-
-Effective Date (date): Policy start date.
-
-Expiration Date (date): Policy end date.
-
-Retroactive Date (date): Retroactive coverage start.
-
-Named Insured (text): Legal name of covered entity.
-
-Named Insured Address (text): Full business address.
-
-Claims-Made (boolean): True if claims-made, false if occurrence.
-
-Extended Reporting Period (text): Tail coverage terms.
-
-Defense Costs (text): Explicitly state whether costs are "Inside limits," "Outside limits," or "Split."
-
-Consent to Settle (text): Summary of any hammer clause or consent language.
-
-⚠️ Clinical Coverage Scope
-Testosterone Therapy (boolean): Is HRT/testosterone treatment explicitly covered?
-
-Aesthetic Procedures (text): Summary of whether Botox, PRP, hair restoration, etc., are covered or excluded.
-
-Weight Loss Medications (text): Terms for GLP-1s, phentermine, or others.
-
-Telemedicine (boolean): Is remote treatment or prescribing covered?
-
-Controlled Substances (text): Coverage or exclusions for testosterone, HCG, peptides, etc.
-
-Medical Director Coverage (boolean): Is the medical director a named insured or covered via endorsement?
-
-Independent Contractors (boolean): Are NPs, PAs, or MDs classified as 1099s explicitly covered?
-
-🔒 Key Exclusions & Legal Limitations
-Specified Treatment Exclusion (text): Identify and summarize *all* specific treatments explicitly excluded by the policy. If no specific treatments are listed as excluded, state "No specific treatments explicitly excluded."
-
-Specified Procedures Limitation Endorsement (text): Extract the full text or a comprehensive summary of any specified procedures limitation endorsement present in the policy, regardless of the insurer. If no such endorsement is found, state "N/A".
-
-Class Action Exclusion (text): State if this exclusion exists. If it exists, provide details on any sublimit or specific conditions (e.g., "Yes, excluded with a $250k sublimit" or "Yes, fully excluded"). If it does not exist, state "No".
-
-Hormone Therapy Exclusion (boolean): Explicitly excluded or not?
-
-Off-Label Use Exclusion (boolean): Does the policy exclude off-label prescribing?
-
-Sexual Misconduct (text): Is defense-only provided, or fully excluded?
-
-Sexual Abuse and Molestation (text): State if coverage is available. If so, specify the limit (e.g., "Covered with a $100k sublimit" or "Defense only, no indemnity"). If not available, state "Not covered."
-
-Prior Acts Coverage (text): Scope of prior acts protection and limitations.
-
-Licensing Actions (boolean): Are licensing board investigations covered?
-
-Fraud or Criminal Acts (text): Exclusion language and any defense carve-outs.
-
-Cyber Liability Extension (boolean): Are HIPAA or data breach issues covered?
-
-🏢 Risk Structure & Operational Coverage
-Shared Limits (boolean): Are coverage limits shared across providers or sites?
-
-Vicarious Liability for Staff (boolean): Are employees and agents covered?
-
-Incident Reporting Window (text): Timeframe for reporting incidents under the policy.
-
-🧾 Output Format (Structured JSON)
-```json
 {
-  "policy_name": "MenHRT_MedMal2025.pdf",
-  "status": "Reviewed",
-  "medical_malpractice": {
-    "required": true,
-    "limit": 1000000,
-    "per_claim_limit": 500000,
-    "aggregate_limit": 1000000,
-    "effective_date": "2025-01-01",
-    "expiration_date": "2026-01-01",
-    "retroactive_date": "2022-01-01",
-    "named_insured": "Men's Health Group LLC",
-    "named_insured_address": "456 Hormone Ave, Scottsdale, AZ",
-    "claims_made": true,
-    "extended_reporting_period": "2 years tail included",
-    "defense_costs": "Outside limits",
-    "consent_to_settle": "Capped hammer clause at 70%",
-    "testosterone_therapy": true,
-    "aesthetic_procedures": "Botox, PRP, microneedling covered; hair transplants excluded",
-    "weight_loss_medications": "Semaglutide and phentermine included with FDA protocol",
-    "telemedicine": true,
-    "controlled_substances": "Covered if administered per state regulation",
-    "medical_director_coverage": true,
-    "independent_contractors": false,
-    "specified_treatment_exclusion": "Excludes stem cell therapy and platelet-rich plasma spinal injections.",
-    "specified_procedures_limitation_endorsement": "This policy excludes coverage for any liability arising from surgical procedures requiring general anesthesia or inpatient hospitalization.",
-    "class_action_exclusion": "Yes, excluded with a $250k sublimit from Canopy.",
-    "hormone_therapy_exclusion": false,
-    "off_label_use_exclusion": true,
-    "sexual_misconduct": "Defense only until final adjudication",
-    "sexual_abuse_molestation": "Covered with a $100k sublimit for defense and indemnity.",
-    "prior_acts_coverage": "Unlimited prior acts covered",
-    "licensing_actions": true,
-    "fraud_or_criminal_acts": "Excluded unless found not guilty",
-    "cyber_liability_extension": true,
-    "shared_limits": false,
-    "vicarious_liability_for_staff": true,
-    "incident_reporting_window": "Must report within 30 days of knowledge"
-  },
-  "coverage_gaps": [
-    {
-      "field": "independent_contractors",
-      "benchmark_value": "true",
-      "extracted_value": "false",
-      "reason_for_gap": "Policy excludes 1099 providers unless specifically endorsed"
+  "prompt_details": {
+    "objective": "Extract all relevant Medical Malpractice (MedMal) insurance policy details for HRT clinics to enable risk evaluation and benchmark comparison, with attention to specialized exclusions and coverage risks common to the industry, including the specific definition of \"Bodily Injury.\"",
+    "input_description": "A list of all uploaded MedMal insurance policies issued for men’s hormone clinics or related providers in the health and wellness space.",
+    "task_sections": [
+      {
+        "section_name": "Document Review and Verification",
+        "instructions": [
+          "Log each uploaded document name (e.g., \"MenHRT_Malpractice_2025.pdf\").",
+          "Mark each document as \"Reviewed\" after MedMal extraction is complete.",
+          "Flag as \"Incomplete\" if MedMal is missing, redacted, or unverifiable."
+        ]
+      },
+      {
+        "section_name": "Extract MedMal Policy Details (for Benchmark Evaluation)",
+        "notes": "If a field is not explicitly found, return \"N/A\" and flag it as a potential gap if marked as required.",
+        "boolean_field_instruction": "If a general coverage statement is followed by a negation or restriction via endorsement, the field should reflect the most restrictive interpretation (i.e., exclusions override general statements).",
+        "fields": {
+          "core_policy_metadata": [
+            {"field_name": "required", "type": "boolean", "description": "Is MedMal coverage explicitly present?"},
+            {"field_name": "limit", "type": "number", "description": "Total liability limit for the policy."},
+            {"field_name": "per_claim_limit", "type": "number", "description": "Per-occurrence liability cap."},
+            {"field_name": "aggregate_limit", "type": "number", "description": "Annual coverage limit."},
+            {"field_name": "effective_date", "type": "date", "description": "Policy start date."},
+            {"field_name": "expiration_date", "type": "date", "description": "Policy end date."},
+            {"field_name": "retroactive_date", "type": "date", "description": "Retroactive coverage start."},
+            {"field_name": "named_insured", "type": "text", "description": "Legal name of covered entity."},
+            {"field_name": "named_insured_address", "type": "text", "description": "Full business address."},
+            {"field_name": "claims_made", "type": "boolean", "description": "True if claims-made, false if occurrence."},
+            {"field_name": "extended_reporting_period", "type": "text", "description": "Tail coverage terms."},
+            {"field_name": "defense_costs", "type": "text", "description": "Explicitly state whether costs are \"Inside limits,\" \"Outside limits,\" or \"Split.\""},
+            {"field_name": "consent_to_settle", "type": "text", "description": "Summary of any hammer clause or consent language."},
+            {"field_name": "bodily_injury_definition", "type": "text", "description": "Extract the complete definition of \"Bodily Injury\" as stated in the policy. If no explicit definition is found, state \"Not explicitly defined.\""}
+          ],
+          "clinical_coverage_scope": [
+            {"field_name": "testosterone_therapy", "type": "boolean", "description": "Is HRT/testosterone treatment explicitly covered?"},
+            {"field_name": "aesthetic_procedures", "type": "text", "description": "Summary of whether Botox, PRP, hair restoration, etc., are covered or excluded."},
+            {"field_name": "weight_loss_medications", "type": "text", "description": "Terms for GLP-1s, phentermine, or others."},
+            {"field_name": "telemedicine", "type": "boolean", "description": "Is remote treatment or prescribing covered?"},
+            {"field_name": "controlled_substances", "type": "text", "description": "Coverage or exclusions for testosterone, HCG, peptides, etc."},
+            {"field_name": "medical_director_coverage", "type": "boolean", "description": "Is the medical director a named insured or covered via endorsement?"},
+            {"field_name": "independent_contractors", "type": "boolean", "description": "Are NPs, PAs, or MDs classified as 1099s explicitly covered?"}
+          ],
+          "key_exclusions_legal_limitations": [
+            {"field_name": "specified_treatment_exclusion", "type": "text", "description": "Identify and summarize *all* specific treatments explicitly excluded by the policy. If no specific treatments are listed as excluded, state \"No specific treatments explicitly excluded.\""},
+            {"field_name": "specified_procedures_limitation_endorsement", "type": "text", "description": "Extract the full text or a comprehensive summary of any specified procedures limitation endorsement present in the policy, regardless of the insurer. If no such endorsement is found, state \"N/A\"."},
+            {"field_name": "class_action_exclusion", "type": "text", "description": "State if this exclusion exists. If it exists, provide details on any sublimit or specific conditions (e.g., \"Yes, excluded with a $250k sublimit\" or \"Yes, fully excluded\"). If it does not exist, state \"No\"."},
+            {"field_name": "hormone_therapy_exclusion", "type": "boolean", "description": "Explicitly excluded or not?"},
+            {"field_name": "off_label_use_exclusion", "type": "boolean", "description": "Does the policy exclude off-label prescribing?"},
+            {"field_name": "sexual_misconduct", "type": "text", "description": "Is defense-only provided, or fully excluded?"},
+            {"field_name": "sexual_abuse_molestation", "type": "text", "description": "State if coverage is available. If so, specify the limit (e.g., \"Covered with a $100k sublimit\" or \"Defense only, no indemnity\"). If not available, state \"Not covered.\""},
+            {"field_name": "prior_acts_coverage", "type": "text", "description": "Scope of prior acts protection and limitations."},
+            {"field_name": "licensing_actions", "type": "boolean", "description": "Are licensing board investigations covered?"},
+            {"field_name": "fraud_or_criminal_acts", "type": "text", "description": "Exclusion language and any defense carve-outs."},
+            {"field_name": "cyber_liability_extension", "type": "boolean", "description": "Are HIPAA or data breach issues covered?"}
+          ],
+          "risk_structure_operational_coverage": [
+            {"field_name": "shared_limits", "type": "boolean", "description": "Are coverage limits shared across providers or sites?"},
+            {"field_name": "vicarious_liability_for_staff", "type": "boolean", "description": "Are employees and agents covered?"},
+            {"field_name": "incident_reporting_window", "type": "text", "description": "Timeframe for reporting incidents under the policy."}
+          ]
+        }
+      }
+    ],
+    "output_format_example": {
+      "policy_name": "MenHRT_MedMal2025.pdf",
+      "status": "Reviewed",
+      "medical_malpractice": {
+        "required": true,
+        "limit": 1000000,
+        "per_claim_limit": 500000,
+        "aggregate_limit": 1000000,
+        "effective_date": "2025-01-01",
+        "expiration_date": "2026-01-01",
+        "retroactive_date": "2022-01-01",
+        "named_insured": "Men's Health Group LLC",
+        "named_insured_address": "456 Hormone Ave, Scottsdale, AZ",
+        "claims_made": true,
+        "extended_reporting_period": "2 years tail included",
+        "defense_costs": "Outside limits",
+        "consent_to_settle": "Capped hammer clause at 70%",
+        "bodily_injury_definition": "'Bodily Injury' means bodily injury, sickness, disease, or death sustained by any person, including mental anguish or shock resulting therefrom.",
+        "testosterone_therapy": true,
+        "aesthetic_procedures": "Botox, PRP, microneedling covered; hair transplants excluded",
+        "weight_loss_medications": "Semaglutide and phentermine included with FDA protocol",
+        "telemedicine": true,
+        "controlled_substances": "Covered if administered per state regulation",
+        "medical_director_coverage": true,
+        "independent_contractors": false,
+        "specified_treatment_exclusion": "Excludes stem cell therapy and platelet-rich plasma spinal injections.",
+        "specified_procedures_limitation_endorsement": "This policy excludes coverage for any liability arising from surgical procedures requiring general anesthesia or inpatient hospitalization.",
+        "class_action_exclusion": "Yes, excluded with a $250k sublimit from Canopy.",
+        "hormone_therapy_exclusion": false,
+        "off_label_use_exclusion": true,
+        "sexual_misconduct": "Defense only until final adjudication",
+        "sexual_abuse_molestation": "Covered with a $100k sublimit for defense and indemnity.",
+        "prior_acts_coverage": "Unlimited prior acts covered",
+        "licensing_actions": true,
+        "fraud_or_criminal_acts": "Excluded unless found not guilty",
+        "cyber_liability_extension": true,
+        "shared_limits": false,
+        "vicarious_liability_for_staff": true,
+        "incident_reporting_window": "Must report within 30 days of knowledge"
+      },
+      "coverage_gaps": [
+        {
+          "field": "independent_contractors",
+          "benchmark_value": "true",
+          "extracted_value": "false",
+          "reason_for_gap": "Policy excludes 1099 providers unless specifically endorsed"
+        }
+      ],
+      "source_text": {
+        "defense_costs": "‘Insurer shall pay defense costs outside the limits of liability.’",
+        "specified_treatment_exclusion": "‘This policy does not apply to any claim arising out of or in connection with stem cell or regenerative therapies.’",
+        "specified_procedures_limitation_endorsement": "‘Notwithstanding anything to the contrary, coverage under this policy shall not apply to any claim arising out of or in connection with procedures performed under general anesthesia or requiring an overnight stay in a medical facility.’",
+        "class_action_exclusion": "‘This policy excludes class action claims. However, in the event of a class action claim, a sublimit of $250,000 for defense costs will be provided by Canopy.’",
+        "sexual_abuse_molestation": "‘Coverage for claims of sexual abuse or molestation is provided up to a sublimit of $100,000, which applies to both defense costs and indemnity payments.’",
+        "bodily_injury_definition": "‘“Bodily Injury” means bodily injury, sickness, disease, or death sustained by any person, including mental anguish or shock resulting therefrom.’"
+      }
     }
-  ],
-  "source_text": {
-    "defense_costs": "‘Insurer shall pay defense costs outside the limits of liability.’",
-    "specified_treatment_exclusion": "‘This policy does not apply to any claim arising out of or in connection with stem cell or regenerative therapies.’",
-    "specified_procedures_limitation_endorsement": "‘Notwithstanding anything to the contrary, coverage under this policy shall not apply to any claim arising out of or in connection with procedures performed under general anesthesia or requiring an overnight stay in a medical facility.’",
-    "class_action_exclusion": "‘This policy excludes class action claims. However, in the event of a class action claim, a sublimit of $250,000 for defense costs will be provided by Canopy.’",
-    "sexual_abuse_molestation": "‘Coverage for claims of sexual abuse or molestation is provided up to a sublimit of $100,000, which applies to both defense costs and indemnity payments.’"
-    // Additional field citations...
   }
 }
