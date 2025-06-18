@@ -1,216 +1,192 @@
-Medical Malpractice Policy Benchmark Comparison & Analysis
-This document is designed to compare an existing or proposed Medical Malpractice policy's coverages against our established benchmark for men's health clinics. The goal is to provide a clear, easy-to-digest comparison table and a concise synopsis for prospective customers, highlighting areas of strength and potential gaps.
-
-1. Input for Comparison
-To generate the comparison, please provide the extracted policy details (from the policy you wish to compare) in the same JSON format as our benchmark policy. Once you provide this, I can populate the comparison table and generate the analysis.
-
-Example Input Structure (replace with your actual extracted policy data):
-
 {
-  "policy_name": "Prospective_Customer_Policy_2025.pdf",
-  "status": "Extracted",
-  "medical_malpractice": {
-    "required": true,
-    "limit": 1000000,
-    "per_claim_limit": 500000,
-    "aggregate_limit": 1000000,
-    "effective_date": "2025-03-01",
-    "expiration_date": "2026-03-01",
-    "retroactive_date": "2020-01-01",
-    "named_insured": "Example Client Clinic Inc.",
-    "named_insured_address": "789 Wellness Way, Townsville, State, ZIP",
-    "claims_made": true,
-    "extended_reporting_period": "2 years tail available at additional cost.",
-    "defense_costs": "Inside limits",
-    "consent_to_settle": "Hammer clause applies if settlement offer within 80% of limit.",
-    "testosterone_therapy": true,
-    "aesthetic_procedures": "Botox, PRP covered; hair restoration excluded.",
-    "weight_loss_medications": "Semaglutide covered with strict protocol.",
-    "telemedicine": true,
-    "controlled_substances": "Covered if state compliant, but excludes specific peptides.",
-    "medical_director_coverage": false,
-    "independent_contractors": false,
-    "specified_treatment_exclusion": "Excludes stem cell therapy and certain cosmetic injectables.",
-    "specified_procedures_limitation_endorsement": "Excludes all invasive surgical procedures.",
-    "class_action_exclusion": "Yes, fully excluded.",
-    "hormone_therapy_exclusion": false,
-    "off_label_use_exclusion": true,
-    "sexual_misconduct": "Defense only until final adjudication.",
-    "sexual_abuse_molestation": "Not covered.",
-    "prior_acts_coverage": "5 years prior acts covered.",
-    "licensing_actions": false,
-    "fraud_or_criminal_acts": "Fully excluded.",
-    "shared_limits": true,
-    "vicarious_liability_for_staff": true,
-    "incident_reporting_window": "Must report within 15 days of knowledge."
-  },
-  "coverage_gaps": [],
-  "source_text": {}
+  "benchmark_details": {
+    "title": "Medical Malpractice Policy Benchmark Comparison & Analysis",
+    "purpose": "This document is designed to compare an existing or proposed Medical Malpractice policy's coverages against our established benchmark for men's health clinics. The goal is to provide a clear, easy-to-digest comparison table and a concise synopsis for prospective customers, highlighting areas of strength and potential gaps.",
+    "input_instructions": {
+      "description": "To generate the comparison, please provide the extracted policy details (from the policy you wish to compare) in the same JSON format as our benchmark policy. Once you provide this, I can populate the comparison table and generate the analysis.",
+      "example_input_structure": {
+        "policy_name": "Prospective_Customer_Policy_2025.pdf",
+        "status": "Extracted",
+        "medical_malpractice": {
+          "required": true,
+          "limit": 1000000,
+          "per_claim_limit": 500000,
+          "aggregate_limit": 1000000,
+          "effective_date": "2025-03-01",
+          "expiration_date": "2026-03-01",
+          "retroactive_date": "2020-01-01",
+          "named_insured": "Example Client Clinic Inc.",
+          "named_insured_address": "789 Wellness Way, Townsville, State, ZIP",
+          "claims_made": true,
+          "extended_reporting_period": "2 years tail available at additional cost.",
+          "defense_costs": "Inside limits",
+          "consent_to_settle": "Hammer clause applies if settlement offer within 80% of limit.",
+          "bodily_injury_definition": "'Bodily Injury' means bodily injury, sickness, disease, or death sustained by any person.",
+          "testosterone_therapy": true,
+          "aesthetic_procedures": "Botox, PRP covered; hair restoration excluded.",
+          "weight_loss_medications": "Semaglutide covered with strict protocol.",
+          "telemedicine": true,
+          "controlled_substances": "Covered if state compliant, but excludes specific peptides.",
+          "medical_director_coverage": false,
+          "independent_contractors": false,
+          "specified_treatment_exclusion": "Excludes stem cell therapy and certain cosmetic injectables.",
+          "specified_procedures_limitation_endorsement": "Excludes all invasive surgical procedures.",
+          "class_action_exclusion": "Yes, fully excluded.",
+          "hormone_therapy_exclusion": false,
+          "off_label_use_exclusion": true,
+          "sexual_misconduct": "Defense only until final adjudication.",
+          "sexual_abuse_molestation": "Not covered.",
+          "prior_acts_coverage": "5 years prior acts covered.",
+          "licensing_actions": false,
+          "fraud_or_criminal_acts": "Fully excluded.",
+          "cyber_liability_extension": false,
+          "shared_limits": true,
+          "vicarious_liability_for_staff": true,
+          "incident_reporting_window": "Must report within 15 days of knowledge.",
+          "other_insurance_clause": "Primary"
+        },
+        "coverage_gaps": [],
+        "source_text": {}
+      }
+    },
+    "comparison_table_structure": {
+      "description": "Once you provide the extracted policy data, this section will be populated with a clear, side-by-side comparison. It will highlight how the prospective policy measures up against our ideal benchmark. The table should be generated as a list of feature objects, each containing the 'feature_name', 'benchmark_value', 'prospective_policy_placeholder', and 'notes_impact'.",
+      "features": [
+        {
+          "feature_name": "Limit of Liability",
+          "benchmark_value": "$3,000,000",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Critical for catastrophic claims."
+        },
+        {
+          "feature_name": "Per Claim Limit",
+          "benchmark_value": "$1,000,000",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Per incident exposure."
+        },
+        {
+          "feature_name": "Aggregate Limit",
+          "benchmark_value": "$3,000,000",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Annual maximum payout."
+        },
+        {
+          "feature_name": "Defense Costs",
+          "benchmark_value": "Outside limits",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Outside limits is highly preferable; protects indemnity."
+        },
+        {
+          "feature_name": "Retroactive Date",
+          "benchmark_value": "Unlimited prior acts",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Unlimited is ideal for long-term protection."
+        },
+        {
+          "feature_name": "Bodily Injury Definition",
+          "benchmark_value": "Broadly includes physical injury, sickness, disease, death, and specifically covers shock, emotional, mental, or psychological distress, injury, or trauma, even without prior physical injury.",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "A broad definition is crucial for claims stemming from non-physical harm, such as emotional distress from misdiagnosis or negligent care, common in sensitive healthcare areas."
+        },
+        {
+          "feature_name": "Medical Director Coverage",
+          "benchmark_value": "True (incl. offsite)",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Crucial for clinics with supervisory medical directors."
+        },
+        {
+          "feature_name": "Independent Contractors",
+          "benchmark_value": "True",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Ensures all providers are covered."
+        },
+        {
+          "feature_name": "Telemedicine",
+          "benchmark_value": "True",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Essential for modern practice."
+        },
+        {
+          "feature_name": "Specified Treatment Excl.",
+          "benchmark_value": "No specific treatments excluded",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Indicates broad vs. limited coverage."
+        },
+        {
+          "feature_name": "Specified Procedures Endt.",
+          "benchmark_value": "N/A",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Identify any restrictions on procedures."
+        },
+        {
+          "feature_name": "Class Action Exclusion",
+          "benchmark_value": "No / significant sublimit",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Absence or a sublimit is critical for large claims."
+        },
+        {
+          "feature_name": "Off-Label Use Exclusion",
+          "benchmark_value": "False",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Absence is vital for HRT/weight loss clinics."
+        },
+        {
+          "feature_name": "Sexual Abuse/Molestation",
+          "benchmark_value": "Covered w/ robust sublimit",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Addresses a significant and sensitive exposure."
+        },
+        {
+          "feature_name": "Fraud or Criminal Acts",
+          "benchmark_value": "Defense provided until final conviction; indemnity excluded.",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Policies vary; a benchmark providing defense until conviction offers better initial protection."
+        },
+        {
+          "feature_name": "Cyber Liability Extension",
+          "benchmark_value": "True",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Essential for modern practices dealing with patient data and HIPAA compliance."
+        },
+        {
+          "feature_name": "Other Insurance Clause",
+          "benchmark_value": "Excess",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Ensures policy acts as secondary coverage, preserving limits."
+        },
+        {
+          "feature_name": "Incident Reporting Window",
+          "benchmark_value": "Flexible (e.g., 60 days or more)",
+          "prospective_policy_placeholder": "[Your Input]",
+          "notes_impact": "Longer windows are highly advantageous for the insured, allowing more time to identify and report potential claims."
+        }
+      ]
+    },
+    "analysis_synopsis_template": {
+      "description": "This section will provide a concise, actionable summary of the prospective customer's policy strengths and weaknesses when measured against our ideal benchmark. It will be framed to help them understand the value of a comprehensive policy tailored to men's health clinics. The AI should fill in the bracketed placeholders based on the comparison.",
+      "template": [
+        "Dear [Prospective Customer Name],",
+        "We've reviewed your current Medical Malpractice policy against our benchmark for men's health clinics, which is designed to provide optimal protection for your unique services, including hormone therapy, telemedicine, and the involvement of offsite medical directors and independent contractors.",
+        "Strengths of Your Current Policy:",
+        "[List 1-2 key areas where their policy aligns well or exceeds the benchmark, e.g., 'Your policy includes strong limits for XYZ.']",
+        "[Highlight another positive aspect.]",
+        "Key Areas for Enhanced Protection (Compared to Benchmark):",
+        "Coverage Limits: [Explain if limits are lower and the implications.]",
+        "Defense Costs: [If inside limits, explain the benefit of \"outside limits\" coverage.]",
+        "Bodily Injury Definition: [If limited, explain the critical importance of coverage for emotional/mental distress claims, even without physical injury, which are increasingly common in medical malpractice.]",
+        "Medical Director & Independent Contractor Coverage: [If missing or limited, emphasize the importance of robust coverage for supervisory roles and 1099 staff.]",
+        "Specific Exclusions: [Detail any specific treatment, procedure, off-label use, or class action exclusions that our benchmark aims to avoid, and their potential impact.]",
+        "Sexual Abuse/Molestation: [If not covered or has insufficient limits, explain the enhanced protection our benchmark offers.]",
+        "Fraud or Criminal Acts: [If coverage is fully excluded even for defense, explain the benefit of a policy that provides defense until final conviction.]",
+        "Cyber Liability Extension: [If missing or false, explain the importance of coverage for HIPAA, data breaches, and other cyber-related risks in a digital healthcare environment.]",
+        "Retroactive Date / Tail Coverage: [If limited, explain the benefits of unlimited prior acts and favorable tail options.]",
+        "\"Other Insurance\" Clause: [Explain if their policy might not act as true excess, and the benefit of a clear excess clause.]",
+        "Our Benchmark Advantage:",
+        "Our benchmark policy is specifically crafted to address the comprehensive needs of men's health clinics, minimizing gaps and maximizing protection where it matters most. It ensures that critical aspects like your offsite medical directors, all healthcare providers, the specific treatments you offer, and a broad scope of potential 'bodily injury' claims (including those related to emotional or psychological distress) are robustly covered, often with defense costs that don't erode your primary indemnity limits. This proactive approach helps mitigate risks unique to your specialty and provides superior peace of mind.",
+        "We recommend reviewing these areas to ensure your practice has the most comprehensive and tailored protection available. We are ready to help you further analyze your current policy against these standards and discuss how to achieve optimal coverage."
+      ]
+    }
+  }
 }
 
-2. Comparison Table
-Once you provide the extracted policy data, this section will be populated with a clear, side-by-side comparison. It will highlight how the prospective policy measures up against our ideal benchmark.
 
-Feature
-
-Benchmark Policy
-
-Prospective Policy (to be input)
-
-Notes / Impact of Differences
-
-Limit of Liability
-
-$3,000,000
-
-[Your Input]
-
-Critical for catastrophic claims.
-
-Per Claim Limit
-
-$1,000,000
-
-[Your Input]
-
-Per incident exposure.
-
-Aggregate Limit
-
-$3,000,000
-
-[Your Input]
-
-Annual maximum payout.
-
-Defense Costs
-
-Outside limits
-
-[Your Input]
-
-Outside limits is highly preferable; protects indemnity.
-
-Retroactive Date
-
-Unlimited prior acts
-
-[Your Input]
-
-Unlimited is ideal for long-term protection.
-
-Medical Director Coverage
-
-True (incl. offsite)
-
-[Your Input]
-
-Crucial for clinics with supervisory medical directors.
-
-Independent Contractors
-
-True
-
-[Your Input]
-
-Ensures all providers are covered.
-
-Telemedicine
-
-True
-
-[Your Input]
-
-Essential for modern practice.
-
-Specified Treatment Excl.
-
-No specific treatments excluded
-
-[Your Input]
-
-Indicates broad vs. limited coverage.
-
-Specified Procedures Endt.
-
-N/A
-
-[Your Input]
-
-Identify any restrictions on procedures.
-
-Class Action Exclusion
-
-No / significant sublimit
-
-[Your Input]
-
-Absence or a sublimit is critical for large claims.
-
-Off-Label Use Exclusion
-
-False
-
-[Your Input]
-
-Absence is vital for HRT/weight loss clinics.
-
-Sexual Abuse/Molestation
-
-Covered w/ robust sublimit
-
-[Your Input]
-
-Addresses a significant and sensitive exposure.
-
-Other Insurance Clause
-
-Excess
-
-[Your Input]
-
-Ensures policy acts as secondary coverage.
-
-Incident Reporting Window
-
-Flexible (e.g., 60 days)
-
-[Your Input]
-
-Longer windows are better for the insured.
-
-3. Benchmark Analysis Synopsis for Prospective Customer
-This section will provide a concise, actionable summary of the prospective customer's policy strengths and weaknesses when measured against our ideal benchmark. It will be framed to help them understand the value of a comprehensive policy tailored to men's health clinics.
-
-Synopsis Template (to be generated after input):
-
-"Dear [Prospective Customer Name],
-
-We've reviewed your current Medical Malpractice policy against our benchmark for men's health clinics, which is designed to provide optimal protection for your unique services, including hormone therapy, telemedicine, and the involvement of offsite medical directors and independent contractors.
-
-Strengths of Your Current Policy:
-
-[List 1-2 key areas where their policy aligns well or exceeds the benchmark, e.g., "Your policy includes strong limits for XYZ."]
-
-[Highlight another positive aspect.]
-
-Key Areas for Enhanced Protection (Compared to Benchmark):
-
-Coverage Limits: [Explain if limits are lower and the implications.]
-
-Defense Costs: [If inside limits, explain the benefit of "outside limits" coverage.]
-
-Medical Director & Independent Contractor Coverage: [If missing or limited, emphasize the importance of robust coverage for supervisory roles and 1099 staff.]
-
-Specific Exclusions: [Detail any specific treatment, procedure, off-label use, or class action exclusions that our benchmark aims to avoid, and their potential impact.]
-
-Sexual Abuse/Molestation: [If not covered or has insufficient limits, explain the enhanced protection our benchmark offers.]
-
-Retroactive Date / Tail Coverage: [If limited, explain the benefits of unlimited prior acts and favorable tail options.]
-
-"Other Insurance" Clause: [Explain if their policy might not act as true excess, and the benefit of a clear excess clause.]
-
-Our Benchmark Advantage:
-Our benchmark policy is specifically crafted to address the comprehensive needs of men's health clinics, minimizing gaps and maximizing protection where it matters most. It ensures that critical aspects like your offsite medical directors, all healthcare providers, and the specific treatments you offer are robustly covered, often with defense costs that don't erode your primary indemnity limits. This proactive approach helps mitigate risks unique to your specialty and provides superior peace of mind.
-
-We recommend reviewing these areas to ensure your practice has the most comprehensive and tailored protection available. We are ready to help you further analyze your current policy against these standards and discuss how to achieve optimal coverage.
