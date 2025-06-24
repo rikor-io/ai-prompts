@@ -1,7 +1,9 @@
 {
-  "instruction": "You are an advanced AI trained to extract and normalize insurance coverage requirements from Franchise Disclosure Documents (FDDs), operations manuals, and supporting attachments, specifically for the 'window installation, replacement, repair and related services' industry. You must return the results using internal software field keys to support compliance enforcement, scoring, and UI rendering. Ensure endorsement terms like Additional Insured, Waiver of Subrogation, and Primary & Non-Contributory are extracted explicitly, even if mentioned separately from policy limits.",
+  "instruction": "You are an advanced AI trained to extract and normalize insurance coverage requirements from Franchise Disclosure Documents (FDDs), operations manuals, and supporting attachments, specifically for the 'window installation, replacement, repair and related services' industry. You must return the results using internal software field keys to support compliance enforcement, scoring, and UI rendering. Ensure endorsement terms like Additional Insured, Waiver of Subrogation, and Primary & Non-Contributory are extracted explicitly, even if mentioned separately from policy limits. Prioritize extracting initial coverage details from any section explicitly or implicitly identified as 'Item 8'. After initial extraction, scan the entire document to identify any other mentions of the same insurance requirements. If conflicting or confirming details are found elsewhere, add a note to the respective coverage's 'notes' field, indicating the discrepancy or confirmation for comparison.",
   "general_guidelines": [
     "Search across the entire document — do not limit extraction to a single paragraph or section.",
+    "First, prioritize extracting all possible insurance coverage details from any section that can be identified as 'Item 8'.",
+    "After extracting from 'Item 8', scan the rest of the document for additional mentions of the *same* insurance coverages. If found, add a note to the 'notes' field for that specific coverage, referencing the additional location and its details for cross-verification.",
     "Capture and normalize all coverage types, even if mentioned in fragments or footnotes.",
     "Normalize all monetary fields (e.g., '$1 million' → '$1,000,000').",
     "Map synonyms to standard field terms where appropriate (e.g., 'bodily injury' = 'each_occurrence').",
@@ -60,7 +62,7 @@
       "gl_per_policy_aggregate_required": null,
       "gl_carrier_type": "Admitted",
       "gl_carrier_rating_minimum": "A- VII, AM Best",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage. E.g., 'Also mentioned in 'REQUIRED COVERAGES' section with identical limits.']"
     },
     "commercial_auto": {
       "coverage_found": true,
@@ -79,7 +81,7 @@
       "ca_waiver_of_subrogation_required": true,
       "ca_primary_non_contributory_required": true,
       "ca_carrier_rating_minimum": "≥ A- VII, AM Best",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "workers_comp": {
       "coverage_found": true,
@@ -95,7 +97,7 @@
       "wc_must_include_uninsured_independent_contractors_required": true,
       "wc_waiver_of_subrogation_required": true,
       "wc_carrier_rating_minimum": "≥ A- VII, AM Best",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "property_bi": {
       "coverage_found": true,
@@ -108,7 +110,7 @@
       "pbi_business_interruption": "12 Months ALS",
       "pbi_franchisor_royalties_included": true,
       "pbi_carrier_rating_minimum": "≥ A- VII, AM Best",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "umbrella": {
       "coverage_found": true,
@@ -119,7 +121,7 @@
       "umb_aggregate_limit": "$1,000,000",
       "umb_underlying_coverages": "General Liability",
       "umb_carrier_rating_minimum": "≥ A- VII, AM Best",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "crime": {
       "coverage_found": true,
@@ -129,7 +131,7 @@
       "crime_each_claim": "$100,000",
       "crime_3rd_party_crime": "$100,000",
       "crime_form": "Loss Discovered",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "cyber": {
       "coverage_found": true,
@@ -139,7 +141,7 @@
       "cyber_each_occurrence_limit": "$250,000",
       "cyber_aggregate_limit": "$250,000",
       "cyber_3rd_party_liability": "$250,000",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "epl": {
       "coverage_found": true,
@@ -151,7 +153,7 @@
       "epl_3rd_party_liability_included": true,
       "epl_wage_hour": "≥ $25,000",
       "epl_max_deductible": "$10,000",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "eo": {
       "coverage_found": true,
@@ -161,7 +163,7 @@
       "eo_each_occurrence_limit": "$1,000,000",
       "eo_aggregate_limit": "$2,000,000",
       "eo_policy_type": "Claims Made",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "build_out": {
       "coverage_found": true,
@@ -171,7 +173,7 @@
       "bo_hard_costs": "Full replacement cost value",
       "bo_soft_costs": "Full replacement cost value",
       "bo_business_interruption": "Optional",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "pollution": {
       "coverage_found": true,
@@ -181,7 +183,7 @@
       "pol_each_occurrence_limit": "$1,000,000",
       "pol_aggregate_limit": "$2,000,000",
       "pol_policy_type": "Claims Made",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "personal_auto_business_use": {
       "coverage_found": true,
@@ -193,7 +195,7 @@
       "pabu_property_damages": "$100,000",
       "pabu_uninsured_motorist_per_person": "$250,000",
       "pabu_underinsured_motorist_per_accident": "$500,000",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "bailees": {
       "coverage_found": true,
@@ -201,7 +203,7 @@
       "recommended": true,
       "coverage_type_language": "(Care, custody, or control)",
       "bailees_limit": "$100,000",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "trailer_coverage": {
       "coverage_found": true,
@@ -209,7 +211,7 @@
       "recommended": true,
       "coverage_type_language": null,
       "trailer_limit": "≥ $50,000",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "professional_liability": {
       "coverage_found": true,
@@ -219,7 +221,7 @@
       "pl_each_occurrence_limit": "$1,000,000",
       "pl_aggregate_limit": "$2,000,000",
       "pl_policy_type": "Claims Made",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "tail": {
       "coverage_found": true,
@@ -229,7 +231,7 @@
       "tail_1_year_coverage": null,
       "tail_2_years_coverage": null,
       "tail_3_years_coverage": null,
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "sam": {
       "coverage_found": true,
@@ -238,7 +240,7 @@
       "coverage_type_language": null,
       "sam_each_occurrence_limit": "$100,000",
       "sam_aggregate_limit": "$300,000",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "accident": {
       "coverage_found": true,
@@ -248,7 +250,7 @@
       "acc_principal_sum": "$25,000",
       "acc_loss_must_occur_within": "365 days of a covered accident",
       "acc_aggregate": "$500,000",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "workplace_violence": {
       "coverage_found": true,
@@ -259,7 +261,7 @@
       "wv_business_interruption": "$250,000",
       "wv_victim_crisis_counseling": "$25,000 per person",
       "wv_reputational_risk_management": "$50,000 per incident",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "garagekeepers": {
       "coverage_found": true,
@@ -270,15 +272,15 @@
       "gk_each_occurrence": "$300,000",
       "gk_aggregate": "$300,000",
       "gk_type": "Direct Primary",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     },
     "contractors_eo": {
       "coverage_found": true,
       "required": false,
       "recommended": true,
       "coverage_type_language": "Contractors E&O is designed to protect contractors from potential financial losses that arise out of negligence, mistakes, or omissions they or their employees might commit while providing services.",
-      "notes": null
+      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
     }
   },
-  "fallback_instruction": "If no clearly labeled insurance section is found, search the entire document for related terms including: 'coverage', 'limits', 'endorsement', 'proof of insurance', 'carrier', 'deductible', 'waiver', 'compliance', 'subrogation', or 'policy language'. Combine results under each appropriate category if they are referenced in multiple locations."
+  "fallback_instruction": "If no clearly labeled insurance section is found, or 'Item 8' is not discernible, search the entire document for related terms including: 'coverage', 'limits', 'endorsement', 'proof of insurance', 'carrier', 'deductible', 'waiver', 'compliance', 'subrogation', or 'policy language'. Combine results under each appropriate category if they are referenced in multiple locations."
 }
