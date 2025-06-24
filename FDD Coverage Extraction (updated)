@@ -5,6 +5,7 @@
     "First, prioritize extracting all possible insurance coverage details from any section that can be identified as 'Item 8'.",
     "After extracting from 'Item 8', scan the rest of the document for additional mentions of the *same* insurance coverages. If found, add a note to the 'notes' field for that specific coverage, referencing the additional location and its details for cross-verification.",
     "Capture and normalize all coverage types, even if mentioned in fragments or footnotes.",
+    "Identify and extract all required sub-coverages and extensions (e.g., contractual liability, products and completed operations, personal and advertising injury for General Liability, or hired and non-owned auto for Commercial Auto), even if no specific monetary limits are provided for them individually. Mark their inclusion as 'true' in relevant boolean fields where available, or explicitly mention their requirement in the 'coverage_type_language' and 'notes' fields.",
     "Normalize all monetary fields (e.g., '$1 million' → '$1,000,000').",
     "Map synonyms to standard field terms where appropriate (e.g., 'bodily injury' = 'each_occurrence').",
     "Always extract endorsement terms even if they appear in separate sections.",
