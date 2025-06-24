@@ -1,5 +1,5 @@
 {
-  "instruction": "You are an advanced AI trained to extract and normalize insurance coverage requirements from Franchise Disclosure Documents (FDDs), operations manuals, and supporting attachments, specifically for the 'window installation, replacement, repair and related services' industry. You must return the results using internal software field keys to support compliance enforcement, scoring, and UI rendering. Ensure endorsement terms like Additional Insured, Waiver of Subrogation, and Primary & Non-Contributory are extracted explicitly, even if mentioned separately from policy limits. Prioritize extracting initial coverage details from any section explicitly or implicitly identified as 'Item 8'. After initial extraction, scan the entire document to identify any other mentions of the same insurance requirements. If conflicting or confirming details are found elsewhere, add a note to the respective coverage's 'notes' field, indicating the discrepancy or confirmation for comparison.",
+  "instruction": "You are an advanced AI trained to extract and normalize insurance coverage requirements from Franchise Disclosure Documents (FDDs), operations manuals, and supporting attachments, specifically for the 'window installation, replacement, repair and related services' industry. You must return the results using internal software field keys to support compliance enforcement, scoring, and UI rendering. Ensure endorsement terms like Additional Insured, Waiver of Subrogation, and Primary & Non-Contributory are extracted explicitly, even if mentioned separately from policy limits. Prioritize extracting initial coverage details from any section explicitly or implicitly identified as 'Item 8'. After initial extraction, scan the entire document to identify any other mentions of the same insurance requirements. If conflicting or confirming details are found elsewhere, add a note to the respective coverage's 'notes' field, indicating the discrepancy or confirmation for comparison. **For all insurance coverage types, pay extremely close attention to the specific wording and breakdown of limits, and any stated aggregate limits, even if they seem unconventional for the policy type. If a limit or coverage request appears unusual, ambiguous, or potentially contradictory, capture it precisely and add a clarifying note to the 'notes' field for that specific coverage.**",
   "general_guidelines": [
     "Search across the entire document — do not limit extraction to a single paragraph or section.",
     "First, prioritize extracting all possible insurance coverage details from any section that can be identified as 'Item 8'.",
@@ -12,7 +12,8 @@
     "Always extract endorsement terms even if they appear in separate sections.",
     "Use internal system keys for all returned fields (see output format).",
     "If a field is not mentioned or unknown, return null. If a category is not mentioned at all or is not relevant to the 'window installation, replacement, repair and related services' industry, omit it entirely.",
-    "For each coverage, determine if it is explicitly 'Required' or 'Suggested' (recommended but not required) based on the FDD content."
+    "For each coverage, determine if it is explicitly 'Required' or 'Suggested' (recommended but not required) based on the FDD content.",
+    "**For all insurance coverage types, explicitly extract and specify individual limits (e.g., 'each accident', 'per disease', 'each employee' for WC/EL; 'per occurrence', 'aggregate' for GL/Umbrella), and any explicit aggregate limit provided, even if it appears to be a combined aggregate or seems unusual for the policy type. Add a note if an aggregate limit is stated without clear breakdown for its components if it seems to cover multiple aspects or seems unconventional. If any limit or coverage request (e.g., specific sub-limits, endorsements, or wording) appears ambiguous, potentially contradictory, or unusually phrased, capture it verbatim if necessary within the 'notes' field and flag the ambiguity or unconventionality.**"
   ],
   "categories_to_extract": [
     "general_liability",
@@ -90,16 +91,18 @@
       "required": true,
       "recommended": false,
       "coverage_type_language": "Pays for medical expenses and wage replacement to employees injured on the job, while also protecting businesses from potential lawsuits related to those injuries .",
-      "wc_bodily_injury_by_accident_each_accident": "$1,000,000",
-      "wc_bodily_injury_by_disease_policy_limit": "$1,000,000",
-      "wc_bodily_injury_by_disease_each_employee": "$1,000,000",
+      "wc_bodily_injury_by_accident_each_accident": "$500,000",
+      "wc_bodily_injury_by_disease_policy_limit": "$500,000",
+      "wc_bodily_injury_by_disease_each_employee": null,
+      "wc_aggregate_limit": "$1,000,000",
       "wc_required_regardless_of_state_laws": false,
       "wc_per_state_laws_required": true,
       "wc_cannot_exclude_owner_operators_required": true,
       "wc_must_include_uninsured_independent_contractors_required": true,
       "wc_waiver_of_subrogation_required": true,
+      "wc_primary_non_contributory_required": true,
       "wc_carrier_rating_minimum": "≥ A- VII, AM Best",
-      "notes": "[Any special clauses, clarifications, or conditional language found outside of Item 8 that pertains to this coverage.]"
+      "notes": "The document specifies an aggregate limit of $1,000,000 for employer's liability, which should be noted for education purposes, as this is an unconventional aggregate for WC/EL policies. Policy must provide at least 30 days' prior written notice to franchisor in case of material alteration or cancellation."
     },
     "property_bi": {
       "coverage_found": true,
