@@ -1,0 +1,62 @@
+# 🧠 Input-Driven Blog Framework Prompt
+
+This is a long-form blog article prompt structured to mirror the format and style of Neil Patel’s educational and decision-making content (e.g. "What Is GPTBot, and Should You Block It?"). Use this prompt to expand your own topic and context into a ~2,500–3,000 word thought-leadership article.
+
+---
+
+## ✅ Prompt
+
+I will provide the **topic and context** for a blog article.
+
+Use my input to write a ~2,500–3,000 word article that follows the structure and voice outlined below.
+
+---
+
+### 🧱 Blog Article Structure
+
+1. **Key Takeaways**  
+   - Open with 3–5 skimmable bullet points summarizing the article’s most valuable insights.
+
+2. **[Insert Topic Here] – Explained Simply**  
+   - Define the topic in plain terms using my context. Cover: what it is, how it works, why it matters now.
+
+3. **Why Some People Are Concerned or Misunderstand This**  
+   - Outline 3–5 distinct reasons people may push back on or misinterpret the topic.  
+   - Each reason should have its own heading and supporting paragraphs.
+
+4. **How to [Engage With / Implement / Navigate / Avoid] It**  
+   - Offer practical steps (based on my input).  
+   - Can be a guide, checklist, or decision path depending on the topic.
+
+5. **Benefits of Embracing or Leveraging It**  
+   - Explain the strategic or real-world upsides.  
+   - Support with examples, logic, or business implications.
+
+6. **Should You Do This?**  
+   - Present a pros vs. cons section or self-assessment framework.  
+   - Help the reader decide based on role, goals, or risk.
+
+7. **FAQs**  
+   - Include 3–5 questions and answers that someone like my audience would likely ask.  
+   - Use my input and insight to inform the answers.
+
+8. **Conclusion**  
+   - End with a reflective takeaway, recommendation, or shift in perspective.  
+   - Emphasize clarity over promotion.
+
+---
+
+### 🎯 Tone & Style Guidelines
+
+- Write for smart, curious professionals — not general consumers.
+- Make it feel like a deep-dive conversation, not a sales pitch.
+- Reflect my voice and POV from the context I provide.
+- Avoid filler. Prioritize useful, specific, and well-structured information.
+- Use H2/H3 headers, short paragraphs, and clear transitions.
+
+---
+
+## 💬 Example Usage
+
+Here’s my topic and context:
+
