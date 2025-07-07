@@ -1,6 +1,7 @@
 # 🧠 Input-Driven Blog Framework Prompt
 
-This is a long-form blog article prompt structured to mirror the format and style of Neil Patel’s educational and decision-making content (e.g. "What Is GPTBot, and Should You Block It?"). Use this prompt to expand your own topic and context into a ~2,500–3,000 word thought-leadership article.
+This is a long-form blog article prompt structured to mirror the format and style of Neil Patel’s educational and decision-making content (e.g. "What Is GPTBot, and Should You Block It?"). Use this prompt to expand 
+your own topic and context into a ~2,500–3,000 word thought-leadership article.
 
 ---
 
@@ -55,7 +56,8 @@ Use my input to write a ~2,500–3,000 word article that follows the structure a
 - Use H2/H3 headers, short paragraphs, and clear transitions.
 
 ### Things to Avoid
-- Avoid using phrases like "in the dynamic world" or "in the fast-paced world."
+- Avoid using phrases like "in the dynamic world" or "in the fast-paced world." This sort of language gives off the AI vibe, we want to avoid that. 
+- Don't use numbers to format sections, use proper heading tags like H1, H2, H3 and so on
 
 ---
 
