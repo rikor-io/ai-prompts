@@ -1,0 +1,129 @@
+# 💡 Rikor Prototype Guidelines for Lovable
+
+These guidelines are designed to support rapid, opinionated prototyping inside Lovable. They reflect Rikor’s style, development culture, and the expectations we have when building new UI and system concepts.
+
+---
+
+## 🧭 Project-Specific Rules
+
+### Purpose-Driven Prototyping
+- Every prototype should exist to test a **specific hypothesis**.
+- Define what you’re testing and what decision the prototype supports.
+- Favor clarity and utility over polish—get feedback early.
+
+### User-Centered Focus
+- Our users are franchisors, franchisees, and internal teams.
+- Design around **real workflows** and **real risk visibility**.
+- Simulate realistic data and user problems.
+
+### Feedback-First Culture
+- Expect edits, rewrites, and challenges—assumptions must be surfaced.
+- Narrate your intent via Loom or inline comments.
+- Keep a changelog or retrospective after feedback.
+
+---
+
+## 🎨 Design Elements & Color Guidelines
+
+### 🎨 Color Palette
+
+| Purpose              | Tailwind Class      | Usage |
+|----------------------|---------------------|-------|
+| Primary Action       | `blue-600`          | CTAs, buttons |
+| Primary Hover        | `blue-700`          | Hover state |
+| Accent / Tagging     | `indigo-500`        | Highlight metadata or quote interest |
+| Success / Compliant  | `green-500`         | Compliant, up-to-date |
+| Warning / Expiring   | `yellow-500`        | Expiring, low confidence |
+| Error / Lapsed       | `red-500`           | Non-compliant, rejected |
+| Backgrounds          | `gray-50`, `gray-100` | Section/card bg |
+| Text Primary         | `gray-900`          | Never pure black |
+| Text Secondary       | `gray-600`          | Captions, help text |
+| Dividers             | `gray-200`          | Subtle structure lines |
+
+---
+
+### 🧩 Design Patterns
+
+| Component     | Usage Notes |
+|---------------|-------------|
+| Cards         | Use rounded corners (`rounded-2xl`), padding (`p-4`), soft shadows (`shadow-md`) |
+| Tables        | Only when comparison is needed; always include color-coded status indicators |
+| Badges/Pills  | For states like `Compliant`, `Lapsed`, etc. with proper coloring |
+| Modals        | Keep focused and narrow in purpose |
+| Icons         | Use `lucide-react`, keep it functional (not decorative) |
+| Buttons       | Primary = blue. Secondary = gray with border. Destructive = red |
+| Empty States  | Include icon, guidance text, and a clear CTA |
+| Spacing       | Minimum padding: `p-4`. Don’t overcrowd. Let content breathe. |
+
+---
+
+## 🖥 UI & UX Themes
+
+- **Smart defaults**: Auto-populate where possible (policy dates, known data).
+- **One-click clarity**: Most actions should be possible within 1–2 clicks.
+- **Progressive disclosure**: Use modals, toggles, or collapsibles to simplify.
+- **Status-first layouts**: Drive attention to compliance, policy, or risk state first.
+
+---
+
+## ⚙️ Coding Style Preferences
+
+### Frontend
+
+- **Language**: TypeScript
+- **Framework**: React
+- **Styling**: TailwindCSS + `shadcn/ui` components
+
+#### File Structure
+/components
+/features
+/hooks
+/types
+/lib
+/pages or /views
+
+
+
+#### Naming Conventions
+- `PascalCase` for components and types
+- `camelCase` for functions, variables, hooks
+- `kebab-case` for filenames
+
+#### State Management
+- Prefer local state or React Query
+- Avoid lifting unnecessarily
+- Use context only for truly shared logic
+
+---
+
+### Backend or Mock APIs
+
+- Use Node.js with Express or Next API routes
+- Store mock data in `/fixtures` or `/mock`
+- Simulate latency, error states, and realistic payloads
+
+---
+
+## 🧪 Prototype Best Practices
+
+- **Versioning**: Use `/v1`, `/v2` for iteration
+- **Commenting**: Mark WIP areas with `// prototype-only`
+- **Screen Naming**: Be clear and purpose-driven: `SubcontractorDashboardPrototype`
+
+---
+
+## 📚 External Resources
+
+- [Tailwind Docs](https://tailwindcss.com/docs)
+- [shadcn/ui Docs](https://ui.shadcn.com/docs)
+- [Lucide Icons](https://lucide.dev/icons/)
+
+---
+
+## ✅ What “Good” Looks Like
+
+- Is it **obvious what the user is supposed to do**?
+- Can the prototype trigger meaningful feedback?
+- Does the design support clarity, speed, and confidence?
+
+---
