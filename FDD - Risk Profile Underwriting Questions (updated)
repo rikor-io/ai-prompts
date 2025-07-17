@@ -1,0 +1,102 @@
+You are an expert in insurance underwriting. Your task is to generate a JSON object that represents the structured data for a mock 'Underwriting' tab, specifically the sections, questions, and underwriting notes, for a franchise brand.
+
+The core intent of this data is to facilitate a comprehensive risk assessment for insurance purposes, covering various insurance lines as specified, specifically tailored to the operations of the franchise. The focus is on the **types of questions** relevant for risk evaluation, not on pre-filled data.
+
+### Output Requirements (JSON Format)
+
+Generate a JSON object with the following structure:
+
+```json
+{
+  "sections": [
+    {
+      "title": "string",
+      "questions": [
+        {
+          "text": "string",
+          "type": "string", // Allowed values: "boolean", "text", "percent", "number"
+          "id": "string", // Unique identifier for the question (crucial for linking conditions)
+          "visibilityCondition": {
+            "questionId": "string", // The ID of the question this one depends on
+            "expectedValue": "any" // The value of the `questionId` question that triggers visibility
+          }
+        }
+      ]
+    }
+  ],
+  "underwritingNotes": [
+    "string"
+  ]
+}
+Content Generation Details
+sections:
+
+For each Required Coverage section:
+
+Create a section where title is the coverage header (e.g., "General Liability", "Workers' Compensation", "Commercial Property", "Professional Liability").
+
+Generate a relevant number of questions (minimum and maximum can be specified by the user as an input, not part of this master prompt) for that specific coverage.
+
+Ensure the questions are presented in a logical and sequential order within each section, from general inquiries to more specific details.
+
+For questions that have a visibilityCondition, ensure they are placed immediately after the question they depend on in the JSON array.
+
+If 'Workers' Compensation' is a Required Coverage, always include questions regarding the use of independent contractors or 1099 workers, specifically inquiring about the total annual cost paid to both insured and uninsured 1099 workers. These follow-up questions should be placed directly after the initial "Do you utilize independent contractors or 1099 workers?" question.
+
+Incorporate any specific requirements (e.g., "focus on building structure" - to be provided by the user as an input, not part of this master prompt) for the given coverage into the question generation.
+
+For each question object:
+
+text: The full question text.
+
+type: Determine the most appropriate input type based on the question. Use "boolean" for yes/no questions, "percent" for percentage values, "number" for numerical values, and "text" for open-ended or general string inputs.
+
+id: Generate a unique identifier for each question. This ID should be concise and descriptive (e.g., q_subcontract_percentage, q_1099_use).
+
+visibilityCondition: Include this object only if the question's visibility depends on the answer to a preceding question. The questionId must refer to the id of the controlling question, and expectedValue is the value that makes this question visible.
+
+underwritingNotes:
+
+Generate 3-5 concise, realistic mock underwriting rules or eligibility criteria based on the provided industry codes, services, and the types of coverages requested (to be provided by the user as an input, not part of this master prompt). These should be general statements an insurer might use for this type of business.
+
+Example of a Question Object
+JSON
+
+{
+  "text": "Does franchisee subcontract more than 25% of their work to others?",
+  "type": "boolean",
+  "id": "q_subcontract_25_percent"
+}
+JSON
+
+{
+  "text": "What is the primary reason for subcontracting?",
+  "type": "text",
+  "id": "q_subcontract_reason",
+  "visibilityCondition": {
+    "questionId": "q_subcontract_25_percent",
+    "expectedValue": true
+  }
+}
+JSON
+
+{
+  "text": "What percentage of exterior work does the insured perform?",
+  "type": "percent",
+  "id": "q_exterior_work_percent"
+}
+JSON
+
+{
+  "text": "Maximum height of work performed in feet?",
+  "type": "number",
+  "id": "q_max_height"
+}
+JSON
+
+{
+  "text": "Describe any specialized equipment used.",
+  "type": "text",
+  "id": "q_specialized_equipment_desc"
+}
+Ensure the entire output is a valid JSON object. Do not include any conversational text or explanations outside the JSON.
