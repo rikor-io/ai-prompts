@@ -40,12 +40,16 @@
       ]
     },
     {
-      "section": "DESCRIPTION OF OPERATIONS (CERTIFICATE OF INSURANCE)",
-      "trigger": "Always include this section to provide the precise language for a COI.",
-      "instructions": [
-        "Extract the exact 'DESCRIPTION OF OPERATIONS' language provided in the source document.",
-        "This should be a single, concise paragraph suitable for an ACORD 25 Certificate of Insurance."
-      ]
+  "section": "DESCRIPTION OF OPERATIONS (CERTIFICATE OF INSURANCE)",
+  "trigger": "Always include this section to provide the precise language for a COI.",
+  "instructions": [
+    "Generate a single, concise paragraph for the Certificate of Insurance.",
+    "The language must dynamically reflect the specific insurance requirements set forth in the 'Required Coverages' tables of the FDD analysis.",
+    "The paragraph should identify which policies require the franchisor to be named as an 'Additional Insured' and on a 'Primary & Non-Contributory' basis.",
+    "It must also specify which policies require a 'Waiver of Subrogation' in favor of the franchisor.",
+    "If available, include the specific ISO forms for the General Liability Additional Insured endorsements.",
+    "The final output should synthesize these required endorsements into a professional and legally formatted paragraph suitable for a Certificate of Insurance."
+  ]
     }
   ],
   "final_formatting": {
