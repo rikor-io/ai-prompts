@@ -1,192 +1,116 @@
+
+You are an expert in insurance underwriting. Your task is to generate a JSON object that represents the structured data for a mock 'Underwriting' tab, specifically the sections, questions, and underwriting notes, for a franchise brand.
+
+The core intent of this data is to facilitate a comprehensive risk assessment for insurance purposes, covering various insurance lines as specified, specifically tailored to the operations of the franchise. The focus is on the **types of questions** relevant for risk evaluation, not on pre-filled data.
+
 {
   "inputs": {
-    "website": "examplefranchise.com",
-    "required coverages": "General Liability, Workers' Comp, Commercial Auto, Cyber"
-    "classifications": "NAICS, SIC, NCCI"
-  },
+    "website": "string",
+    "required coverages": "string",
+    "classifications": "string"
+  }
+}
+
+How to Use the Inputs:
+website: Use the website URL to understand the nature of the franchise's business, services, products, and target audience. This information should inform the specific risks and, therefore, the types of questions asked in each coverage section.
+required coverages: Use this comma-separated list to determine which sections to create in the final JSON output. You must create a dedicated section for each coverage listed (e.g., "General Liability," "Workers' Comp").
+classifications: Use the provided classifications (e.g., NAICS, SIC, NCCI codes) to inform the types of questions and underwriting notes. These classifications provide a standard framework for the industry, helping to generate questions that align with typical exposures for that sector.
+
+### Output Requirements (JSON Format)
+
+Generate a JSON object with the following structure:
+
+```json
+{
   "sections": [
     {
-      "title": "General Liability",
+      "title": "string",
       "questions": [
         {
-          "text": "What are the primary services or products offered by the franchise location?",
-          "type": "text",
-          "id": "q_primary_services"
-        },
-        {
-          "text": "Does the franchise handle, store, or dispose of any hazardous materials?",
-          "type": "boolean",
-          "id": "q_hazardous_materials"
-        },
-        {
-          "text": "Please describe the specific hazardous materials and handling procedures.",
-          "type": "text",
-          "id": "q_hazardous_materials_desc",
+          "text": "string",
+          "type": "string", // Allowed values: "boolean", "text", "percent", "number"
+          "id": "string", // Unique identifier for the question (crucial for linking conditions)
           "visibilityCondition": {
-            "questionId": "q_hazardous_materials",
-            "expectedValue": true
-          }
-        },
-        {
-          "text": "Does the franchise sponsor, host, or participate in any off-premises events?",
-          "type": "boolean",
-          "id": "q_off_premise_events"
-        },
-        {
-          "text": "Describe the nature and frequency of these events.",
-          "type": "text",
-          "id": "q_off_premise_events_desc",
-          "visibilityCondition": {
-            "questionId": "q_off_premise_events",
-            "expectedValue": true
-          }
-        },
-        {
-          "text": "Are there any swimming pools, trampolines, or other attractive nuisances on the premises?",
-          "type": "boolean",
-          "id": "q_attractive_nuisances"
-        },
-        {
-          "text": "What percentage of work is performed by uninsured subcontractors?",
-          "type": "percent",
-          "id": "q_uninsured_subcontractors"
-        }
-      ]
-    },
-    {
-      "title": "Workers' Compensation",
-      "questions": [
-        {
-          "text": "Do you utilize independent contractors or 1099 workers?",
-          "type": "boolean",
-          "id": "q_use_1099"
-        },
-        {
-          "text": "What is the total annual cost paid to uninsured 1099 workers?",
-          "type": "number",
-          "id": "q_1099_uninsured_cost",
-          "visibilityCondition": {
-            "questionId": "q_use_1099",
-            "expectedValue": true
-          }
-        },
-        {
-          "text": "What is the total annual cost paid to insured 1099 workers?",
-          "type": "number",
-          "id": "q_1099_insured_cost",
-          "visibilityCondition": {
-            "questionId": "q_use_1099",
-            "expectedValue": true
-          }
-        },
-        {
-          "text": "Do employees work with hazardous equipment or chemicals?",
-          "type": "boolean",
-          "id": "q_hazardous_equipment"
-        },
-        {
-          "text": "What percentage of work involves heights of over 10 feet?",
-          "type": "percent",
-          "id": "q_work_at_heights"
-        },
-        {
-          "text": "What percentage of employees have a commercial driver's license (CDL)?",
-          "type": "percent",
-          "id": "q_employee_cdl"
-        }
-      ]
-    },
-    {
-      "title": "Commercial Auto",
-      "questions": [
-        {
-          "text": "Are vehicles owned, leased, or rented for business use?",
-          "type": "text",
-          "id": "q_vehicle_ownership_type"
-        },
-        {
-          "text": "Are employees required to use their personal vehicles for business purposes?",
-          "type": "boolean",
-          "id": "q_personal_vehicles_use"
-        },
-        {
-          "text": "How many personal vehicles are used for business purposes?",
-          "type": "number",
-          "id": "q_personal_vehicles_count",
-          "visibilityCondition": {
-            "questionId": "q_personal_vehicles_use",
-            "expectedValue": true
-          }
-        },
-        {
-          "text": "Do company vehicles transport hazardous materials?",
-          "type": "boolean",
-          "id": "q_transport_hazmat"
-        },
-        {
-          "text": "Is there a formal driver screening process in place?",
-          "type": "boolean",
-          "id": "q_driver_screening"
-        },
-        {
-          "text": "Describe the driver screening process.",
-          "type": "text",
-          "id": "q_driver_screening_desc",
-          "visibilityCondition": {
-            "questionId": "q_driver_screening",
-            "expectedValue": true
-          }
-        }
-      ]
-    },
-    {
-      "title": "Cyber",
-      "questions": [
-        {
-          "text": "Does the business store or process customer data, including credit card information or personally identifiable information (PII)?",
-          "type": "boolean",
-          "id": "q_store_customer_data"
-        },
-        {
-          "text": "What types of sensitive data are collected and stored?",
-          "type": "text",
-          "id": "q_sensitive_data_types",
-          "visibilityCondition": {
-            "questionId": "q_store_customer_data",
-            "expectedValue": true
-          }
-        },
-        {
-          "text": "Is a firewall and antivirus software used on all company computers?",
-          "type": "boolean",
-          "id": "q_firewall_antivirus"
-        },
-        {
-          "text": "Is there an incident response plan in place for a data breach?",
-          "type": "boolean",
-          "id": "q_incident_response_plan"
-        },
-        {
-          "text": "Do you utilize point-of-sale (POS) systems?",
-          "type": "boolean",
-          "id": "q_use_pos"
-        },
-        {
-          "text": "Are your POS systems and networks compliant with Payment Card Industry (PCI) Data Security Standards?",
-          "type": "boolean",
-          "id": "q_pci_compliance",
-          "visibilityCondition": {
-            "questionId": "q_use_pos",
-            "expectedValue": true
+            "questionId": "string", // The ID of the question this one depends on
+            "expectedValue": "any" // The value of the `questionId` question that triggers visibility
           }
         }
       ]
     }
   ],
   "underwritingNotes": [
-    "Franchise operations must not involve any high-risk activities such as aviation, maritime, or pyrotechnics.",
-    "Property coverage is contingent upon a recent (within 5 years) inspection confirming no major structural, electrical, or plumbing deficiencies.",
-    "Workers' Compensation policies require documentation of a formal safety program and regular employee training logs.",
-    "Cyber liability eligibility is based on a clean third-party security audit and proof of multi-factor authentication for all remote access points."
+    "string"
   ]
 }
+Content Generation Details
+sections:
+
+For each Required Coverage section:
+
+Create a section where title is the coverage header (e.g., "General Liability", "Workers' Compensation", "Commercial Property", "Professional Liability").
+
+Generate a relevant number of questions (minimum and maximum can be specified by the user as an input, not part of this master prompt) for that specific coverage.
+
+Ensure the questions are presented in a logical and sequential order within each section, from general inquiries to more specific details.
+
+For questions that have a visibilityCondition, ensure they are placed immediately after the question they depend on in the JSON array.
+
+If 'Workers' Compensation' is a Required Coverage, always include questions regarding the use of independent contractors or 1099 workers, specifically inquiring about the total annual cost paid to both insured and uninsured 1099 workers. These follow-up questions should be placed directly after the initial "Do you utilize independent contractors or 1099 workers?" question.
+
+Incorporate any specific requirements (e.g., "focus on building structure" - to be provided by the user as an input, not part of this master prompt) for the given coverage into the question generation.
+
+For each question object:
+
+text: The full question text.
+
+type: Determine the most appropriate input type based on the question. Use "boolean" for yes/no questions, "percent" for percentage values, "number" for numerical values, and "text" for open-ended or general string inputs.
+
+id: Generate a unique identifier for each question. This ID should be concise and descriptive (e.g., q_subcontract_percentage, q_1099_use).
+
+visibilityCondition: Include this object only if the question's visibility depends on the answer to a preceding question. The questionId must refer to the id of the controlling question, and expectedValue is the value that makes this question visible.
+
+underwritingNotes:
+
+Generate 3-5 concise, realistic mock underwriting rules or eligibility criteria based on the provided industry codes, services, and the types of coverages requested (to be provided by the user as an input, not part of this master prompt). These should be general statements an insurer might use for this type of business.
+
+Example of a Question Object
+JSON
+
+{
+  "text": "Does franchisee subcontract more than 25% of their work to others?",
+  "type": "boolean",
+  "id": "q_subcontract_25_percent"
+}
+JSON
+
+{
+  "text": "What is the primary reason for subcontracting?",
+  "type": "text",
+  "id": "q_subcontract_reason",
+  "visibilityCondition": {
+    "questionId": "q_subcontract_25_percent",
+    "expectedValue": true
+  }
+}
+JSON
+
+{
+  "text": "What percentage of exterior work does the insured perform?",
+  "type": "percent",
+  "id": "q_exterior_work_percent"
+}
+JSON
+
+{
+  "text": "Maximum height of work performed in feet?",
+  "type": "number",
+  "id": "q_max_height"
+}
+JSON
+
+{
+  "text": "Describe any specialized equipment used.",
+  "type": "text",
+  "id": "q_specialized_equipment_desc"
+}
+Ensure the entire output is a valid JSON object. Do not include any conversational text or explanations outside the JSON.
