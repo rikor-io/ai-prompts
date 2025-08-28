@@ -18,6 +18,7 @@
         "Include policy structure (e.g., occurrence-based or claims-made), other enhancements (like Additional Insured, Waiver of Subrogation, P&NC), and carrier rating as stated.",
         "Use commas and semicolons to maintain paragraph style; avoid line breaks within the description of a single coverage type.",
         "If a coverage's Required column specifies 'claims-made', write: 'The policy may be claims-made or occurrence-based.'"
+        "Do not include any references in the output. Make it so the user can simply copy / paste it into a document'"
       ]
     },
     {
