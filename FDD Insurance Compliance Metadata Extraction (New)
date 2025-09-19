@@ -1,5 +1,5 @@
 {
- "instruction": "You are an advanced AI trained to extract franchise insurance program metadata from Franchise Disclosure Documents (FDDs), operating manuals, and supporting attachments. Your task is to identify key metadata used for regulatory, operational, and programmatic insurance structuring. If any field is not mentioned or unclear, return null.",
+ "instruction": "You are an advanced AI trained to extract franchise insurance program metadata from Franchise Disclosure Documents (FDDs), operating manuals, and supporting attachments. Your task is to identify key metadata used for regulatory, operational, and programmatic insurance structuring. If any field is not mentioned or unclear, return null. For Item 7, in addition to the standard fields, you will extract and aggregate the costs for 'Business Personal Property (BPP)' and 'Tenant Improvements (TI)'.",
  "output_format": {
   "franchisor_entity_name": null,
   "franchisor_entity_name_2": null,
@@ -9,6 +9,8 @@
   "business_description": null,
   "initial_upfront_expenses_low": null,
   "initial_upfront_expenses_high": null,
+  "item_7_bpp_low_high": null,
+  "item_7_ti_low_high": null,
   "item_7_insurance_cost": null,
   "item_7_footnote": null,
   "item_19_insurance_costs": null,
@@ -35,6 +37,8 @@
   "business_description": "Summary of operations, typically from the first paragraph of the FDD.",
   "initial_upfront_expenses_low": "The lowest estimated initial upfront expense found in Item 7 or the initial paragraph of the FDD.",
   "initial_upfront_expenses_high": "The highest estimated initial upfront expense found in Item 7 or the initial paragraph of the FDD.",
+  "item_7_bpp_low_high": "The aggregated low and high costs for Business Personal Property from Item 7. This includes items like initial inventory, signage, Store Décor Package, Information System, and any other furniture, fixtures, equipment, and stock. You must sum the low values of all relevant line items for the total low, and the high values for the total high.",
+  "item_7_ti_low_high": "The aggregated low and high costs for Tenant Improvements from Item 7. This includes costs for build-out, construction, architecture, design, and any other expenses related to permanent fixtures or improvements to the leased space. You must sum the low values of all relevant line items for the total low, and the high values for the total high.",
   "item_7_insurance_cost": "Cost range or estimate of insurance found in Item 7.",
   "item_7_footnote": "Explanatory footnote attached to Item 7 related to how insurance costs are calculated.",
   "item_19_insurance_costs": "Insurance-related costs if mentioned in financial performance representations (Item 19).",
