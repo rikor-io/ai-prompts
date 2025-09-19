@@ -37,6 +37,7 @@ OUTPUT JSON SHAPE
       "general_liability": {
         "occurrence_limit": "",
         "aggregate_limit": "",
+        "aggregate_type": "",   // "per project", "per location", or "per policy"
         "products_completed_operations_aggregate": "",
         "personal_and_advertising_injury_limit": "",
         "damage_to_premises_rented_to_you": "",
@@ -83,6 +84,7 @@ HINTS & SYNONYMS
 - GL fields:
   - Occurrence: "Each Occurrence", "Per Occurrence", "Liability Occurrence"
   - Aggregate: "General Aggregate", "Policy Aggregate"
+  - Populate aggregate_type only when the document explicitly states “per project,” “per location,” or “per policy
   - Products & Completed Ops: "Products/Completed Operations Aggregate", "Products & CO Aggregate"
   - Damage to Premises Rented: "Fire Legal Liability", "Damages to Premises Rented to You"
   - Medical Expense: "Med Pay"
