@@ -29,6 +29,7 @@ OUTPUT JSON SHAPE
     "coverage": {
       "occurrence_limit": "",
       "aggregate_limit": "",
+      "aggregate_type": "",   // "per project", "per location", or "per policy"
       "products_completed_operations_aggregate": "",
       "personal_and_advertising_injury_limit": "",
       "damage_to_premises_rented_to_you": "",
@@ -60,6 +61,7 @@ You may add an internal (non-output) notes object with short source snippets per
 HINTS & SYNONYMS
 - Occurrence: "Each Occurrence", "Per Occurrence", "Liability Occurrence"
 - Aggregate: "General Aggregate", "Policy Aggregate", "Liability Aggregate"
+- Populate aggregate_type only when the document explicitly states “per project,” “per location,” or “per policy
 - Products/Completed Ops: "Products & Completed Operations Aggregate", "Products/CO Aggregate"
 - Personal & Advertising Injury: "Personal/Advertising Injury", "Personal and Adv Injury"
 - Damage to Premises Rented to You: "Fire Legal Liability", "Damages to Premises Rented"
