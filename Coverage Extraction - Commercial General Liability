@@ -34,6 +34,7 @@ OUTPUT JSON SHAPE
       "damage_to_premises_rented_to_you": "",
       "medical_expense_limit": "",
       "property_damage_deductible": "",
+      "stop_gap": "",
       "minimum_earned_premium": ""
     },
     "exposures": {
