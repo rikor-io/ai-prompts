@@ -1,0 +1,22 @@
+Task: Identify which insurance coverage sections appear in this document and where.
+Output JSON only:
+{
+  "detections": [
+    {
+      "coverage_key": "<one of: commercial-general-liability, commercial-property, commercial-auto-liability, workers-compensation-employers-liability, commercial-excess-liability, commercial-environmental-liability, commercial-inland-marine, garagekeepers, employment-practices-liability, cyber-liability, crime, medical-malpractice, professional-liability>",
+      "confidence": 0.0,
+      "page_start": 0,
+      "page_end": 0,
+      "char_start": 0,
+      "char_end": 0,
+      "title_text": "<heading or nearby label if present>",
+      "signals": ["<key phrases found>"]
+    }
+  ]
+}
+
+Guidelines:
+- Use robust synonyms: e.g., CGL/GL → commercial-general-liability; WC/EL → workers-compensation-employers-liability; Umbrella/Excess → commercial-excess-liability; Environmental/CPL → commercial-environmental-liability; BAP/Business Auto → commercial-auto-liability, etc.
+- Prefer headings, tables, or bold labels as strong signals.
+- Return multiple detections if the document contains multiple coverages.
+- If unsure, return the top 2 candidates with best confidence and the signals.
