@@ -72,3 +72,47 @@ HINTS & SYNONYMS
 
 CONSTRAINTS
 - Output must be valid JSON only (no prose).
+
+JSON Schema Stub
+{
+  "workers-compensation-employers-liability": {
+    "metadata": {
+      "carrier": "",
+      "effective_date": "",
+      "expiration_date": ""
+    },
+    "coverage": {
+      "bodily_injury_by_accident_each_accident": "",
+      "bodily_injury_by_disease_policy_limit": "",
+      "bodily_injury_by_disease_each_employee": "",
+      "employers_liability_limit": "",
+      "stop_gap": "",
+      "experience_modifier": ""
+    },
+    "exposures": {
+      "class_codes": [
+        {
+          "class_code": "",
+          "description": "",
+          "state": "",
+          "annual_payroll": "",
+          "rate": ""
+        }
+      ],
+      "ownership_schedule": [
+        {
+          "name": "",
+          "ownership_percent": "",
+          "covered": "",
+          "min_code": ""
+        }
+      ],
+      "states": [],
+      "other": {}
+    },
+    "forms_endorsements": {
+      "waiver_of_subrogation": { "present": true, "type": "blanket" }
+    }
+  }
+}
+
