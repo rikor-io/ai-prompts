@@ -27,6 +27,7 @@ OUTPUT JSON SHAPE
     "coverage": {
       "general_liability_occurrence_limit": "",
       "general_liability_aggregate_limit": "",
+      "aggregate_type": "",   // "per project", "per location", or "per policy"
       "products_completed_operations_aggregate": "",
       "personal_and_advertising_injury_limit": "",
       "medical_expense_limit": "",
@@ -54,6 +55,7 @@ OUTPUT JSON SHAPE
 
 HINTS & SYNONYMS
 - Pollution Liability: "Pollution Legal Liability", "PLL", "Contractors Pollution"
+- Populate aggregate_type only when the document explicitly states “per project,” “per location,” or “per policy.
 - Professional Liability within Env: may appear as "Errors & Omissions" or "Contractors E&O"
 - Deductibles: sometimes called "retentions"
 - Exposures: Gross Receipts, Revenues, Annual Turnover
