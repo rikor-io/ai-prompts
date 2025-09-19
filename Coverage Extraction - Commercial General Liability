@@ -33,6 +33,8 @@ OUTPUT JSON SHAPE
       "personal_and_advertising_injury_limit": "",
       "damage_to_premises_rented_to_you": "",
       "medical_expense_limit": "",
+      "coverage_form": "",                 // "claims-made" or "occurrence" if stated
+      "retroactive_date": "",
       "property_damage_deductible": "",
       "stop_gap": "",
       "minimum_earned_premium": ""
@@ -62,6 +64,8 @@ HINTS & SYNONYMS
 - Personal & Advertising Injury: "Personal/Advertising Injury", "Personal and Adv Injury"
 - Damage to Premises Rented to You: "Fire Legal Liability", "Damages to Premises Rented"
 - Medical Expense: "Medical Payments", "Med Pay"
+- Coverage Form: "Claims-Made" vs "Occurrence"
+- Retroactive Date: "Retro Date", "Prior Acts"
 - Property Damage Deductible: "PD Deductible", "Property Damage Ded."
 - Endorsement cues:
   - Waiver of Subrogation: "Waiver of Subrogation", "Waiver—Blanket", "WOS", "Waiver applies when required by written contract"
