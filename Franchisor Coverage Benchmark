@@ -1,0 +1,60 @@
+{
+  "prompt_name": "Franchisor_Coverage_Benchmark_Assessment",
+  "description": "Assesses a franchisor's current insurance policies against a tiered benchmark based on the number of franchisees, identifying gaps and providing a high-level summary.",
+  "input_requirements": [
+    "Number of Franchisees (integer)",
+    "Current Policies Held by Franchisor (list of policy names/types, e.g., 'GL, WC, D&O, Cyber')"
+  ],
+  "execution_logic": {
+    "tiers": [
+      {
+        "name": "Tier 1: Emerging Franchisor",
+        "count": "0-40",
+        "required_coverages": [
+          "General Liability (GL)",
+          "Workers' Compensation (WC)",
+          "Commercial Property",
+          "Commercial Auto (Hired & Non-Owned)",
+          "Cyber Liability",
+          "Employment Practices Liability (EPLI)"
+        ]
+      },
+      {
+        "name": "Tier 2: Mid-Market Franchisor",
+        "count": "41-100",
+        "required_coverages": [
+          "All Tier 1",
+          "Umbrella/Excess Liability",
+          "Directors & Officers (D&O)",
+          "Errors & Omissions (E&O)",
+          "Employee Benefits Liability (EBL)",
+          "Crime Insurance"
+        ]
+      },
+      {
+        "name": "Tier 3: Large/Mature Franchisor",
+        "count": "100+",
+        "required_coverages": [
+          "All Tier 1 & 2",
+          "Vicarious Liability Coverage (BI/PD endorsement)",
+          "E&O Policy Modification (for BI/PD from ops manual error)",
+          "Kidnap & Ransom (K&R) (Consideration/Recommendation)"
+        ]
+      }
+    ]
+  },
+  "prompt_instructions": "Based on the provided 'Number of Franchisees,' determine the applicable tier. Compare the 'Current Policies Held by Franchisor' against the 'required_coverages' for that tier. Policies are considered 'Missing' if not explicitly listed in the input. Generate the output in the specified structure.",
+  "desired_output_structure": {
+    "section_1_title": "1. Coverage Review Checklist",
+    "section_1_contents": [
+      "Benchmark Tier Determined (e.g., Tier 2: Mid-Market)",
+      "A table listing every required coverage for the tier and its Status (Present / Missing)."
+    ],
+    "section_2_title": "2. Executive Summary",
+    "section_2_contents": [
+      "Overall Status (e.g., Foundational, Adequate, High-Risk)",
+      "Key Gaps (1-3 most critical missing policies, if any, listed clearly).",
+      "Next Steps (Immediate priority recommendation, e.g., 'Address the missing Umbrella Policy' and 'Proceed to the deep-dive Cyber/EPLI policy language review')."
+    ]
+  }
+}
