@@ -34,6 +34,7 @@ OUTPUT JSON SHAPE
       "personal_and_advertising_injury_limit": "",
       "damage_to_premises_rented_to_you": "",
       "medical_expense_limit": "",
+      "hired_non-owned_auto": "",
       "coverage_form": "",                 // "claims-made" or "occurrence" if stated
       "retroactive_date": "",
       "property_damage_deductible": "",
