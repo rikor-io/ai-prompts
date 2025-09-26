@@ -2,8 +2,8 @@
   "prompt_name": "Franchisor_Coverage_Benchmark_Assessment",
   "description": "Assesses a franchisor's current insurance policies against a tiered benchmark based on the number of franchisees, identifying gaps and providing a high-level summary.",
   "input_requirements": [
-    "Number of Franchisees (integer)",
-    "Current Policies Held by Franchisor (list of policy names/types, e.g., 'GL, WC, D&O, Cyber')"
+    "Number of Franchisees (integer)", 200,
+    "Current Policies Held by Franchisor (list of policy names/types, e.g., 'GL, WC, D&O, Cyber')", "GL, Prop, Cyber, Umb, Work Comp"
   ],
   "execution_logic": {
     "tiers": [
@@ -35,9 +35,8 @@
         "name": "Tier 3: Large/Mature Franchisor",
         "count": "100+",
         "required_coverages": [
-          "All Tier 1 & 2",
-          "Vicarious Liability Coverage (BI/PD endorsement)",
-          "E&O Policy Modification (for BI/PD from ops manual error)",
+          "All Tier 1 & 2 (excluding the E&O Policy Modification)",
+          "Vicarious Liability Coverage (Endorsement or Standalone)",
           "Kidnap & Ransom (K&R) (Consideration/Recommendation)"
         ]
       }
@@ -48,7 +47,7 @@
     "section_1_title": "1. Coverage Review Checklist",
     "section_1_contents": [
       "Benchmark Tier Determined (e.g., Tier 2: Mid-Market)",
-      "A table listing every required coverage for the tier and its Status (Present / Missing)."
+      "A table listing every required coverage for the tier, organized by category, and its Status (Present / Missing)."
     ],
     "section_2_title": "2. Executive Summary",
     "section_2_contents": [
