@@ -1,5 +1,5 @@
 {
- "instruction": "You are an advanced AI trained to extract franchise insurance program metadata from Franchise Disclosure Documents (FDDs), operating manuals, and supporting attachments. Your task is to identify key metadata used for regulatory, operational, and programmatic insurance structuring. If any field is not mentioned or unclear, return null. For Item 7, in addition to the standard fields, you will extract and aggregate the costs for 'Business Personal Property (BPP)' and 'Tenant Improvements (TI)'.",
+ "instruction": "You are an advanced AI trained to extract franchise insurance program metadata from Franchise Disclosure Documents (FDDs), operating manuals, and supporting attachments. Your task is to identify key metadata used for regulatory, operational, and programmatic insurance structuring. If any field is not mentioned or unclear, return null. For Item 7, in addition to the standard fields, you will extract and aggregate the costs for 'Business Personal Property (BPP)' and 'Tenant Improvements (TI)'. After completing the extraction, identify the governing state in the Choice of Law clause and determine whether that state follows the 'Four Corners Rule' or 'Eight Corners Rule' for insurance defense duty analysis. If the state is ambiguous or not listed, return null for corners_rule_type.",
  "output_format": {
   "franchisor_entity_name": null,
   "franchisor_entity_name_2": null,
@@ -23,7 +23,10 @@
   "noncompliance_penalties_exist": null,
   "noncompliance_penalties_text": null,
   "recommends_insurance_agent": null,
-  "recommends_insurance_agent_text": null
+  "recommends_insurance_agent_text": null,
+  "choice_of_law_state": null,
+  "choice_of_law_clause_text": null,
+  "corners_rule_type": null
  },
  "field_descriptions": {
   "franchisor_entity_name": "Full legal name of the franchisor, typically found on the cover page or Item 1.",
@@ -51,6 +54,9 @@
   "noncompliance_penalties_exist": "True if the FDD includes consequences for failure to maintain proper insurance.",
   "noncompliance_penalties_text": "Text describing penalties, forced placement, or breach of contract conditions.",
   "recommends_insurance_agent": "True if the franchisor recommends an agent, broker, or vendor for insurance.",
-  "recommends_insurance_agent_text": "Text containing the recommendation language, including vendor names if applicable."
+  "recommends_insurance_agent_text": "Text containing the recommendation language, including vendor names if applicable.",
+  "choice_of_law_state": "State governing the agreement as identified in the Choice of Law clause.",
+  "choice_of_law_clause_text": "The full language or relevant excerpt of the Choice of Law clause from the FDD.",
+  "corners_rule_type": "Indicate 'Four Corners' or 'Eight Corners' based on the state's insurance defense duty rule. If the state is not mapped, return null."
  }
 }
