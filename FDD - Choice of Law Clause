@@ -1,0 +1,34 @@
+{
+  "task": "Assess the insurance duty-to-defend implications of the franchisor’s choice of law state.",
+  "input": {
+    "state": "<STATE_NAME>",
+    "context": "Franchisor choice of law provision in FDD / FA",
+    "coverage_line": "E&O / MPL",
+    "risk_focus": "Duty to defend implications and insurer denial strategies"
+  },
+  "instructions": {
+    "step_1": "Identify the state’s legal standard for duty to defend (Four Corners, Eight Corners, or Extrinsic Evidence).",
+    "step_2": "Assess how the state interprets 'arising out of' language and how allegations of intentional or fraudulent acts affect defense obligations.",
+    "step_3": "Determine how these legal standards impact the likelihood of insurer defense denial at the outset of litigation.",
+    "step_4": "Recommend strategic actions to mitigate risk if the state is unfavorable (e.g., forum selection, pleading strategy, alternative state selection).",
+    "step_5": "Classify the overall defense favorability and assign a risk rating."
+  },
+  "output_format": {
+    "jurisdiction_category": "Favorable | Neutral | Unfavorable",
+    "legal_standard_summary": "Short explanation of legal standard and its practical impact",
+    "exclusion_interpretation": "Summary of how 'arising out of' and intentional allegations are treated",
+    "strategic_implications": "Key consequences for franchisors (e.g., defense triggered or barred in mixed claims)",
+    "recommended_risk_mitigation": "Forum selection, pleading strategies, alternative states, etc.",
+    "risk_rating": "Low | Moderate | High",
+    "risk_justification": "One-sentence rationale for the rating"
+  },
+  "example_output": {
+    "jurisdiction_category": "Favorable",
+    "legal_standard_summary": "Texas applies the Eight Corners Rule, evaluating each cause of action separately.",
+    "exclusion_interpretation": "Narrow interpretation. Intentional allegations do not bar defense of negligence claims.",
+    "strategic_implications": "High likelihood of defense trigger if negligence claims are pled. No extrinsic evidence allowed.",
+    "recommended_risk_mitigation": "Leverage Texas as governing law. Ensure negligence is clearly pled in claims.",
+    "risk_rating": "Low",
+    "risk_justification": "Texas law favors insureds in mixed-claim scenarios, limiting early denial exposure."
+  }
+}
