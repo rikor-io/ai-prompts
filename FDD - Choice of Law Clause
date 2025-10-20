@@ -1,7 +1,7 @@
 {
   "task": "Assess the insurance duty-to-defend implications of the franchisor’s choice of law state.",
   "input": {
-    "state": "<STATE_NAME>",
+    "state": "Utah",
     "context": "Franchisor choice of law provision in FDD / FA",
     "coverage_line": "E&O / MPL",
     "risk_focus": "Duty to defend implications and insurer denial strategies"
@@ -10,7 +10,7 @@
     "step_1": "Identify the state’s legal standard for duty to defend (Four Corners, Eight Corners, or Extrinsic Evidence).",
     "step_2": "Assess how the state interprets 'arising out of' language and how allegations of intentional or fraudulent acts affect defense obligations.",
     "step_3": "Determine how these legal standards impact the likelihood of insurer defense denial at the outset of litigation.",
-    "step_4": "Recommend strategic actions to mitigate risk if the state is unfavorable (e.g., forum selection, pleading strategy, alternative state selection).",
+    "step_4": "Recommend strategic actions to strengthen the franchisor’s position and mitigate early defense denial.",
     "step_5": "Classify the overall defense favorability and assign a risk rating."
   },
   "output_format": {
@@ -18,17 +18,32 @@
     "legal_standard_summary": "Short explanation of legal standard and its practical impact",
     "exclusion_interpretation": "Summary of how 'arising out of' and intentional allegations are treated",
     "strategic_implications": "Key consequences for franchisors (e.g., defense triggered or barred in mixed claims)",
-    "recommended_risk_mitigation": "Forum selection, pleading strategies, alternative states, etc.",
+    "recommended_risk_mitigation": "Contractual, pleading, and forum strategies that improve franchisor leverage",
     "risk_rating": "Low | Moderate | High",
     "risk_justification": "One-sentence rationale for the rating"
-  },
-  "example_output": {
-    "jurisdiction_category": "Favorable",
-    "legal_standard_summary": "Texas applies the Eight Corners Rule, evaluating each cause of action separately.",
-    "exclusion_interpretation": "Narrow interpretation. Intentional allegations do not bar defense of negligence claims.",
-    "strategic_implications": "High likelihood of defense trigger if negligence claims are pled. No extrinsic evidence allowed.",
-    "recommended_risk_mitigation": "Leverage Texas as governing law. Ensure negligence is clearly pled in claims.",
-    "risk_rating": "Low",
-    "risk_justification": "Texas law favors insureds in mixed-claim scenarios, limiting early denial exposure."
   }
 }
+✅ Updated Output Example (Utah):
+
+Category	Details
+Choice of Law State	Utah
+Legal Standard	Four Corners Rule — courts compare only the complaint and policy. Extrinsic evidence is rarely considered.
+Practical Effect of Standard	If the complaint doesn’t allege a covered claim (e.g., negligence), insurers can deny defense early. Limited leverage to force coverage through facts outside pleadings.
+Exclusion Interpretation	“Arising out of” is interpreted broadly. Intentional or fraudulent allegations can bar defense. Mixed claims may still trigger defense but are often disputed.
+Insurer Leverage	High — narrow pleading and broad exclusions increase the likelihood of early denial.
+Risk Rating	Moderate – High
+Strategic Mitigation	• Strengthen pleadings to ensure at least one negligence claim is alleged
+• Narrow or clarify “arising out of” language during policy negotiations
+• Include contract provisions that clarify defense obligations in mixed-claim scenarios
+• Consider forum and governing law that provide better defense triggers (e.g., Texas), but prioritize contractual leverage over jurisdictional shopping
+• Build pre-litigation strategies to pressure carriers early (e.g., tendering with clear coverage framing)
+Bottom Line	Utah gives carriers strong early denial leverage. Franchisors can offset this through strategic pleading, contractual language, and selecting more defense-favorable forums when possible.
+
+📌 Additional Guidance for State Recommendations
+✅ Texas: Favorable — strict Eight Corners rule, narrow insurer ability to deny early.
+⚠️ Utah: Neutral–Unfavorable — strict Four Corners rule but broad exclusion interpretation.
+❌ Florida: Unfavorable — broad extrinsic evidence use favors carriers.
+⚠️ California: Neutral — mixed; potential coverage standard but carriers can deny early using extrinsic evidence.
+
+Key Principle:
+Always focus on strengthening franchisor control through contract language, pleading strategy, and forum selection — not simply choosing states perceived as defense-friendly.
