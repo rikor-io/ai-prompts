@@ -1,49 +1,40 @@
 {
-  "task": "Assess the insurance duty-to-defend implications of the franchisor’s choice of law state.",
-  "input": {
-    "state": "Utah",
-    "context": "Franchisor choice of law provision in FDD / FA",
+  "task": "Choice of Law Risk Assessment for FDD Insurance Analysis",
+  "objective": "Assess the duty-to-defend implications of the franchisor’s choice of law using scenario-driven narratives that are easy to understand and focused on franchisor exposure, insurer denial strategies, and defense leverage.",
+  "input_example": {
+    "state": "Florida",
+    "context": "Franchisee lawsuit involving revenue promise allegations",
     "coverage_line": "E&O / MPL",
     "risk_focus": "Duty to defend implications and insurer denial strategies"
   },
   "instructions": {
-    "step_1": "Identify the state’s legal standard for duty to defend (Four Corners, Eight Corners, or Extrinsic Evidence).",
-    "step_2": "Assess how the state interprets 'arising out of' language and how allegations of intentional or fraudulent acts affect defense obligations.",
-    "step_3": "Determine how these legal standards impact the likelihood of insurer defense denial at the outset of litigation.",
-    "step_4": "Recommend strategic actions to strengthen the franchisor’s position and mitigate early defense denial.",
-    "step_5": "Classify the overall defense favorability and assign a risk rating."
+    "step_1": "Identify the state’s duty-to-defend legal standard and how it affects insurer leverage.",
+    "step_2": "Evaluate how broad exclusions (e.g., financial guarantee) are interpreted under that state.",
+    "step_3": "Determine the impact on defense obligations when mixed claims (excluded and covered) are present.",
+    "step_4": "Craft one or more plain-language scenarios that show what happens to the franchisor financially under this legal environment.",
+    "step_5": "Recommend strategic mitigation (e.g., forum selection, choice of law adjustments, contractual language improvements).",
+    "step_6": "Classify overall defense favorability and assign a risk rating."
   },
   "output_format": {
     "jurisdiction_category": "Favorable | Neutral | Unfavorable",
-    "legal_standard_summary": "Short explanation of legal standard and its practical impact",
-    "exclusion_interpretation": "Summary of how 'arising out of' and intentional allegations are treated",
-    "strategic_implications": "Key consequences for franchisors (e.g., defense triggered or barred in mixed claims)",
-    "recommended_risk_mitigation": "Contractual, pleading, and forum strategies that improve franchisor leverage",
     "risk_rating": "Low | Moderate | High",
-    "risk_justification": "One-sentence rationale for the rating"
+    "scenarios": [
+      {
+        "title": "Franchisee Claim / Absolute Bar Exclusion",
+        "description": "A franchisee sues the franchisor for fraudulent inducement, claiming the franchisor made false revenue promises. The insurer denies defense under a financial guarantee exclusion. Because the chosen state has a broad 'arising out of' interpretation, this single allegation is enough to bar coverage for the entire case — including service-related claims that might otherwise have been covered.",
+        "outcome": "No defense from the carrier. Franchisor pays out of pocket."
+      },
+      {
+        "title": "Mixed Allegations / Broad Interpretation",
+        "description": "A franchisee lawsuit combines both revenue promise allegations (excluded) and service failure claims (potentially covered). The insurer denies defense, linking all claims back to the excluded subject matter. The state's interpretation gives the franchisor no path to force defense.",
+        "outcome": "Early denial, high legal costs."
+      },
+      {
+        "title": "Favorable Jurisdiction / Narrow Interpretation",
+        "description": "Same allegations, but the franchise agreement uses a policyholder-friendly state. A single covered allegation triggers defense for the whole case.",
+        "outcome": "Insurer funds defense. Franchisor preserves cash and leverage."
+      }
+    ],
+    "example_structure": "🟠 Scenario Title – Short description of the event, highlighting the legal trigger and exclusion. → Outcome statement summarizing the financial impact on the franchisor."
   }
 }
-✅ Updated Output Example (Utah):
-
-Category	Details
-Choice of Law State	Utah
-Legal Standard	Four Corners Rule — courts compare only the complaint and policy. Extrinsic evidence is rarely considered.
-Practical Effect of Standard	If the complaint doesn’t allege a covered claim (e.g., negligence), insurers can deny defense early. Limited leverage to force coverage through facts outside pleadings.
-Exclusion Interpretation	“Arising out of” is interpreted broadly. Intentional or fraudulent allegations can bar defense. Mixed claims may still trigger defense but are often disputed.
-Insurer Leverage	High — narrow pleading and broad exclusions increase the likelihood of early denial.
-Risk Rating	Moderate – High
-Strategic Mitigation	• Strengthen pleadings to ensure at least one negligence claim is alleged
-• Narrow or clarify “arising out of” language during policy negotiations
-• Include contract provisions that clarify defense obligations in mixed-claim scenarios
-• Consider forum and governing law that provide better defense triggers (e.g., Texas), but prioritize contractual leverage over jurisdictional shopping
-• Build pre-litigation strategies to pressure carriers early (e.g., tendering with clear coverage framing)
-Bottom Line	Utah gives carriers strong early denial leverage. Franchisors can offset this through strategic pleading, contractual language, and selecting more defense-favorable forums when possible.
-
-📌 Additional Guidance for State Recommendations
-✅ Texas: Favorable — strict Eight Corners rule, narrow insurer ability to deny early.
-⚠️ Utah: Neutral–Unfavorable — strict Four Corners rule but broad exclusion interpretation.
-❌ Florida: Unfavorable — broad extrinsic evidence use favors carriers.
-⚠️ California: Neutral — mixed; potential coverage standard but carriers can deny early using extrinsic evidence.
-
-Key Principle:
-Always focus on strengthening franchisor control through contract language, pleading strategy, and forum selection — not simply choosing states perceived as defense-friendly.
