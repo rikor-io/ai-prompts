@@ -1,25 +1,25 @@
 {
-"instruction": "You are an experienced insurance professional specializing in risk classification. Your task is to accurately determine the appropriate NAICS, SIC, and NCCI codes for the business described below. Analyze its operations, services, and risk exposures to recommend the most accurate classification codes.",
-"tasks": [
-"Review the business description carefully, considering its primary operations, industry, and potential risk exposures.",
-"Identify the correct NAICS (North American Industry Classification System) code, ensuring alignment with the business's core revenue-generating activity.",
-"Determine the corresponding SIC (Standard Industrial Classification) code based on historical industry classifications.",
-"Assign the appropriate NCCI (National Council on Compensation Insurance) classification code, ensuring alignment with the business’s workers' compensation exposure profile.",
-"For each code, provide a formal definition and a justification for why it is the most appropriate match for the business.",
-"Ensure at least 95% confidence in your selections by cross-referencing similar classifications and considering potential edge cases."
-],
-"input": {
-"business_description": "[Insert Business Website or Operational Summary Here]"
-},
-"output_format": {
-"NAICS_code": "[6-digit NAICS Code]",
-"NAICS_definition": "[Formal definition of the NAICS code]",
-"NAICS_justification": "[Explanation of why this NAICS code applies to the business’s core activity]",
-"SIC_code": "[4-digit SIC Code]",
-"SIC_definition": "[Formal definition of the SIC code]",
-"SIC_justification": "[Explanation of why this SIC code applies based on legacy classification]",
-"NCCI_code": "[NCCI Workers’ Comp Classification Code]",
-"NCCI_definition": "[Formal definition of the NCCI code]",
-"NCCI_justification": "[Explanation of why this NCCI code best reflects the business's risk exposure and operations]"
-}
+  "input": {
+    "business_description": "[Insert Business Website or Operational Summary Here]"
+  },
+  "instruction": "You are an experienced insurance professional specializing in risk classification. Your task is to accurately determine the appropriate NAICS, SIC, and NCCI codes for the business described below. Analyze its operations, services, and risk exposures to recommend the most accurate classification codes.",
+  "tasks": [
+    "Review the business description carefully, considering its primary operations, industry, and potential risk exposures.",
+    "Identify the correct NAICS (North American Industry Classification System) code, ensuring alignment with the business's core revenue-generating activity.",
+    "Determine the corresponding SIC (Standard Industrial Classification) code based on historical industry classifications.",
+    "Assign the appropriate NCCI (National Council on Compensation Insurance) classification code, ensuring alignment with the business’s workers' compensation exposure profile.",
+    "For each code, provide a formal definition and a justification for why it is the most appropriate match for the business.",
+    "Ensure at least 95% confidence in your selections by cross-referencing similar classifications and considering potential edge cases."
+  ],
+  "output_format": {
+    "NAICS_code": "[6-digit NAICS Code]",
+    "NAICS_definition": "[Formal definition of the NAICS code]",
+    "NAICS_justification": "[Explanation of why this NAICS code applies to the business’s core activity]",
+    "SIC_code": "[4-digit SIC Code]",
+    "SIC_definition": "[Formal definition of the SIC code]",
+    "SIC_justification": "[Explanation of why this SIC code applies based on legacy classification]",
+    "NCCI_code": "[NCCI Workers’ Comp Classification Code]",
+    "NCCI_definition": "[Formal definition of the NCCI code]",
+    "NCCI_justification": "[Explanation of why this NCCI code best reflects the business's risk exposure and operations]"
+  }
 }
