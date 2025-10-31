@@ -47,19 +47,33 @@
     }
   },
   "ai_instructions": {
-    "objective": "Extract and validate E&O coverage data from franchisor insurance documents and compare against the benchmark.",
+    "objective": "Extract and validate E&O coverage data from franchisor insurance documents and compare against the benchmark. Focus analysis on potential absolute bars to coverage and the Duty to Defend.",
     "steps": [
       "Normalize document format (PDF, scanned, DOCX, etc.)",
       "Extract specified fields using benchmark keys",
+      "**PRIORITY EXTRACTION: Franchisor Professional Services Endorsement** - Explicitly search for and extract the language of the specific Franchisor Professional Services Endorsement. This takes precedence over the generic Professional Services Definition when detailing covered activities.",
       "Detect and flag missing values or gaps in coverage",
-      "Return structured output as JSON matching the benchmark schema",
-      "Include a 'coverage_gaps' section highlighting deviations",
-      "Attach 'source_text' for every extracted field for validation"
+      "Return structured output as JSON matching the benchmark schema (as 'json_object')",
+      "**CRITICAL EXCLUSION REVIEW:** Explicitly extract and analyze the exact wording of the following sections to assess the risk of immediate claim denial:",
+      "* **Retroactive Date:** Flag any policy where the Retroactive Date is the policy's inception date, indicating a severe lack of prior acts coverage.",
+      "* **Financial Guarantee/Absolute Bar (Exclusion III.M. or equivalent):** Extract the full text of the exclusion concerning future revenues, profits, costs, or warranties. Analyze if the exclusion is **intent-agnostic** (absolute) or if it retains a carve-out for negligent misrepresentation.",
+      "* **Contractual Liability Exclusion (III.J. or equivalent):** Note if the exclusion restores coverage only for claims alleging **negligent** performance (the 'intentional' pleading pitfall).",
+      "**RISK MITIGATION ANALYSIS:** Include an assessment of the most favorable jurisdiction for the Duty to Defend (e.g., Texas vs. Florida 'Four Corners' Rule) and whether the policy's wording could be vulnerable in a strict jurisdiction.",
+      "**FINAL OUTPUT FORMATTING:** Use the extracted data and analysis to generate a concise Comparison Table as specified below, and a separate 'coverage_gaps' section."
     ],
     "output_format": {
-      "json_object": "Matches benchmark schema",
-      "coverage_gaps": "List of all gaps vs. benchmark",
-      "source_text": "Direct citation from the document"
+      "json_object": "Full JSON output matching benchmark schema.",
+      "comparison_output": {
+        "type": "Table",
+        "columns": [
+          "Item",
+          "Current (Extracted Value)",
+          "Benchmark (Required Value)"
+        ],
+        "content": "Key policy terms (Limits, Retroactive Date, Retention, Defense Costs, Financial Guarantee Exclusion Wording, Franchisor Services Definition) compared side-by-side."
+      },
+      "coverage_gaps": "List of all gaps vs. benchmark, **including a detailed analysis of the Absolute Bar, Retroactive Date exclusions, and the scope of Franchisor Professional Services coverage**.",
+      "source_text": "Direct citation from the document for every extracted field."
     }
   }
 }
