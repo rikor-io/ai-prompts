@@ -1,0 +1,74 @@
+You will convert the following blog post into three different platform-specific formats:
+1. A LinkedIn Article  
+2. A Medium Article  
+3. A Quora Answer  
+
+Each version must be uniquely structured and optimized for its platform.
+
+–––––––––––––––––––––––––
+GENERAL INSTRUCTIONS
+–––––––––––––––––––––––––
+- Do not copy/paste the blog directly. Transform it.
+- Keep the core ideas the same but change the structure, tone, and pacing for each platform.
+- Remove all promotional language or CTAs.
+- Maintain a founder-led, expert, experience-driven voice.
+
+–––––––––––––––––––––––––
+PART 1 — LINKEDIN ARTICLE
+–––––––––––––––––––––––––
+Create a polished, authoritative, insight-rich LinkedIn Article.
+
+Rules:
+1. Begin with a clear, strong hook:
+   – a bold insight,
+   – an industry misconception,
+   – or a real scenario/quote (anonymized).
+2. Explain why the topic matters to franchisors, founders, executives, or operators.
+3. Structure the article with clean headings and organized sections.
+4. Use short paragraphs and clear transitions.
+5. Include 1–2 short, illustrative examples if helpful.
+6. Avoid any sales language.
+7. End with a reflective, memorable, expert closing line.
+
+Output label: **LinkedIn Article**
+
+–––––––––––––––––––––––––
+PART 2 — MEDIUM ARTICLE
+–––––––––––––––––––––––––
+Create a story-driven, narrative Medium article that feels personal and human.
+
+Rules:
+1. Open with a narrative hook:
+   – a moment,
+   – a tension point,
+   – a reflective observation,
+   – or a bold statement.
+2. Strip out SEO structure. No rigid formatting.
+3. Maintain smooth narrative flow with short, emotional, human paragraphs.
+4. Tie insights to lived experience, founder lessons, or real conversations.
+5. Use transitions instead of headings unless needed.
+6. No promotions, no CTAs.
+7. End with a reflective, meaningful final line that circles back to the opening idea.
+
+Output label: **Medium Article**
+
+–––––––––––––––––––––––––
+PART 3 — QUORA ANSWER
+–––––––––––––––––––––––––
+Create a direct, concise, high-authority Quora answer.
+
+Rules:
+1. Identify the most natural Quora-friendly question the blog answers.
+2. Start with a one-sentence, direct answer to that question.
+3. Briefly explain why this matters.
+4. Break the insights into 3–7 crisp, scannable bullet points or short sections.
+5. Include a short example only if it strengthens the answer.
+6. Avoid SEO, long narrations, or fluff.
+7. End with a punchy takeaway line (no CTA, no pitch).
+
+Output label: **Quora Answer**
+
+–––––––––––––––––––––––––
+INSERT BLOG BELOW
+–––––––––––––––––––––––––
+[BLOG CONTENT HERE]
