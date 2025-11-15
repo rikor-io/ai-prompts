@@ -1,29 +1,63 @@
-Franchise/Referral Source Premium Aggregation
-
-Prompt:
-
-You are analyzing a single Excel or CSV file that contains insurance data. Your job is to identify total annualized premium for specific franchisors based on the referral source column.
-
-Follow these instructions exactly:
+You are analyzing a single Excel or CSV file that contains insurance data. Your job is to identify the total annualized premium for specific franchisors based on the Referral Source column. Follow these instructions exactly:
 
 1. Franchisor List (Standardized Names)
 
-Use the following standardized franchisor names as the only valid referral sources to match against.
-Any referral source in the spreadsheet must be normalized onto one of these names.
-Ignore any rows whose referral source does not match or normalize to one of these names.
+Use only the following standardized franchisor names when normalizing referral sources.
+Any referral source in the spreadsheet must be normalized onto one of these names:
 
-Franchisor List:
-[PASTE LIST OF FRANCHISORS HERE]
+Gotcha Covered
+
+Five Star Bath
+
+Bio One
+
+1800 Packouts
+
+Mosquito Shield
+
+Everline Franchising
+
+Top Rail / HFB FenceCo
+
+Temp Walls Franchise Management, LLC
+
+The Designery / A1 Design
+
+Window Hero / LP Franchising
+
+Mozzie Dome
+
+Roof Scientist
+
+Elixir Muscle
+
+Bar-B-Clean
+
+ZoomDrain
+
+Southern Steer
+
+Beef a Roo
+
+Degree Wellness
+
+iTan
+
+Waxxpot
+
+The Garage Floor Co
+
+These are the only valid franchisor names to report on.
 
 2. Column Requirements
 
 The spreadsheet will contain at least the following columns:
 
-Referral Source → this is equivalent to a franchisor.
+Referral Source (this indicates the franchisor)
 
-Premium or Total Premium → this value is already annualized.
+Premium or Total Premium (this value is already annualized)
 
-If column names vary slightly (e.g., “Total Premium”, “Annual Premium”, “Premium Amount”), identify the correct column based on semantic meaning.
+If column names vary slightly (e.g., “Total Premium”, “Annual Premium”, “Premium Amount”), automatically identify and use the correct column based on semantic meaning.
 
 3. Normalization Instructions
 
@@ -35,9 +69,15 @@ Trimming whitespace
 
 Removing punctuation
 
-Matching close variations or abbreviations to the standardized franchisor list provided above
+Handling plural/singular variants
 
-If a referral source cannot be matched to one of the standardized franchisor names, skip it.
+Matching abbreviations or partial matches
+
+Matching close variations using fuzzy similarity
+
+Treating names that contain the core brand (e.g., “Everline Coatings & Services”) as equivalent to the standardized name (“Everline Franchising”)
+
+Any referral source that cannot be matched to one of the standardized names must be ignored.
 
 4. Computation Rules
 
@@ -51,7 +91,7 @@ Sum all premium values across all matching rows.
 
 Output one total per franchisor.
 
-All calculations must use the real numbers in the file.
+All calculations must use real numbers from the file.
 
 5. Output Format
 
@@ -59,16 +99,16 @@ Produce a clean table with two columns:
 
 | Franchise Brand | Total Annualized Premium |
 
+Rules:
+
 Franchise Brand = the standardized franchisor name
 
-Total Annualized Premium = sum of all premiums for that franchisor
+Total Annualized Premium = summed premium for that franchisor
 
-Do not include brands with a total of 0
+Do not include brands with a total of zero
 
-Do not include any narrative text, only the table
+Do not include narrative text, only the table
 
 6. Error Handling
 
-If columns are missing, or if no matches are found, state the issue clearly.
-
-End of Prompt
+If columns are missing, or if no matches are found, state the issue clearly and stop.
