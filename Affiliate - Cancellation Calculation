@@ -16,29 +16,151 @@ Ignore all other columns.
 REFERRAL SOURCE FILTERING
 ====================
 
-Only include policies whose Referral Source matches ANY of the following names, even with minor spelling, spacing, punctuation, or capitalization differences. Normalize all variations to the standardized name:
+Approved Referral Source List (Strict)
 
-- Gotcha Covered
-- Five Star Bath
-- Bio One
-- 1800 Packouts
-- Mosquito Shield
-- Everline Franchising
-- Top Rail / HFB FenceCo
-- Temp Walls Franchise Management, LLC
-- The Designery / A1 Design
-- Window Hero / LP Franchising
-- Mozzie Dome
-- Roof Scientist
-- Elixir Muscle
-- Bar-B-Clean
-- ZoomDrain
-- Southern Steer
-- Beef a Roo
-- Degree Wellness
-- iTan
-- Waxxpot
-- The Garage Floor Co
+Each name below must be matched as a full phrase within the referral source field:
+
+Standardized → Acceptable Variations
+Gotcha Covered
+
+“Gotcha Covered”
+
+“Gotcha Covered Franchising”
+
+“Gotcha Covered [location]”
+
+Five Star Bath
+
+“Five Star Bath”
+
+“Five Star Bath Solutions”
+
+“Five Star Bath Solutions, Inc.”
+
+“Five Star Bath, LLC”
+
+Bio One
+
+“Bio One”
+
+“Bio-One”
+
+“BioOne”
+
+1800 Packouts
+
+“1800 Packouts”
+
+“1-800 Packouts”
+
+“1 800 Packouts”
+
+Mosquito Shield
+
+“Mosquito Shield”
+
+“Mosquito Shield Franchise”
+
+Everline Franchising
+
+“Everline Franchising”
+
+“EverLine Franchising Ltd”
+
+“EverLine Coatings & Services”
+
+Top Rail / HFB FenceCo
+
+“Top Rail Fence”
+
+“Top Rail / HFB FenceCo”
+
+“Top Rail FenceCo”
+
+“Top Rail Fencing”
+
+“HFB FenceCo”
+
+Temp Walls Franchise Management, LLC
+
+“Temp Walls Franchise Management, LLC”
+
+“Temporary Wall Systems”
+
+“Temporary Walls Systems Franchise”
+
+“Temp Walls”
+
+The Designery / A1 Design
+
+“The Designery”
+
+“A1 Design”
+
+“A1 Design / The Designery”
+
+Window Hero / LP Franchising
+
+“Window Hero”
+
+“Window Hero Franchising”
+
+“LP Franchising”
+
+Mozzie Dome
+
+“Mozzie Dome”
+
+Roof Scientist
+
+“Roof Scientist”
+
+Elixir Muscle
+
+“Elixir Muscle”
+
+Bar-B-Clean
+
+“Bar-B-Clean”
+
+“Bar-B-Clean Franchising Inc”
+
+ZoomDrain
+
+“ZoomDrain”
+
+“Zoom Drain”
+
+Southern Steer
+
+“Southern Steer”
+
+Beef a Roo
+
+“Beef a Roo”
+(If you want to exclude it entirely, just remove the line from your list.)
+
+Degree Wellness
+
+“Degree Wellness”
+
+iTan
+
+“iTan”
+
+“iTAN”
+
+Waxxpot
+
+“Waxxpot”
+
+The Garage Floor Co
+
+“The Garage Floor Co”
+
+“Garage Floor Company”
+
+“Garage Floor Co.”
 
 Exclude all policies whose referral source does not map to one of these names.
 
