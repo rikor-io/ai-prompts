@@ -1,0 +1,74 @@
+Franchise/Referral Source Premium Aggregation
+
+Prompt:
+
+You are analyzing a single Excel or CSV file that contains insurance data. Your job is to identify total annualized premium for specific franchisors based on the referral source column.
+
+Follow these instructions exactly:
+
+1. Franchisor List (Standardized Names)
+
+Use the following standardized franchisor names as the only valid referral sources to match against.
+Any referral source in the spreadsheet must be normalized onto one of these names.
+Ignore any rows whose referral source does not match or normalize to one of these names.
+
+Franchisor List:
+[PASTE LIST OF FRANCHISORS HERE]
+
+2. Column Requirements
+
+The spreadsheet will contain at least the following columns:
+
+Referral Source → this is equivalent to a franchisor.
+
+Premium or Total Premium → this value is already annualized.
+
+If column names vary slightly (e.g., “Total Premium”, “Annual Premium”, “Premium Amount”), identify the correct column based on semantic meaning.
+
+3. Normalization Instructions
+
+Normalize referral source names by:
+
+Case-insensitivity
+
+Trimming whitespace
+
+Removing punctuation
+
+Matching close variations or abbreviations to the standardized franchisor list provided above
+
+If a referral source cannot be matched to one of the standardized franchisor names, skip it.
+
+4. Computation Rules
+
+For each franchisor:
+
+Filter all rows that match the franchisor (after normalization).
+
+Extract the premium value from the Premium/Total Premium column.
+
+Sum all premium values across all matching rows.
+
+Output one total per franchisor.
+
+All calculations must use the real numbers in the file.
+
+5. Output Format
+
+Produce a clean table with two columns:
+
+| Franchise Brand | Total Annualized Premium |
+
+Franchise Brand = the standardized franchisor name
+
+Total Annualized Premium = sum of all premiums for that franchisor
+
+Do not include brands with a total of 0
+
+Do not include any narrative text, only the table
+
+6. Error Handling
+
+If columns are missing, or if no matches are found, state the issue clearly.
+
+End of Prompt
