@@ -1,8 +1,8 @@
 PROMPT START
 
-You are turning the following blog into a simple, skimmable, high-impact email for franchisors.
+You are turning the following blog into a simple, skimmable, high-impact email written specifically for franchisors.
 
-Your job is to extract the 5 biggest takeaways and rewrite them in ultra-simple layman’s terms, so a franchisor can read the email in seconds and understand exactly why it matters.
+Your goal is to extract the 5 biggest insights and rewrite them in ultra-simple layman’s terms, so a franchisor can read the email in seconds and understand exactly why it matters.
 
 AUDIENCE
 
@@ -16,58 +16,41 @@ Strengthen insurance requirements
 
 Protect franchisee investments
 
-Scale without surprises
+Scale with fewer surprises
 
-They are extremely busy and skim everything.
+They skim everything.
+Your writing must be instantly understandable.
 
 NON-NEGOTIABLE RULES
-1. No jargon — ever
+1. No jargon at all
 
-Do not use any industry or legal terms that a normal person wouldn’t know.
+Everything must be written like you’re explaining it to someone outside the insurance industry.
 
-2. No acronyms
+2. No acronyms on first mention
 
-If the blog mentions a coverage or policy that is typically an acronym, you must:
+If the blog includes a coverage type or insurance term, you must:
 
-A) Spell out the full name
-B) Immediately define it in the simplest terms possible
+A) Write out the full coverage name the FIRST time
+B) After that, you MAY use the acronym
 
-Definitions must be:
+No exceptions.
 
-One sentence
+3. Define each coverage ONCE at the bottom of the email
+
+Definitions should be in their own section at the end
+
+One sentence each
 
 Written at a 5th–6th grade reading level
 
-Clear enough for someone with zero insurance background
+Must be simple, clear, and human
 
-Inline ( parentheses ), NOT separate
+NO repeating definitions anywhere else
 
-Example format:
-Employment Practices Liability Insurance (coverage that protects a business from issues like discrimination, sexual harassment, or wrongful termination)
+Definitions do NOT count toward bullet limits
 
-Definitions do not count toward the bullet word limit.
-
-3. Define every coverage
-
-This rule applies universally:
-
-General Liability
-
-Professional Liability
-
-Directors and Officers
-
-Cyber Insurance
-
-Umbrella Insurance
-
-ANY insurance coverage mentioned
-
-Spell it out + define it simply.
-Never assume the reader knows what it means.
-
-EMAIL FORMAT
-1. Subject Line (non-negotiable)
+EMAIL STRUCTURE & RULES
+1. Subject Line
 
 Must be:
 
@@ -77,70 +60,75 @@ Curiosity-based
 
 Emotionally compelling
 
-Aligned with the blog’s core problem or insight
+Relevant to franchisor risk or system protection
 
-Follow Neil Patel’s rules:
+Following Neil Patel best practices (short, punchy, intriguing)
 
-Short
+Examples to mimic (do not reuse):
 
-Punchy
+“Your Hidden Risk”
 
-Creates tension or curiosity
+“The Gap That Hurts”
 
-Clearly relevant to franchisors
+“A Costly Blind Spot”
 
-Examples to mimic (do NOT reuse directly):
+“Before This Breaks You”
 
-“A Risk You Can’t Ignore”
-
-“The Hidden Gap”
-
-“Why Brands Get Burned”
-
-“Before This Gets Expensive”
-
-“Franchisors Miss This”
-
-“What Causes Franchise Chaos”
-
-“Your Most Overlooked Liability”
-
-The subject should feel like a warning + insight hybrid.
+“What Most Brands Miss”
 
 2. Intro (2 sentences max)
 
 Follow StoryBrand:
 
-Sentence 1: Identify the ONE problem the blog helps franchisors solve.
+Sentence 1: Name the one problem the blog helps franchisors solve.
 
-Sentence 2: Tell them why it matters for protecting their brand or franchisees.
-
-No jargon. No insurance-speak. No fluff.
+Sentence 2: Explain why it matters for protecting their brand or franchisees.
 
 3. Top 5 Takeaways
 
-Produce five bullets, each:
+Create five bullets, each:
 
-Under 14 words (definitions don’t count)
+Under 14 words
 
 One simple idea
 
 Written in plain English
 
-Framed around brand protection, franchisee protection, or system stability
+High-level only
 
-Strong enough to work as standalone headlines
+Built around risk, protection, clarity, or system stability
 
-Format example:
+Able to stand alone as a “headline insight”
 
-Hidden risks multiply when every franchisee uses different coverage rules.
-(General Liability insurance = coverage that protects a business when someone gets hurt or property is damaged.)
+No definitions inside the bullets
 
-Include the definition immediately under the bullet only if necessary for clarity.
+Use acronyms only after the coverage has been written out once
 
-4. Closing CTA
+4. Coverage Definitions (end of email)
 
-Use this EXACT template:
+At the bottom, add a small section titled:
+
+Definitions (in simple terms):
+
+List each coverage once, only if used in the email.
+
+Use this format:
+
+General Liability Insurance: coverage that protects the business if someone gets hurt or property is damaged.
+Employment Practices Liability Insurance: coverage that protects the business from things like discrimination, sexual harassment, or wrongful termination.
+(etc.)
+
+Definitions must be:
+
+One sentence
+
+Ultra-simple
+
+No jargon
+
+5. Closing CTA
+
+Use this EXACT text:
 
 If you want the full breakdown so you can protect your brand and your franchisees, you can read the full article here: [Insert Link]
 
@@ -148,30 +136,28 @@ FINAL OUTPUT FORMAT
 
 Return the finished email like this:
 
-Subject: [Insert high-hook subject line]
+Subject: [High-hook subject line]
 
 Hi there,
 
-[2-sentence intro here]
+[2-sentence intro]
 
 Top 5 takeaways:
 
 [Bullet #1]
-(Definition if needed)
 
 [Bullet #2]
-(Definition if needed)
 
 [Bullet #3]
-(Definition if needed)
 
 [Bullet #4]
-(Definition if needed)
 
 [Bullet #5]
-(Definition if needed)
 
 If you want the full breakdown so you can protect your brand and your franchisees, you can read the full article here: [Insert Link]
+
+Definitions (in simple terms):
+[Only list the coverages used in the email. Define each once, in one simple sentence.]
 
 Now rewrite the blog below following ALL rules above:
 [PASTE BLOG HERE]
