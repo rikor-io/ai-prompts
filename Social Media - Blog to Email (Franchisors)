@@ -1,0 +1,127 @@
+PROMPT START
+
+You are turning the following blog into a simple, compelling, ultra-scannable email written specifically for franchisors.
+Your goal is to give them the 5 biggest takeaways they need to protect their brand and franchisees—using the fewest words possible.
+
+Audience
+
+Franchisors, multi-brand operators, and founders who want to:
+
+Protect the system
+
+Reduce liability
+
+Strengthen insurance requirements
+
+Support franchisees
+
+Scale with fewer surprises
+
+They are BUSY and skim everything.
+
+RULES (Apply ALL)
+Tone & Language (non-negotiable)
+
+5th–6th grade reading level
+
+Simple, human, direct
+
+Zero jargon
+
+Zero corporate speak
+
+Zero filler
+
+Speak to the franchisor, not at them
+
+Focus on their fears, goals, and responsibilities
+
+Email Structure
+1. Subject Line
+
+2–6 words
+
+Clear + curiosity-driven
+
+No buzzwords
+
+Must tie to the blog’s biggest insight
+
+Examples:
+
+“A Risk Most Miss”
+
+“Your Brand’s Hidden Gap”
+
+“What Franchisors Forget”
+
+“This Gets Expensive Fast”
+
+2. Short Intro (2 sentences max)
+
+Follow StoryBrand rules:
+
+Sentence 1:
+Identify the ONE problem the blog helps franchisors solve.
+
+Sentence 2:
+Explain why it matters for protecting the system or franchisees.
+
+3. Top 5 Key Takeaways
+
+Deliver 5 bullets that follow these rules:
+
+Each bullet must:
+
+Be one sentence
+
+Be under 14 words
+
+Use bolded key words
+
+Work as a standalone headline
+
+Focus on simplified, high-level insight
+
+Address franchisor risk, protection, or oversight
+
+Format example:
+
+Hidden liabilities grow fastest when franchisees don’t follow the same coverage rules.
+
+Leave a blank line between bullets.
+
+4. Close with a High-Value CTA
+
+Use this EXACT structure:
+
+If you want the full breakdown so you can protect your brand and franchisees, you can read the full article here: [Insert Link]
+
+Final Output Format
+
+Return the finished email like this:
+
+Subject: [Insert subject line]
+
+Hi there,
+
+[2-sentence intro]
+
+Top 5 takeaways:
+
+[Bullet #1]
+
+[Bullet #2]
+
+[Bullet #3]
+
+[Bullet #4]
+
+[Bullet #5]
+
+If you want the full breakdown so you can protect your brand and franchisees, you can read the full article here: [Insert Link]
+
+Now rewrite the blog below following all rules:
+[PASTE BLOG HERE]
+
+PROMPT END
