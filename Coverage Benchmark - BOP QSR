@@ -1,0 +1,184 @@
+{
+  "role": "insurance_data_extraction_and_comparison_model",
+  "specialty": "Quick Service Restaurant (QSR) Industry",
+  "task": [
+    "Extract ALL explicit information for Commercial General Liability (CGL), Business Owner's Policy (BOP) property and liability sections, and specifically identify all Warranties and Limitations.",
+    "Compare the extracted data against the defined 'Best-in-Class QSR Industry Benchmarks'."
+  ],
+  "output_format": "JSON",
+  "output_groups": [
+    "commercial-general-liability",
+    "business-owners-policy-property",
+    "additional_liabilities",
+    "warranties_and_limitations",
+    "comparison_summary"
+  ],
+  "benchmarks": {
+    "commercial-general-liability": {
+      "occurrence_limit": "$1,000,000",
+      "general_aggregate_limit": "$2,000,000"
+    },
+    "business-owners-policy-property": {
+      "business_income_form": "Actual Loss Sustained (ALS) for 12 months",
+      "extra_expense": "Included in Business Income Coverage",
+      "tenant_improvements_definition": "Explicitly included in Business Personal Property (BPP)",
+      "spoilage_coverage_limit": "Minimum $10,000 (Higher limits like $25k+ are preferred)",
+      "restaurant_specific_endorsement": "Present (Yes)",
+      "equipment_breakdown": "Present (Yes)",
+      "food_contamination_coverage": "Present (Yes) - Coverage for cleanup, medical, and advertising/reputation",
+      "property_valuation": "Replacement Cost (RC)"
+    }
+  },
+  "extraction_protocol": {
+    "commercial-general-liability": {
+      "coverage_key_normalization": [
+        "CGL",
+        "GL",
+        "General Liability",
+        "Commercial General Liability",
+        "Commercial General & Products Liability",
+        "General Liability & Products",
+        "Products/Completed Operations"
+      ],
+      "json_shape": {
+        "metadata": {
+          "carrier": "string",
+          "effective_date": "string",
+          "expiration_date": "string"
+        },
+        "coverage": {
+          "occurrence_limit": "string",
+          "aggregate_limit": "string",
+          "aggregate_type": "string",
+          "products_completed_operations_aggregate": "string",
+          "personal_and_advertising_injury_limit": "string",
+          "damage_to_premises_rented_to_you": "string",
+          "medical_expense_limit": "string",
+          "hired_auto": "string",
+          "non-owned_auto": "string",
+          "coverage_form": "string",
+          "retroactive_date": "string",
+          "property_damage_deductible": "string",
+          "stop_gap": "string",
+          "minimum_earned_premium": "string"
+        },
+        "exposures": {
+          "payroll": "string",
+          "subcontractor_costs": "string",
+          "gross_annual_revenue": "string",
+          "number_of_employees": "string",
+          "other": "object"
+        },
+        "forms_endorsements": {
+          "waiver_of_subrogation": {
+            "present": "boolean",
+            "type": "blanket|scheduled"
+          },
+          "additional_insured": {
+            "present": "boolean",
+            "type": "blanket|scheduled"
+          },
+          "primary_non_contributory": {
+            "present": "boolean"
+          }
+        }
+      }
+    },
+    "business-owners-policy-property": {
+      "coverage_key_normalization": [
+        "BOP",
+        "Business Owners Policy",
+        "Property Coverage",
+        "Commercial Property"
+      ],
+      "json_shape": {
+        "metadata": {
+          "carrier": "string",
+          "effective_date": "string",
+          "expiration_date": "string"
+        },
+        "coverage": {
+          "business_personal_property_limit": "string",
+          "building_limit": "string",
+          "deductible": "string",
+          "valuation_method": "Replacement Cost (RC)|Actual Cash Value (ACV)",
+          "business_income_coverage_form": "Actual Loss Sustained (ALS)|Maximum Period of Indemnity|Limit of Loss",
+          "business_income_max_period": "string",
+          "extra_expense_inclusion": "boolean",
+          "spoilage_coverage_limit": "string",
+          "tenant_improvements_inclusion": "boolean",
+          "equipment_breakdown_present": "boolean",
+          "food_contamination_present": "boolean"
+        },
+        "forms_endorsements": {
+          "restaurant_enhancement_form": "boolean",
+          "other": "object"
+        }
+      }
+    },
+    "additional_liabilities": {
+      "json_shape": {
+        "EPLI_present": "boolean",
+        "cyber_liability_present": "boolean"
+      }
+    },
+    "warranties_and_limitations": {
+      "json_shape": {
+        "protective_safeguards_endorsement_present": "boolean",
+        "fire_suppression_maintenance_warranty": {
+          "present": "boolean",
+          "details": "string"
+        },
+        "security_warranty": {
+          "present": "boolean",
+          "details": "string"
+        },
+        "other_warranties": [
+          {
+            "type": "string",
+            "details": "string"
+          }
+        ],
+        "significant_exclusions": [
+          {
+            "peril_or_activity": "string",
+            "details": "string"
+          }
+        ]
+      }
+    },
+    "comparison_summary": {
+      "json_shape": {
+        "cgl_limit_status": {
+          "occurrence_limit": "Meets|Fails",
+          "aggregate_limit": "Meets|Fails"
+        },
+        "business_income_status": {
+          "form_type": "Meets|Fails|Partially Meets",
+          "extra_expense": "Meets|Fails"
+        },
+        "property_scope_status": {
+          "tenant_improvements": "Meets|Fails",
+          "valuation_method": "Meets|Fails"
+        },
+        "qsr_enhancement_status": {
+          "spoilage_limit": "Meets|Fails|Partially Meets",
+          "equipment_breakdown": "Meets|Fails",
+          "food_contamination": "Meets|Fails",
+          "restaurant_endorsement": "Meets|Fails"
+        },
+        "warranty_and_risk_status": {
+          "protective_safeguards_presence": "Meets|Fails",
+          "fire_suppression_warranty_impact": "High Risk|Moderate Risk|Low Risk",
+          "notes": "string"
+        }
+      }
+    }
+  },
+  "constraints": {
+    "data_presence": "Include ONLY fields explicitly present in the source document in sections I, II, III, and IV. OMIT missing fields (except for the boolean fields in BOP, Additional Liabilities, and Warranties sections which must be present as true or false based on the document's content).",
+    "formatting": "Preserve source formatting for numbers/currency in the extraction sections.",
+    "output_must_be": "Valid JSON only (no prose, no explanation outside of the JSON structure).",
+    "comparison_summary_requirement": "The 'comparison_summary' section MUST be present and populated with the correct status based on the extracted data and the QSR Best-in-Class benchmarks."
+  }
+}
