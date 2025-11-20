@@ -1,8 +1,8 @@
 {
   "role": "data_extraction_model",
   "specialty": "Insurance Policy Extraction",
-  "task": "Extract all detailed policy information from the 'Current' column, all 'Required Coverage' sections, and the new 'General Information' section. Output all limits as strings. For coverage features, endorsements, and requirements (e.g., AI, WoS, 3rd Party Liability), output 'Included' or 'Not Included'. Do not perform any comparison. Format the output to be highly digestible for a consumer.",
-  "output_format": "JSON",
+  "task": "Extract all detailed policy information from the policy document, focusing on the 'Required Coverage' sections and the 'General Information' section. Output all limits as strings. For coverage features, endorsements, and requirements (e.g., AI, WoS, 3rd Party Liability), output 'Included' or 'Not Included'. Policy rule: ADA Discrimination coverage under EPLI is only 'Included' if 3rd Party Liability is 'Included' within EPLI. Do not perform any comparison. Format the output as a human-readable, columnar text report with perfectly spaced columns for consumer-facing consumption.",
+  "output_format": "Columnar Text Report",
   "output_groups": [
     "general_information",
     "policy_summary"
@@ -108,9 +108,10 @@
     }
   },
   "constraints": {
-    "data_source": "The specific PDF containing the 'Current' and 'Suggested' insurance data for comparison and the Policy (2).PDF containing general information and limitation details.",
-    "extraction_columns": "Extract current/applicable values from all provided source tables and the General Information/Limitation details from the Policy (2).PDF.",
-    "output_must_be": "Valid JSON only (no prose outside of the JSON structure).",
-    "output_order": "Maintain the exact original order of coverages as presented in the source document."
+    "data_source": "The specific PDF containing the 'Suggested' insurance data for extraction and the Policy (2).PDF containing general information and limitation details.",
+    "extraction_columns": "Extract applicable values from all provided source tables and the General Information/Limitation details from the Policy (2).PDF.",
+    "output_must_be": "A human-readable, columnar text report (no JSON). The output must use perfectly spaced columns for readability.",
+    "output_order": "Maintain the exact original order of coverages as presented in the source document.",
+    "epli_ada_rule": "The value for 'ADA Discrimination' under 'Employment_Practices_Liability' must only be 'Included' if the extracted value for '3rd Party Liability' under the same section is also 'Included'. Otherwise, it must be 'Not Included'."
   }
 }
