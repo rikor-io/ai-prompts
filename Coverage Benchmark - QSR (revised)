@@ -1,1 +1,274 @@
-
+{
+  "role": "data_extraction_and_comparison_model",
+  "specialty": "Insurance Contract Analysis",
+  "task": "For each 'Required Coverage' section (General Liability, Commercial Auto, Workers Compensation & Employers Liability, Property / Business Interruption, Cyber Liability, and Employment Practices Liability) and for each coverage row within, extract the value from the 'Current' column and the 'Suggested' column. Then, for each extracted item, compare the 'Current' value to the 'Suggested' (Benchmark) value and determine the compliance status (Meets, Fails, Not Applicable). Maintain the exact original order of coverages.",
+  "output_format": "JSON",
+  "output_groups": [
+    "required_coverages"
+  ],
+  "extraction_protocol": {
+    "required_coverages": {
+      "json_shape": {
+        "General_Liability": {
+          "Each Occurrence": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "General Aggregate": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Products / Completed Operations Aggregate": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Personal & Advertising Injury": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Damage to Rented Premises": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Medical Expenses": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Assault & Battery": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Additional Insured": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Additional Insured - Ongoing": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Additional Insured - Completed": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Waiver of Subrogation": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Primary & Non-Contributory": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Policy Type": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Stop Gap for Monopolistic States": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Per Location Aggregate": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Carrier Type": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Carrier Rating": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          }
+        },
+        "Franchisee_Owned_Commercial_Auto": {
+          "Combined Single Limit": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Owned Auto": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Hired Auto": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Non-Owned Auto": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "3rd Party Delivery Services": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Additional Insured": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Waiver of Subrogation": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Primary & Non-Contributory": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Carrier Rating": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          }
+        },
+        "Workers_Compensation_Employers_Liability": {
+          "Bodily Injury by Disease, Each Accident": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Bodily Injury by Disease, Policy Limit": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Bodily Injury by Disease, Each Employee": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Required regardless of state laws": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Cannot exclude owner-operators": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Waiver of Subrogation": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Carrier Rating": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          }
+        },
+        "Property_Business_Interruption": {
+          "Business Personal Property": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Tenant Improvements": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Equipment Coverage": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Business Interruption": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Franchisor Royalties": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Carrier Rating": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          }
+        },
+        "Cyber_Liability": {
+          "Each Occurrence": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Aggregate": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Social Engineering": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "3rd Party Liability": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          }
+        },
+        "Employment_Practices_Liability": {
+          "Occurrence": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Aggregate": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "3rd Party Liability": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "ADA Discrimination": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          },
+          "Wage & Hour": {
+            "Current": "string",
+            "Suggested": "string",
+            "Status": "Meets|Fails|N/A"
+          }
+        }
+      }
+    }
+  },
+  "constraints": {
+    "data_source": "The specific PDF containing the 'Current' and 'Suggested' insurance data for comparison.",
+    "extraction_columns": "Use only 'Current' and 'Suggested' columns for extraction and comparison.",
+    "status_logic": "For limits, 'Meets' means Current >= Suggested. For forms/requirements, 'Meets' means Current = Suggested. If the Current column is empty/omitted and the Suggested is required, use 'N/A' for Current and Status. If both are N/A/empty, use 'N/A' for both and Status. If the 'Current' value is a general requirement (e.g., 'Required'), compare that status against the specific benchmark in 'Suggested'.",
+    "output_must_be": "Valid JSON only (no prose outside of the JSON structure).",
+    "output_order": "Maintain the exact original order of coverages as presented in the source document."
+  }
+}
