@@ -1,4 +1,24 @@
-“Please analyze this spreadsheet. Focus only on rows where the referral source matches one of the following names, and normalize variations under each. Then return a consolidated report and a summary count per standardized referral source.”
+"Please analyze the uploaded spreadsheet. Focus only on rows where the Referral Source Name matches one of the target groups listed below.
+
+For each match, normalize variations (e.g., removing 'LLC', 'Inc', or fixing abbreviations) and group them under a single 'Standardized Referral Source' label.
+
+Output Requirements: Please provide a filtered full dataset and a summary count table. The filtered dataset must include the following specific columns:
+
+Policy Number
+
+Carrier
+
+Lines of Business
+
+Insured
+
+Referral Source Name (Original data)
+
+Referral Source Contact Name
+
+Effective Date
+
+Standardized Referral Source (The normalized label)
 
 Referral Sources to Focus On:
 
@@ -6,18 +26,8 @@ Five Star Bath
 
 Gotcha Covered
 
-Bio-One, Ringside
+Bio-One (include 'Ringside')
 
 Mosquito Shield
 
-1800 Packouts, Packouts
-
-🧠 Optional Enhancements You Can Add to the Prompt:
-
-“Standardize similar names (e.g., LLCs, Incs, abbreviations) under a single label for each referral source.”
-
-“Ignore empty or irrelevant rows.”
-
-“Include a ‘Standardized Referral Source’ column for easier grouping.”
-
-“Give me both the filtered full dataset and a summary table.”
+1800 Packouts (include 'Packouts')"
