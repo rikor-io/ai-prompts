@@ -1,64 +1,155 @@
-Reusable Email Prompt for All Future Blogs
+PROMPT START
 
-Prompt:
-“Using the blog titled: [INSERT BLOG TITLE HERE] and this full blog content:
-[PASTE BLOG CONTENT HERE],
-create an email for franchisors and affiliates using the following structure.
-Each section should be based on the blog’s insights and should include a simple redirect line back to the main blog.”
+Convert the blog below into a high-performing email formatted for ActiveCampaign.
 
-Email Structure to Produce:
+Return ONLY the final output in the exact format specified under OUTPUT FORMAT.
+No commentary. No extra options. No explanations.
 
-Signal to Pay Attention To
+NON-NEGOTIABLE RULES
 
-Identify the biggest early warning sign or emerging issue described in the blog.
+Write at a 5th–6th grade reading level.
 
-Summarize it in 2–3 sentences.
+No jargon.
 
-End with: “Read the full breakdown here → [INSERT MAIN BLOG LINK]”
+No acronyms on first mention.
 
-A Pattern Emerging Across Brands
+First mention format: Full Name (ACRONYM) — only if the acronym is used again later.
 
-Summarize the recurring mistake, trend, or behavior you found across franchise systems.
+If you won’t use the acronym again, don’t include it.
 
-Show how it ties back to the blog’s analysis.
+Keep it tight, clear, and worth reading.
 
-End with: “See how this plays out in the full article → [INSERT MAIN BLOG LINK]”
+Avoid repetitive intros.
 
-Insight From the Latest Deep Dive
+Critical clarity rule (since there is no Definitions section)
 
-Pull one strong insight, truth, or data point from the blog.
+If you include any insurance/legal/technical term that most readers won’t understand, you must either:
 
-Make it bold and memorable.
+Replace it with plain-English wording, OR
 
-End with: “More insights inside the full blog → [INSERT MAIN BLOG LINK]”
+Add a very short plain-English explanation inline (in the same sentence).
+Do NOT create a separate definitions section.
 
-Blind Spot of the Week
+Critical opener rule
 
-Identify the overlooked risk or misconception highlighted in the blog.
+The first line after “Hi there,” must NOT include phrasing like:
 
-Make it short, punchy, and system-level.
+“The hot issue is…”
 
-End with: “The full explanation is in the blog → [INSERT MAIN BLOG LINK]”
+“Today we’re talking about…”
 
-A Question for Your Leadership Team
+“I wanted to share…”
 
-Provide one thought-provoking question that causes franchisors to reflect on their exposure, strategy, or decision-making.
+“Here’s a quick insight…”
 
-This should be inspired directly by the blog’s content.
+Instead, it must open directly with the core issue in plain English.
 
-End with: “If this question stings, the full blog is worth your time → [INSERT MAIN BLOG LINK]”
+PERFORMANCE LOGIC (DO THIS FIRST)
 
-📌 End-of-Email Section: Past Blog Snippets
+From the blog, identify:
 
-After the 5 sections, include a short section titled “Other Insights You May Have Missed”, followed by 3–5 snippets from past blogs using this format:
+The single most concerning / attention-grabbing topic (the hot issue).
 
-[INSERT PAST BLOG TITLE] — one-sentence takeaway.
-Read it here → [INSERT LINK]
+The biggest consequence if ignored (cost, lawsuit risk, brand damage, franchisee harm, growth drag).
 
-[INSERT PAST BLOG TITLE] — one-sentence takeaway.
-Read it here → [INSERT LINK]
+The most surprising insight or misconception the blog corrects.
 
-[INSERT PAST BLOG TITLE] — one-sentence takeaway.
-Read it here → [INSERT LINK]
+The subject, preheader, intro, and bullets must all center on that hot issue.
 
-(You may add or remove snippets as needed.)
+SUBJECT LINE RULES (Hook with consequence)
+
+Create ONE subject line that:
+
+Is 4–9 words
+
+Uses plain English (no jargon, no acronyms)
+
+Is rooted in the blog’s single hottest issue
+
+Must imply a real consequence (cost, lawsuit risk, loss of control, coverage gap, franchisee blowback)
+
+Must feel relevant immediately to a franchisor (brand/system protection)
+
+Is not clickbait (no hype, no tricks)
+
+Allowed subject styles (choose ONE that best fits the blog)
+
+Consequence-led: implies what breaks or what it costs
+
+Pattern: “When X happens, Y breaks”
+
+Risk-led: implies exposure or being unprotected
+
+Pattern: “You may not be covered for X”
+
+Contrarian-led: challenges a common belief
+
+Pattern: “The X idea backfires”
+
+Subject quality checks (must pass all)
+
+Do not use soft language like may, might, could unless absolutely necessary.
+
+Do not make it so broad it could apply to any business.
+
+Must create curiosity and signal stakes in the same line.
+
+PREHEADER RULES (Teaser)
+
+Write ONE preheader that:
+
+Is 90–130 characters
+
+Adds new information (not a repeat of the subject)
+
+Creates curiosity and promises value
+
+Uses plain English
+
+No jargon, no acronyms
+
+EMAIL BODY RULES (ActiveCampaign formatting)
+
+Target 250–450 words
+
+Short paragraphs (1–2 sentences)
+
+Use real bullet points with “•”
+
+Bold ONLY section labels (example: Top takeaways:)
+
+Each bullet must be under 14 words
+
+Bullets must be plain English (no technical terms)
+
+Simple, skimmable, mobile-friendly
+
+OUTPUT FORMAT (RETURN EXACTLY THIS)
+
+Subject: [subject line]
+Preheader: [preheader teaser]
+
+Hi there,
+
+[2 sentences max: open directly with the core issue + why it matters, with no labels]
+
+Top takeaways:
+• [Bullet 1 — ties to hot issue]
+• [Bullet 2]
+• [Bullet 3]
+• [Bullet 4 — optional]
+
+[1–2 sentence closing thought reinforcing protection + stakes]
+
+IF Audience Type = Franchisor:
+If you want the full breakdown, read the full article here: [Blog Link]
+
+IF Audience Type = Referral Partner:
+If a franchisor you work with runs into this or has questions, feel free to refer them our way — we’re happy to help.
+Full article here: [Blog Link]
+
+Now generate the email from this blog content:
+
+[PASTE BLOG HERE]
+
+PROMPT END
