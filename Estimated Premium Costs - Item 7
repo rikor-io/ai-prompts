@@ -1,0 +1,198 @@
+{
+  "name": "Referral Source Premium Normalization (Umbrella Separate + Dynamic Other Coverages)",
+  "version": "1.2",
+  "purpose": [
+    "Analyze policy-level premium data for a single referral source.",
+    "Group by exact insured name (no fuzzy merging).",
+    "Bucket coverages, impute missing buckets using dataset averages, and compute normalized insured-level totals.",
+    "Detect additional coverage types beyond the core set, include them in outputs, and normalize them when possible."
+  ],
+  "input": {
+    "accepted_formats": ["xlsx", "csv", "pasted_rows"],
+    "required_columns": [
+      "Policy number",
+      "Carrier",
+      "Lines of business",
+      "Insured",
+      "Referral source name",
+      "Effective date",
+      "Total premium",
+      "Agency commission"
+    ]
+  },
+  "assumptions": {
+    "one_row_per_policy": true,
+    "multiple_rows_per_insured": true,
+    "premium_is_annual": true,
+    "premium_includes_endorsements": true,
+    "no_taxes_or_fees_in_premium": true,
+    "no_policy_status_filtering": true
+  },
+  "core_rules": {
+    "filtering": {
+      "mode": "single_referral_source",
+      "behavior_if_multiple_sources_present": "List distinct referral sources. Use the one specified by the user; if only one exists, use it automatically."
+    },
+    "insured_grouping": {
+      "match_type": "exact_string",
+      "no_fuzzy_merge": true,
+      "merge_preference": "Prefer false negatives over false positives (splitting is better than merging)."
+    },
+    "premium_handling": {
+      "blank_or_non_numeric_premium": "treat_as_missing",
+      "missing_is_not_zero": true
+    }
+  },
+  "coverage_bucketing": {
+    "bucket_strategy": "hybrid_fixed_plus_dynamic",
+    "fixed_canonical_buckets": [
+      "GL Package",
+      "Umbrella/Excess",
+      "Workers Comp",
+      "Auto",
+      "Inland Marine",
+      "Cyber",
+      "EPLI/Crime"
+    ],
+    "mapping_rules": [
+      {
+        "bucket": "GL Package",
+        "match_any": ["general liability", "commercial package", "business owners", "bop"],
+        "notes": "Do NOT include Umbrella/Excess here."
+      },
+      {
+        "bucket": "Umbrella/Excess",
+        "match_any": ["umbrella", "commercial umbrella", "excess liability", "excess umbrella"]
+      },
+      {
+        "bucket": "Workers Comp",
+        "match_any": ["workers compensation", "workers' compensation", "workers comp", "wc"]
+      },
+      {
+        "bucket": "Auto",
+        "match_any": ["commercial auto", "auto"]
+      },
+      {
+        "bucket": "Inland Marine",
+        "match_any": ["inland marine", "im", "tools", "equipment floater"]
+      },
+      {
+        "bucket": "Cyber",
+        "match_any": ["cyber", "cyber liability", "cyber network liability", "network security"]
+      },
+      {
+        "bucket": "EPLI/Crime",
+        "match_any": ["epli", "employment practices", "employment practices liability", "crime", "fidelity", "employee dishonesty"],
+        "notes": "If the line indicates a combined EPLI+Crime package, map it here as a single bucket with that row's premium."
+      }
+    ],
+    "dynamic_coverage_types": {
+      "enabled": true,
+      "definition": "Any Lines of business value that does not match a fixed canonical bucket becomes a dynamic coverage bucket keyed by a normalized label.",
+      "label_normalization": {
+        "case_insensitive": true,
+        "trim_whitespace": true,
+        "collapse_internal_whitespace": true,
+        "remove_punctuation": false,
+        "notes": "Do not fuzzy-merge insureds, but it is OK to normalize dynamic LOB labels for grouping."
+      },
+      "examples": ["Pollution/Environmental Liability", "Professional Liability", "Property", "Equipment Breakdown", "Surety/Bond", "Directors & Officers", "Fiduciary", "Hired/Non-Owned Auto"]
+    }
+  },
+  "normalization": {
+    "target_bucket_count": "dynamic",
+    "base_canonical_bucket_count": 7,
+    "include_dynamic_buckets_in_normalization": "when_possible",
+    "imputation_method": "bucket_mean",
+    "bucket_baselines": {
+      "definition": "For every bucket (fixed + dynamic), compute the mean premium across insureds who have that bucket present with a numeric premium value."
+    },
+    "impute_missing_bucket_rule": [
+      "For fixed canonical buckets: always impute missing/blank premiums using that bucket baseline.",
+      "For dynamic buckets: impute only if that dynamic bucket is sufficiently common and statistically usable (see thresholds)."
+    ],
+    "dynamic_imputation_thresholds": {
+      "min_insureds_with_bucket": 8,
+      "min_presence_rate": 0.1,
+      "behavior_if_below_threshold": "Do not impute; treat as optional and exclude from normalized totals, but still include in raw totals and reporting."
+    },
+    "normalized_total_outputs": {
+      "normalized_core_total_name": "normalized_7cov_total",
+      "normalized_core_definition": "Sum of (actual or imputed) premiums across the 7 fixed canonical buckets only.",
+      "normalized_all_total_name": "normalized_allcoverages_total",
+      "normalized_all_definition": "Sum of (actual or imputed) premiums across the 7 fixed buckets PLUS any dynamic buckets that meet imputation thresholds. This produces a referral-source-specific normalized total.",
+      "raw_total_definition": "Sum of all present premiums across all buckets (fixed + dynamic)."
+    },
+    "baseline_unavailable_behavior": "If a bucket baseline cannot be computed, set that baseline to 0 and flag it clearly."
+  },
+  "insured_level_outputs": {
+    "required_columns": [
+      "insured",
+      "raw_total_premium",
+      "bucket_premiums_fixed",
+      "bucket_premiums_dynamic",
+      "missing_fixed_bucket_count",
+      "normalized_7cov_total",
+      "normalized_allcoverages_total"
+    ],
+    "fixed_bucket_keys": [
+      "GL Package",
+      "Umbrella/Excess",
+      "Workers Comp",
+      "Auto",
+      "Inland Marine",
+      "Cyber",
+      "EPLI/Crime"
+    ],
+    "dynamic_bucket_structure": {
+      "type": "object",
+      "keys": "dynamic bucket label",
+      "value": "premium (numeric)"
+    }
+  },
+  "portfolio_level_outputs": {
+    "summary_metrics": [
+      "insured_count",
+      "row_count",
+      "low",
+      "median",
+      "high",
+      "mean"
+    ],
+    "summary_metric_basis": {
+      "primary": "normalized_7cov_total",
+      "secondary_optional": "normalized_allcoverages_total",
+      "rule": "Always report core (7) stats. Also report all-coverages stats if at least one dynamic bucket meets imputation thresholds."
+    },
+    "ranking_views": [
+      "top_10_by_normalized_7cov_total",
+      "bottom_10_by_normalized_7cov_total",
+      "top_10_by_normalized_allcoverages_total (if available)",
+      "bottom_10_by_normalized_allcoverages_total (if available)"
+    ],
+    "quality_checks": [
+      "Confirm insured is never blank.",
+      "Report count of rows with blank/non-numeric premium.",
+      "List all distinct Lines of business values and their mapped buckets.",
+      "List dynamic buckets discovered and whether each was normalized (imputed) or treated as optional.",
+      "Flag any buckets with zero baseline due to insufficient data."
+    ],
+    "bucket_baseline_report": {
+      "include": true,
+      "for_fixed_buckets": true,
+      "for_dynamic_buckets": true,
+      "include_support_counts": true
+    }
+  },
+  "output_formatting": {
+    "currency": "USD",
+    "rounding": { "bucket_premiums": 2, "totals": 2 },
+    "excel_ready": true,
+    "deliverables": [
+      "A portfolio summary section",
+      "An insured-level table (one row per insured) with fixed and dynamic bucket columns or JSON objects",
+      "A bucket baseline table including support counts",
+      "Coverage completeness and imputation notes"
+    ]
+  }
+}
