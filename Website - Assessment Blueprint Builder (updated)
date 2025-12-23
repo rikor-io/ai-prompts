@@ -1,0 +1,75 @@
+{
+  "assessment": {
+    "slug": "my-assessment-slug",
+    "name": "Assessment Display Name",
+    "audience": "Who this is for (e.g., Franchise Systems)",
+    "primary_intent": "What this assessment measures",
+    "version": "v1"
+  },
+  "bands": [
+    {
+      "band_key": "OPTIMIZED",
+      "label": "Optimized",
+      "min_score": 0,
+      "max_score": 99,
+      "tone_profile": "Congratulatory and reinforcing"
+    },
+    {
+      "band_key": "STANDARD",
+      "label": "Standard",
+      "min_score": 100,
+      "max_score": 199,
+      "tone_profile": "Constructive with moderate urgency"
+    },
+    {
+      "band_key": "ELEVATED",
+      "label": "Elevated Risk",
+      "min_score": 200,
+      "max_score": 999,
+      "tone_profile": "Urgent and action-oriented"
+    }
+  ],
+  "sections": [
+    {
+      "name": "Section Name",
+      "short_name": "Short",
+      "description": "Section description for report",
+      "weight": 1.0,
+      "questions": [
+        {
+          "question_text": "Your question text here?",
+          "question_type": "MULTIPLE_CHOICE_SINGLE",
+          "help_text": "Optional help text to clarify the question",
+          "weight": 1.0,
+          "is_red_flag": false,
+          "answer_options": [
+            {
+              "text": "Best practice answer (lowest risk)",
+              "score": 0
+            },
+            {
+              "text": "Moderate answer (some risk)",
+              "score": 15
+            },
+            {
+              "text": "Worst practice answer (highest risk)",
+              "score": 30
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "output_copy": {
+    "HEADLINE": {
+      "OPTIMIZED": "Congratulations! Your system shows excellent practices.",
+      "STANDARD": "Your system has room for improvement.",
+      "ELEVATED": "Immediate attention is needed."
+    },
+    "SUBHEADLINE": {
+      "OPTIMIZED": "You're following best practices across key areas.",
+      "STANDARD": "Some areas need focus to reduce risk.",
+      "ELEVATED": "Critical issues require action."
+    }
+  }
+}
