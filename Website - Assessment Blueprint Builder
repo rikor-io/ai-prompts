@@ -81,10 +81,10 @@ STEP 3 — Use the following JSON schema exactly
 
 {
   "assessment": {
-    "slug": "",
-    "name": "",
-    "audience": "",
-    "primary_intent": "",
+    "slug": "your-assessment-slug",
+    "name": "Your Assessment Name",
+    "audience": "Target audience",
+    "primary_intent": "What this measures",
     "version": "v1"
   },
   "bands": [
@@ -126,42 +126,45 @@ STEP 3 — Use the following JSON schema exactly
   ],
   "sections": [
     {
-      "name": "",
-      "description": "",
+      "name": "Section Name",
+      "short_name": "Section",
+      "description": "What this section evaluates",
       "weight": 1,
       "questions": [
         {
-          "question_text": "",
+          "question_text": "Your question here?",
           "question_type": "LIKERT_1_5",
+          "help_text": "Optional guidance",
           "weight": 1,
-          "is_red_flag": false
+          "is_red_flag": false,
+          "answer_options": [
+            { "text": "Strongly Disagree", "score": 0 },
+            { "text": "Disagree", "score": 25 },
+            { "text": "Neutral", "score": 50 },
+            { "text": "Agree", "score": 75 },
+            { "text": "Strongly Agree", "score": 100 }
+          ]
         }
       ]
     }
   ],
-  "output_copy": {
-    "FINAL_VERDICT": {
-      "AD_HOC": "",
-      "EMERGING": "",
-      "DEFINED": "",
-      "OPTIMIZED": "",
-      "LEADING": ""
-    },
-    "OVERALL_SUMMARY": {
-      "AD_HOC": "",
-      "EMERGING": "",
-      "DEFINED": "",
-      "OPTIMIZED": "",
-      "LEADING": ""
-    },
-    "RECOMMENDED_ACTIONS": {
-      "AD_HOC": [],
-      "EMERGING": [],
-      "DEFINED": [],
-      "OPTIMIZED": [],
-      "LEADING": []
-    }
-  }
+  "outputCopy": [
+    { "context": "FINAL_VERDICT", "bandKey": "AD_HOC", "templateText": "Your verdict for Ad-hoc band" },
+    { "context": "FINAL_VERDICT", "bandKey": "EMERGING", "templateText": "Your verdict for Emerging band" },
+    { "context": "FINAL_VERDICT", "bandKey": "DEFINED", "templateText": "Your verdict for Defined band" },
+    { "context": "FINAL_VERDICT", "bandKey": "OPTIMIZED", "templateText": "Your verdict for Optimized band" },
+    { "context": "FINAL_VERDICT", "bandKey": "LEADING", "templateText": "Your verdict for Leading band" },
+    { "context": "OVERALL_SUMMARY", "bandKey": "AD_HOC", "templateText": "Summary for Ad-hoc" },
+    { "context": "OVERALL_SUMMARY", "bandKey": "EMERGING", "templateText": "Summary for Emerging" },
+    { "context": "OVERALL_SUMMARY", "bandKey": "DEFINED", "templateText": "Summary for Defined" },
+    { "context": "OVERALL_SUMMARY", "bandKey": "OPTIMIZED", "templateText": "Summary for Optimized" },
+    { "context": "OVERALL_SUMMARY", "bandKey": "LEADING", "templateText": "Summary for Leading" },
+    { "context": "RECOMMENDED_ACTIONS", "bandKey": "AD_HOC", "templateText": "Actions for Ad-hoc" },
+    { "context": "RECOMMENDED_ACTIONS", "bandKey": "EMERGING", "templateText": "Actions for Emerging" },
+    { "context": "RECOMMENDED_ACTIONS", "bandKey": "DEFINED", "templateText": "Actions for Defined" },
+    { "context": "RECOMMENDED_ACTIONS", "bandKey": "OPTIMIZED", "templateText": "Actions for Optimized" },
+    { "context": "RECOMMENDED_ACTIONS", "bandKey": "LEADING", "templateText": "Actions for Leading" }
+  ]
 }
 
 ------------------------------------------------------------
