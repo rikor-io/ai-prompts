@@ -1,49 +1,54 @@
-🚀 Franchise Thought Leadership Repurposing Prompt
-I am going to provide an existing blog article. I want you to repurpose this content into a 2,500–3,000 word thought leadership piece specifically for The Franchise Consortium.
+🚀 Franchise Thought Leadership Repurposing Prompt (V7)
+I am going to provide a topic and context (or an existing blog article) that follows my established framework.
 
 🎯 The Mission
-Transform the original content from a general business advice piece into a franchise-specific strategic guide. The goal is to provide unique value to Franchisors (Zors) and Franchisees (Zees) by looking at the topic through the lens of multi-unit growth, brand standards, and the franchise business model.
+Repurpose this content into a 2,500 to 3,000 word thought leadership piece specifically for The Franchise Consortium. You must keep the exact structure and sequence of my original blog framework, but rewrite the content so it is unique and specifically tailored to Franchisors.
 
-🧱 The Structure
-Key Takeaways for Franchise Leaders
+Important: Strip all reference links, source citations, and external URLs. The final piece should rely solely on the internal logic and expertise provided in my context.
 
-3–5 bullet points summarizing the article’s value specifically for a franchise system.
+🧱 The Original Framework (Maintain This Structure)
+Every H2 header must be phrased as a question a Franchisor would ask.
 
-The State of [Topic] in Franchising Today
+Key Takeaways (3 to 5 skimmable bullet points)
 
-Define the topic. Explain why it is a "hot button" issue for franchise brands right now.
+How Does This Concept Impact Our System? (Define the topic through the lens of unit-level economics and brand health)
 
-The Franchise Friction Points (Why It’s Misunderstood)
+Why Is There Resistance or Misunderstanding Around This? (Focus on 3 to 5 reasons Franchisees or corporate teams might push back)
 
-Identify 3–5 reasons why this topic causes tension between Franchisors and Franchisees, or why it’s difficult to implement across 100+ locations.
+How Can We Effectively Roll This Out? (A practical playbook for a multi-unit network)
 
-The System-Wide Playbook (Implementation)
+What Are the Strategic Advantages for the Brand? (The upside for the Franchisor and the bottom-line for the individual owner)
 
-Practical steps to roll this out across a franchise network. How do you maintain consistency while allowing for local flexibility?
+Is the System Ready to Move Forward? (A decision-making framework or checklist for a Franchisor)
 
-The "Network Effect" Benefits
+What Do Our Owners Need to Know? (Candid FAQ addressing questions asked by Franchisees or leadership)
 
-Explain the competitive advantage a franchise gains by mastering this topic (e.g., economies of scale, faster ROI, brand equity).
+Final Perspectives (A reflective, forward-looking takeaway)
 
-Strategic Decision Matrix: Is This Right for Your System?
+✍️ Humanized Tone & Style Guidelines
+No Reference Links: Do not include any URLs, specific external citations, or "click here" style calls to action.
 
-A "Pros vs. Cons" or "Readiness Checklist" to help a Franchisor decide if they should mandate this, recommend it, or ignore it.
+No Em Dashes: Strictly avoid em-dashes. Use periods, commas, or colons to separate thoughts and lists.
 
-Franchisee FAQs
+No AI Clichés: Never use phrases like "In the franchise world," "In the world of franchising," or "In today's fast-paced world."
 
-3–5 questions a skeptical Franchisee would ask about this topic, with empathetic, expert answers.
+Copy-Paste Ready: Do not include any introductory meta-talk or bracketed placeholders. Start immediately with the Key Takeaways.
 
-Conclusion: The Future of the Brand
+Audience: Write specifically for Franchisors. Use the terms Franchisor and Franchisee naturally throughout.
 
-Final thoughts on how this topic impacts the long-term health of the franchise relationship.
+Reading Level: Keep the text between a 7th and 9th grade level for clarity and impact.
 
-✍️ Voice & Tone Requirements
-Audience: C-suite franchise executives and sophisticated multi-unit operators.
+No Numbers in Headers: Use proper Markdown H2 and H3 tags. Do not number the sections.
 
-Tone: Peer-level, authoritative, yet collaborative. (Think: "Expert sharing a blueprint," not "Salesperson making a pitch.")
+🚫 Restricted Phrases
+"In the dynamic world of..."
 
-Constraint: Keep the reading level between 7th and 9th grade. Use short paragraphs and clear H2/H3 headers.
+"In the fast-paced world..."
 
-Forbidden Phrases: DO NOT use "In the dynamic world," "In the fast-paced world," or "In today's landscape." Avoid AI-typical fluff.
+"In the ever-evolving landscape..."
 
-No Numbered Sections: Use proper Markdown headers (H2, H3) instead of "Section 1, Section 2."
+"It's important to remember that..."
+
+"Harnessing the power of..."
+
+"Navigating the complexities of..."
