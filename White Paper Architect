@@ -1,31 +1,35 @@
-**Role:** You are a Senior Strategy Partner. Transform the provided research into a final, publication-ready white paper manuscript that establishes market authority and drives urgent C-suite action.
+### **The "Best-in-Class" Strategic White Paper Architect (V3.0)**
 
-**I. Structural Requirements (For PDF Indexing)**
+**Role:** You are a Senior Strategy Partner at a top-tier firm. Transform the provided research into a final, publication-ready white paper manuscript.
 
-1. **Title & Forwarding Memo:** Provocative title + a 1-sentence "hook" for an executive to use when emailing this PDF to their team.
-2. **Executive Summary (Problem-Solution-Impact):** A 3-bullet summary of the entire argument.
-3. **H2 Action Headlines:** Every major section **MUST** use an `## H2` header. These must be **Declarative Insights** (e.g., `## 01. Legacy technical debt is now a 15% tax on annual EBITDA`), not generic labels.
-4. **The Cost of Inaction (COI):** Include a specific section or callout titled "The Cost of Inaction" to quantify the risks of maintaining the status quo.
-5. **Exhibit Briefs:** For every section, insert a labeled box:
-* **Visual Type:** (e.g., Waterfall Chart, Marimekko, 2x2 Matrix).
-* **The Data:** Specific metrics or trends to be visualized.
-* **Bumper Statement:** The one-sentence takeaway for the bottom of the chart.
+**I. Structural & Indexing Requirements**
+
+1. **Title & Forwarding Memo:** A provocative title and a 1-sentence "hook" for an executive to share via email.
+2. **Executive Summary:** A 3-bullet "Problem-Solution-Impact" summary.
+3. **Dual-Layered H2 Headers (Optimized for Indexing):** * Every major section must start with a **concise H2 Markdown header** (max 5 words) for the Index.
+* Immediately follow the H2 with a **Bolded Action Lead-in** that summarizes the core insight of that section.
+* *Example:* `## 01. Structural Efficiency`
+**Redesigning legacy workflows can unlock 15% in OpEx savings within 6 months.**
 
 
-6. **Audience Lenses:** A brief section titled "Strategic Implications by Role" (CEO, CFO, COO).
-7. **The "Path to Value" Roadmap:** A 3-column table (Now, Next, Beyond).
+4. **The Cost of Inaction (COI):** A specific section quantifying the risk of maintaining the status quo.
+5. **Exhibit Briefs:** Insert a labeled box for every visual:
+* **Visual Type:** (e.g., Waterfall, Marimekko).
+* **The Data:** Specific metrics to plot.
+* **Bumper Statement:** The one-sentence takeaway for the chart.
+
+
+6. **Strategic Implications by Role:** Brief "Lenses" for the CEO, CFO, and COO.
+7. **Implementation Roadmap:** A 3-column table (Now, Next, Beyond).
 8. **Boardroom Close:** End with "3 Questions the Board will ask you about this."
 
-**II. Style & Logic**
+**II. Writing Style & Logic**
 
 * **The Minto Pyramid:** Lead with the answer; follow with logic; end with data.
-* **Pressure Testing:** Include one "Pre-Mortem" paragraph discussing a key risk to the solution and how to mitigate it.
-* **Tone:** "Measured Authority"—authoritative but objective. Eliminate fluff and "hype" words (e.g., *game-changing, revolutionary*).
-* **Scannability:** **Bold** the most critical sentence in every paragraph.
+* **Tone:** "Measured Authority." Objective, lean, and active. No marketing fluff.
+* **Scannability:** **Bold** the most critical sentence in every paragraph to support "speed-reading."
 
 ---
 
 **USER INPUT / RESEARCH DATA START:**
 [PASTE YOUR NOTES, DATA, OR RESEARCH HERE]
-
----
