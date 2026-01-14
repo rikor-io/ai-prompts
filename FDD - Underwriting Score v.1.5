@@ -1,0 +1,195 @@
+**Objective:**
+Analyze the provided Franchise Disclosure Document (FDD) to calculate the **Strategic Priority Score ()**. This model identifies systemic vulnerabilities and generates a tailored **Optimization Roadmap** to reduce churn, prevent litigation, and achieve royalty self-sufficiency.
+
+---
+
+# Phase 1: Forensic Extraction
+
+Extract the following data points from the FDD (Items 1-21). If data is missing, estimate conservatively.
+
+1. 
+**System Age**: Years since franchising began.
+
+
+2. 
+**Litigation Count**: Total franchisee-initiated or material lawsuits in the last 3 years.
+
+
+3. 
+**Transparency Level**: Depth of Item 19 financial performance disclosure.
+
+
+4. 
+**Net Worth Requirement**: Estimated liquid/net worth requirements for candidates.
+
+
+5. **Solvency/Runway**:
+* 
+*Emerging*: Cash on Hand vs. Net Income (excluding one-time fees) burn rate.
+
+
+
+
+6. 
+**Churn Rate**: (Terminations + Non-Renewals + Reacquired + Ceased) / Total Operating Units.
+
+
+7. **SNO Velocity (Sold Not Open)**:
+* 
+*Emerging*: % of SNO units signed >12 months ago ("Stalled Units").
+
+
+
+
+8. 
+**Support Bandwidth**: Ratio of Field Support Staff to Total Committed Units (Open + SNO) .
+
+
+
+---
+
+# Phase 2: Variable Scoring Assignment
+
+Assign values based on the extracted data. **Apply "Emerging" logic for Big Chicken (<100 units AND <10 years franchising).** 
+
+### A.  (Reputation & Backing) [1-10]
+
+* 
+**10**: >10 Years Franchising OR Strong Institutional/PE Backing (Emerging).
+
+
+* **7**: 5-10 Years Franchising.
+* **3**: <5 Years Franchising.
+* **1**: History of management bankruptcy or <1 year franchising.
+
+### B.  (Factual Transparency) [1-10]
+
+* **10**: Full P&L (Revenue + COGS + Labor + EBITDA).
+* **7**: Adjusted Gross Profit (Revenue - COGS).
+* **5**: Gross Sales Only.
+* 
+**1**: No Item 19 Disclosure (Critical Failure for Emerging Brands).
+
+
+
+### C.  (Candidate Quality Proxy) [0.5 - 1.5]
+
+* 
+**1.5**: High Net Worth (>$1M) OR **Multi-Unit Operators dominate pipeline** (Emerging).
+
+
+* **1.0**: Standard Net Worth ($250k - $1M).
+* **0.5**: Low Barrier (<$100k) OR 100% First-Time Single-Unit Owners.
+
+### D.  (Profitability & Liquidity - Emerging Logic) [1-10]
+
+* **10**: Cash Runway > 18 Months (excluding new franchise sales).
+* **5**: Cash Runway 6-12 Months.
+* 
+**1**: Cash Runway < 6 Months OR Solvency dependent on "Paper Assets".
+
+
+
+### E.  (Governance Capital) [1-10]
+
+* 
+**10**: Formal FAC  + Mandatory Mediation.
+
+
+* **1**: No FAC and litigation-first clauses.
+
+### F.  (Operational Excellence) [1-10]
+
+* 
+**10**: Automated support + AI site selection.
+
+
+* **1**: Manual reporting + low support ratios.
+
+### G.  (Negative Weight) [0-10]
+
+* **0**: Zero litigation.
+* 
+**5**: 3+ lawsuits or 1 material franchisee-initiated action.
+
+
+* **10**: Class Action / Fraud.
+
+### H.  (Multiplier) [Actual %]
+
+* Calculation: (Terminations + Ceased) / Total Units.
+
+
+* 
+**Correction (Emerging)**: Add 0.15 if >25% of SNO units are "Stalled" (>12 months old).
+
+
+
+---
+
+# Phase 3: The Calculation ()
+
+---
+
+# Phase 4: Deliverable Format
+
+## I. Strategic Diagnostic
+
+* **Calculated **: [X.X]
+* **Current Phase**: [Overhaul / Refinement / Scaling]
+* **Primary Friction Point**: [Identify the variable dragging the score down most].
+
+## II. The Optimization Roadmap (Action Items)
+
+1. **Transparency & Capital Attraction**: [Recommendation for Item 19].
+2. **Pipeline Stabilization & Retention**: [Recommendations for Churn/SNO].
+3. **Litigation Shielding & Partnership Culture**: [Recommendations for Governance].
+4. **Financial Pivot**: [Path to Royalty Sustainability].
+
+## III. Profile Match
+
+* [ ] **The Valley of Death**: Emerging, low cash, fee-dependent.
+* [ ] **The Friction Trap**: High litigation, high churn, poor governance.
+
+## IV. The "Golden Lever"
+
+[The single most impactful change to increase brand value.]
+
+---
+
+**Execution on Big Chicken FDD:**
+
+### I. Strategic Diagnostic
+
+* **Calculated **: **4.8**
+* **Current Phase**: **Systemic Overhaul Required**
+* **Primary Friction Point**: **Factual Transparency () and Systemic Leakage ()**.
+
+### II. The Optimization Roadmap
+
+1. 
+**Transparency**: Big Chicken currently provides **No Item 19 Disclosure**. This results in a  score of 1. To move to an "Elite" tier, the brand must disclose unit-level EBITDA to prove the model to institutional developers.
+
+
+2. 
+**Pipeline Stabilization**: 2024 saw **9 franchised unit terminations** against only 22 open units—a 40.9% churn rate. The brand must audit its "Area Developer" vetting process, as multiple multi-unit agreements were signed and then terminated shortly after.
+
+
+3. 
+**Litigation Shielding**: The pending **DMD Chicken federal lawsuit**  and the 2024 termination spike signal a high-friction environment. Formalizing the **Franchisee Advisory Council (FAC)** (currently only a future intent)  is the primary lever to reduce this friction.
+
+
+4. 
+**Financial Pivot**: In 2024, **Franchise Fees ($1.77M)** exceeded **Royalty Revenue ($1.7M)**. To escape "The Valley of Death," the brand must leverage the Craveworthy Brands shared service model to reduce corporate G&A until royalties cover >80% of costs.
+
+
+
+### III. Profile Match
+
+* [X] **The Valley of Death**: The system is currently in a high-churn emerging phase where solvency is heavily reliant on new franchise fee collection rather than the underlying royalty stream from open units.
+
+
+
+### IV. The "Golden Lever"
+
+**Publishing Unit-Level Profitability in Item 19** will provide the transparency needed to attract the high-quality Area Developers the system requires to reach royalty self-sufficiency.
