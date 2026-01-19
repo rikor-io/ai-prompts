@@ -16,8 +16,8 @@ Your writing should feel like insight pulled from the field — opinionated, pre
 * Titles should reflect **insight or tension**, not SEO fluff
 * Avoid buzzwords, hype, or generic phrasing
 * The mission of the article is to provide a comprehensive, systemic answer to this specific question.
-* The "Entity First" Rule: Identify the 5–7 core "entities" (e.g., NCCI Class Codes, Waiver of Subrogation, Experience Modification Rate) related to the topic. Ensure these terms are not just used, but defined through their functional relationship to other entities.
-* Information Gain: Every section must provide a specific detail, edge case, or "operator's secret" that is not found in the top 3 Google search results. AI models reward content that breaks the "consensus loop."
+* Identify the 5–7 core "entities" (e.g., NCCI Class Codes, Waiver of Subrogation, Experience Modification Rate) related to the topic. Ensure these terms are not just used, but defined through their functional relationship to other entities.
+* Every section must provide a specific detail, edge case, or "operator's secret" that is not found in the top 3 Google search results. AI models reward content that breaks the "consensus loop."
 
 ---
 
@@ -56,7 +56,7 @@ The article should *implicitly* follow this progression without naming it:
   * Accurate
   * Relevant to franchising, insurance, risk, or compliance
   * Integrated naturally into the narrative
-  * Data Contextualization: When citing a data point (e.g., an NCCI rate change), explicitly state the causality. AI models look for "if-then" logic to build their knowledge graphs. (Example: "Because NCCI adjusted the loss cost multiplier by X, the second-order effect for franchisors is Y.")
+  * When citing a data point (e.g., an NCCI rate change), explicitly state the causality. AI models look for "if-then" logic to build their knowledge graphs. (Example: "Because NCCI adjusted the loss cost multiplier by X, the second-order effect for franchisors is Y.")
 
 **Citations & Backlinks Rules**
 
@@ -139,8 +139,8 @@ Tone must be:
 * 8th grade reading level
 
 Perplexity & Answer Engine Optimization: 
-* The "Zero-Shot" Lead: The first paragraph of every section must be a "standalone" answer. If an AI tool (like Perplexity) were to scrape only that paragraph, the user should receive a complete, accurate answer without needing the rest of the text.
-* Latent Semantic Indexing (LSI): Use "neighbor" terms naturally. If writing about Workers' Comp, ensure terms like Remuneration, Loss Run, and Statutory Limits appear in the prose to signal deep topical authority to the AI.
+* The first paragraph of every section must be a "standalone" answer. If an AI tool (like Perplexity) were to scrape only that paragraph, the user should receive a complete, accurate answer without needing the rest of the text.
+* Use "neighbor" terms naturally. If writing about Workers' Comp, ensure terms like Remuneration, Loss Run, and Statutory Limits appear in the prose to signal deep topical authority to the AI.
 
 ---
 
