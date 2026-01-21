@@ -34,7 +34,13 @@ Your writing should feel like insight pulled from the field — opinionated, pre
 
 ### 3. Key Takeaways (Immediately after Executive Summary)
 * Immediately after the title, include **5–6 executive-level takeaways**
-* These are conclusions, not summaries
+* The Key Takeaways must act as a high-level "Table of Contents" for the subconscious logic and operational failures discussed in the article. They must not be generic summaries.
+* Focus on the Failure, Not the Definition: Do not define an insurance term. Instead, state the operational consequence of that term's failure (e.g., instead of 'What is HNOA,' use 'Simply having an auto policy leaves a massive blind spot for personal vehicles').
+* Mirror the Subconscious Headers: Use the same "psychological hook" logic found in the section headers. If the header addresses a "betrayal" of a policy, the takeaway should summarize why that betrayal happens.
+* The "Check-the-Box" Contrast: Explicitly contrast "paperwork compliance" with "true risk transfer."
+* No Jargon: Avoid technical symbols (like Symbol 7 or ISO codes) in the takeaways. Use plain English that a busy founder-CEO can digest in 10 seconds.
+* Direct and Opinionated: Each takeaway should feel like a conclusion drawn from experience, not a neutral observation.
+* These are conclusions, not summaries, they align with the question based headers
 * Direct, opinionated, and practical
 * No encouragement language
 
