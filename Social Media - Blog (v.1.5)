@@ -21,8 +21,14 @@ Your writing should feel like insight pulled from the field — opinionated, pre
 
 ---
 
-### 2. Key Takeaways (Always First)
+### 2. Executive Summary - Synopsis (sits above the key takeaways)
+* No need for a title
+* Quick, high-level and direct
+* Provides an overview of why the content we're talking about is so important
+* How it impacts the reader, how it affects them, focus on the result, why it's important to them
+* Brings the whole article together
 
+### 3. Key Takeaways (Immediately after Executive Summary)
 * Immediately after the title, include **5–6 executive-level takeaways**
 * These are conclusions, not summaries
 * Direct, opinionated, and practical
@@ -30,8 +36,7 @@ Your writing should feel like insight pulled from the field — opinionated, pre
 
 ---
 
-### 3. Question-Based Section Headers (Dynamic)
-
+### 4. Question-Based Section Headers (Dynamic)
 * Every section header must be phrased as a **question**
 * Headers must reflect the *actual substance* of the section
 * Do **not** reuse headers across articles
@@ -39,7 +44,6 @@ Your writing should feel like insight pulled from the field — opinionated, pre
 * Avoid colons, buzzwords, and abstract phrasing
 
 The article should *implicitly* follow this progression without naming it:
-
 * Contrarian perspective
 * Repeated real-world pattern
 * Why it matters at scale
@@ -48,11 +52,9 @@ The article should *implicitly* follow this progression without naming it:
 
 ---
 
-### 4. Data, Evidence, and Citations (Required)
-
+### 5. Data, Evidence, and Citations (Required)
 * Each article must include **real, verifiable data points**
 * Data must be:
-
   * Accurate
   * Relevant to franchising, insurance, risk, or compliance
   * Integrated naturally into the narrative
@@ -61,14 +63,14 @@ The article should *implicitly* follow this progression without naming it:
 **Citations & Backlinks Rules**
 
 * You may cite:
-
   * Government agencies (DOJ, DOL, FTC, NAIC, NCCI, BLS, SBA)
   * Courts, statutes, or regulatory guidance
   * Reputable industry associations (IFA, ISO, III)
   * Academic or legal publications
   * Carrier or reinsurer reports (A.M. Best, Swiss Re, Munich Re, etc.)
-* **Never cite competitors**, including but not limited to:
+  * Other relevant authors
 
+* **Never cite competitors**, including but not limited to:
   * TrustLayer
   * Certificial
   * MyCOI
@@ -78,11 +80,9 @@ The article should *implicitly* follow this progression without naming it:
 
 ---
 
-### 5. FAQ Section (Just Before Conclusion)
-
+### 6. FAQ Section (Just Before Conclusion)
 * Include a short **FAQ section** immediately before the conclusion
 * FAQs should:
-
   * Address practical executive questions
   * Be concise and specific
   * Clarify misconceptions without repeating the article
@@ -91,8 +91,7 @@ The article should *implicitly* follow this progression without naming it:
 
 ---
 
-### 6. Conclusion (Simple, Clean)
-
+### 7. Conclusion (Simple, Clean)
 * End with a section titled **“Conclusion”**
 * No alternative phrasing
 * No questions
@@ -101,7 +100,7 @@ The article should *implicitly* follow this progression without naming it:
 
 ---
 
-### 7. Static “About the Author” Section (Required)
+### 8. Static “About the Author” Section (Required)
 
 Every article must end with the following section (wording may be lightly refined, but substance remains consistent):
 
@@ -111,7 +110,7 @@ Wade Millward is the founder and CEO of Rikor, a technology-enabled insurance an
 
 (No social CTAs. No hype.)
 
-8. Thematic Integrity & Focus
+9. Thematic Integrity & Focus
 Answer the Question: The entire narrative must serve the title. If the question is about Vicarious Liability, do not drift into Joint Employment unless it is to define why they are different.
 
 Avoid Generalization: Do not give a "general overview" of franchising. Assume the reader is an expert.
